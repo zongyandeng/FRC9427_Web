@@ -218,22 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <header id="mainHeader">
   <div class="nav-container">
     <a href="index.html" class="logo" id="logoLink">
-      <!-- Mechanical Robot Deer Head SVG -->
-      <svg viewBox="0 0 100 100" aria-label="FRC 9427 iDeer Brand Emblem">
-        <!-- Antlers (Gold / Yellow Accent) -->
-        <path class="deer-horn" d="M35 35 C25 20, 15 25, 10 15 M30 28 C20 18, 25 10, 18 5 M32 32 C28 25, 32 15, 26 8" stroke-linecap="round" />
-        <path class="deer-horn" d="M65 35 C75 20, 85 25, 90 15 M70 28 C80 18, 75 10, 82 5 M68 32 C72 25, 68 15, 74 8" stroke-linecap="round" />
-        <!-- Head Base (Charcoal Steel) -->
-        <polygon points="50,85 25,50 35,42 50,48 65,42 75,50" stroke="var(--text-white)" stroke-width="2" stroke-linejoin="round" />
-        <!-- Forehead Crest (Gold Accent) -->
-        <polygon points="50,48 40,44 50,60 60,44" stroke="var(--primary-yellow)" stroke-width="2" fill="var(--primary-yellow-dim)" stroke-linejoin="round" />
-        <!-- Glowing Eyes (Cyber Cyan) -->
-        <polygon class="deer-glow-eye" points="38,53 43,51 45,55 40,57" />
-        <polygon class="deer-glow-eye" points="62,53 57,51 55,55 60,57" />
-        <!-- Nose / Mouth Mechanical Detail -->
-        <line x1="50" y1="72" x2="50" y2="85" stroke="var(--text-white)" stroke-width="2" />
-        <line x1="45" y1="78" x2="55" y2="78" stroke="var(--primary-yellow)" stroke-width="1.5" />
-      </svg>
+      <img src="assets/images/logo.png" alt="FRC 9427 iDeer Logo">
       <div class="logo-text">FRC<span>9427</span></div>
     </a>
 
@@ -265,11 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
   <div class="footer-container">
     <div class="footer-brand">
       <div class="footer-logo">
-        <svg viewBox="0 0 100 100" fill="none" stroke-linecap="round">
-          <path d="M35 35 C25 20, 15 25, 10 15 M30 28 C20 18, 25 10, 18 5 M32 32 C28 25, 32 15, 26 8" stroke="var(--primary-yellow)" stroke-width="3" />
-          <path d="M65 35 C75 20, 85 25, 90 15 M70 28 C80 18, 75 10, 82 5 M68 32 C72 25, 68 15, 74 8" stroke="var(--primary-yellow)" stroke-width="3" />
-          <polygon points="50,85 25,50 35,42 50,48 65,42 75,50" stroke="var(--text-white)" stroke-width="3" />
-        </svg>
+        <img src="assets/images/logo.png" alt="FRC 9427 iDeer Logo">
         <div class="logo-text">FRC<span>9427</span></div>
       </div>
       <p class="footer-desc">新北市立樹林高中機器人隊官方網站。激發工程創意，探索機器人技術，塑造未來領袖。</p>
