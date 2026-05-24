@@ -154,16 +154,75 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       if (isFormValid) {
-        // Safe, non-PII, generic developers debug log
-        console.log('Form validated successfully.'); 
+        // 讀取 Web3Forms Access Key
+        const accessKeyInput = contactForm.querySelector('input[name="access_key"]');
+        const hasAccessKey = accessKeyInput && accessKeyInput.value && accessKeyInput.value.trim() !== 'YOUR_ACCESS_KEY_HERE';
 
-        // Display premium success overlay modal securely
-        if (successModal) {
-          successModal.classList.add('active');
+        if (hasAccessKey) {
+          // 顯示提交中狀態 (提升使用者體驗)
+          const submitBtn = contactForm.querySelector('button[type="submit"]');
+          const submitBtnSpan = submitBtn.querySelector('span');
+          const originalText = submitBtnSpan ? submitBtnSpan.innerText : '安全提交訊息';
+          
+          if (submitBtn) {
+            submitBtn.disabled = true;
+            if (submitBtnSpan) submitBtnSpan.innerText = '訊息傳送中...';
+            submitBtn.style.opacity = '0.7';
+            submitBtn.style.cursor = 'not-allowed';
+          }
+
+          const formData = new FormData(contactForm);
+          // 加入一些預設欄位供 Web3Forms 郵件格式化使用
+          formData.append('subject', '新聯絡訊息 - FRC 9427 官方網站');
+          formData.append('from_name', nameInput.value.trim());
+
+          fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: formData
+          })
+          .then(response => response.json())
+          .then(data => {
+            // 還原按鈕狀態
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              if (submitBtnSpan) submitBtnSpan.innerText = originalText;
+              submitBtn.style.opacity = '';
+              submitBtn.style.cursor = '';
+            }
+
+            if (data.success) {
+              // 成功發送：顯示彈出視窗並重置表單
+              if (successModal) {
+                successModal.classList.add('active');
+              }
+              contactForm.reset();
+            } else {
+              alert('發送郵件失敗：' + (data.message || '未知錯誤'));
+            }
+          })
+          .catch(error => {
+            // 還原按鈕狀態
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              if (submitBtnSpan) submitBtnSpan.innerText = originalText;
+              submitBtn.style.opacity = '';
+              submitBtn.style.cursor = '';
+            }
+            console.error('Error sending message via Web3Forms:', error);
+            alert('訊息傳送時發生錯誤，請稍後再試，或直接發送郵件至 slshfrc@slsh.ntpc.edu.tw。');
+          });
+        } else {
+          // 模擬成功模式 (沒有填寫 Access Key)
+          console.log('Form validated successfully (Simulation Mode).'); 
+
+          // 顯示成功彈窗
+          if (successModal) {
+            successModal.classList.add('active');
+          }
+
+          // 重設表單
+          contactForm.reset();
         }
-
-        // Reset form safely
-        contactForm.reset();
       }
     });
   }
@@ -270,7 +329,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <div class="footer-links-col">
       <h4>聯絡資訊</h4>
       <ul class="footer-links">
-        <li>信箱: <a href="mailto:contact@shsh.ntpc.edu.tw">contact@shsh.ntpc.edu.tw</a></li>
+        <li>信箱: <a href="mailto:slshfrc@slsh.ntpc.edu.tw">slshfrc@slsh.ntpc.edu.tw</a></li>
         <li>地址: 新北市樹林區大安路216號</li>
         <li>學校: 新北市立樹林高中</li>
       </ul>
