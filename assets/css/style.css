@@ -209,9 +209,10 @@ header.scrolled {
   letter-spacing: 1px;
 }
 
-.logo svg {
+.logo img, .logo svg {
   width: 40px;
   height: 40px;
+  object-fit: contain;
   fill: none;
   stroke: var(--primary-yellow);
   stroke-width: 2.5;
@@ -219,7 +220,7 @@ header.scrolled {
   transition: var(--transition-normal);
 }
 
-.logo:hover svg {
+.logo:hover img, .logo:hover svg {
   transform: rotate(10deg) scale(1.05);
   stroke: var(--accent-cyber);
   filter: drop-shadow(0 0 8px var(--accent-cyber-glow));
@@ -1448,9 +1449,10 @@ footer {
   gap: 10px;
 }
 
-.footer-logo svg {
+.footer-logo img, .footer-logo svg {
   width: 32px;
   height: 32px;
+  object-fit: contain;
   stroke: var(--primary-yellow);
   stroke-width: 2;
   filter: drop-shadow(0 0 4px var(--primary-yellow-glow));
