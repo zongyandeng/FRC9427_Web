@@ -28,17 +28,17 @@ FRC9427_Web/
 
 ## 🎨 視覺主題色與樣式自訂
 
-我們為 iDeer 打造了專屬的 **「Cyber-Forest & Gold」** 科技森林發光風格。如果未來隊服的黃色或綠色比例有所更動，只需要調整 `assets/css/style.css` 最上方的 CSS 變數（Variables）即可瞬間改變全站風格！
+我們為 iDeer 打造了與隊服一致的 **「Cyber-Navy & Yellow」** 黃藍 6:4 科技發光風格。如果未來隊服的黃色或藍色比例有所更動，只需要調整 `assets/css/style.css` 最上方的 CSS 變數（Variables）即可瞬間改變全站風格！
 
 ```css
 /* 請於 assets/css/style.css 的 :root 區塊內進行修改 */
 :root {
-  --bg-dark: #070a07;               /* 全局 Obsidian 極暗背景色 */
+  --bg-dark: #ffd600;               /* 全局 60% 科技黃色畫布 */
+  --bg-dark-navy: #050c1e;          /* 40% 沉穩皇家深藍色主架構 */
   --primary-yellow: #ffd600;        /* 隊服 signature 黃色 (金黃色) */
-  --primary-yellow-glow: rgba(255, 214, 0, 0.35); /* 黃色發光光暈 */
-  
-  --accent-forest: #2e7d32;         /* 樹林高中森林深綠色 */
-  --accent-neon: #00e676;           /* 科技霓虹綠 */
+  --primary-yellow-glow: rgba(255, 214, 0, 0.45); /* 黃色發光光暈 */
+  --accent-royal: #1565c0;          /* 皇家藍 (隊服輔助色) */
+  --accent-cyber: #00e5ff;          /* 科技霓虹電光藍 (細節發光點綴) */
 }
 ```
 
