@@ -1,14 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
   // ==========================================
+  // DYNAMIC COMPONENT INJECTION (DRY Refactoring)
+  // ==========================================
+  injectHeaderAndFooter();
+
+  // ==========================================
   // SCROLL EFFECTS & NAVBAR
   // ==========================================
   const header = document.querySelector('header');
   
   const handleScroll = () => {
-    if (window.scrollY > 50) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
+    if (header) {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
     }
   };
 
@@ -187,6 +194,115 @@ document.addEventListener('DOMContentLoaded', () => {
     inputElement.classList.remove('invalid');
     if (errorElement) {
       errorElement.style.display = 'none';
+    }
+  }
+
+  // ==========================================
+  // DYNAMIC HEADER AND FOOTER INJECTION LOGIC
+  // ==========================================
+  function injectHeaderAndFooter() {
+    const headerPlaceholder = document.getElementById('header-placeholder');
+    const footerPlaceholder = document.getElementById('footer-placeholder');
+
+    if (headerPlaceholder) {
+      const activePage = headerPlaceholder.getAttribute('data-active') || 'home';
+      
+      const isHome = activePage === 'home' ? 'active' : '';
+      const isNews = activePage === 'news' ? 'active' : '';
+      const isResources = activePage === 'resources' ? 'active' : '';
+      const isRobots = activePage === 'robots' ? 'active' : '';
+      const isSponsors = activePage === 'sponsors' ? 'active' : '';
+      const isContact = activePage === 'contact' ? 'active' : '';
+
+      const headerHtml = `
+<header id="mainHeader">
+  <div class="nav-container">
+    <a href="index.html" class="logo" id="logoLink">
+      <!-- Mechanical Robot Deer Head SVG -->
+      <svg viewBox="0 0 100 100" aria-label="FRC 9427 iDeer Brand Emblem">
+        <!-- Antlers (Gold / Yellow Accent) -->
+        <path class="deer-horn" d="M35 35 C25 20, 15 25, 10 15 M30 28 C20 18, 25 10, 18 5 M32 32 C28 25, 32 15, 26 8" stroke-linecap="round" />
+        <path class="deer-horn" d="M65 35 C75 20, 85 25, 90 15 M70 28 C80 18, 75 10, 82 5 M68 32 C72 25, 68 15, 74 8" stroke-linecap="round" />
+        <!-- Head Base (Charcoal Steel) -->
+        <polygon points="50,85 25,50 35,42 50,48 65,42 75,50" stroke="var(--text-white)" stroke-width="2" stroke-linejoin="round" />
+        <!-- Forehead Crest (Gold Accent) -->
+        <polygon points="50,48 40,44 50,60 60,44" stroke="var(--primary-yellow)" stroke-width="2" fill="var(--primary-yellow-dim)" stroke-linejoin="round" />
+        <!-- Glowing Eyes (Cyber Cyan) -->
+        <polygon class="deer-glow-eye" points="38,53 43,51 45,55 40,57" />
+        <polygon class="deer-glow-eye" points="62,53 57,51 55,55 60,57" />
+        <!-- Nose / Mouth Mechanical Detail -->
+        <line x1="50" y1="72" x2="50" y2="85" stroke="var(--text-white)" stroke-width="2" />
+        <line x1="45" y1="78" x2="55" y2="78" stroke="var(--primary-yellow)" stroke-width="1.5" />
+      </svg>
+      <div class="logo-text">FRC<span>9427</span></div>
+    </a>
+
+    <!-- Hamburger mobile toggle -->
+    <button class="hamburger" id="navToggle" aria-label="切換導覽選單">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Desktop / Mobile Nav Links -->
+    <nav class="nav-menu" id="navMenu">
+      <a href="index.html" class="nav-link ${isHome}" id="navHome">首頁</a>
+      <a href="news.html" class="nav-link ${isNews}" id="navNews">歷屆新聞 / 獎項</a>
+      <a href="resources.html" class="nav-link ${isResources}" id="navResources">新手資源</a>
+      <a href="robots.html" class="nav-link ${isRobots}" id="navRobots">歷屆機器</a>
+      <a href="sponsors.html" class="nav-link ${isSponsors}" id="navSponsors">贊助商專區</a>
+      <a href="contact.html" class="btn-nav ${isContact}" id="navContact">聯繫我們</a>
+    </nav>
+  </div>
+</header>
+      `;
+      headerPlaceholder.outerHTML = headerHtml;
+    }
+
+    if (footerPlaceholder) {
+      const footerHtml = `
+<footer id="mainFooter">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <svg viewBox="0 0 100 100" fill="none" stroke-linecap="round">
+          <path d="M35 35 C25 20, 15 25, 10 15 M30 28 C20 18, 25 10, 18 5 M32 32 C28 25, 32 15, 26 8" stroke="var(--primary-yellow)" stroke-width="3" />
+          <path d="M65 35 C75 20, 85 25, 90 15 M70 28 C80 18, 75 10, 82 5 M68 32 C72 25, 68 15, 74 8" stroke="var(--primary-yellow)" stroke-width="3" />
+          <polygon points="50,85 25,50 35,42 50,48 65,42 75,50" stroke="var(--text-white)" stroke-width="3" />
+        </svg>
+        <div class="logo-text">FRC<span>9427</span></div>
+      </div>
+      <p class="footer-desc">新北市立樹林高中機器人隊官方網站。激發工程創意，探索機器人技術，塑造未來領袖。</p>
+    </div>
+
+    <div class="footer-links-col">
+      <h4>快速連結</h4>
+      <ul class="footer-links">
+        <li><a href="index.html">首頁</a></li>
+        <li><a href="news.html">歷屆新聞 / 獎項</a></li>
+        <li><a href="resources.html">新手資源庫</a></li>
+        <li><a href="robots.html">歷屆競賽機器</a></li>
+        <li><a href="sponsors.html">贊助合作</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links-col">
+      <h4>聯絡資訊</h4>
+      <ul class="footer-links">
+        <li>信箱: <a href="mailto:contact@shsh.ntpc.edu.tw">contact@shsh.ntpc.edu.tw</a></li>
+        <li>地址: 新北市樹林區大安路216號</li>
+        <li>學校: 新北市立樹林高中</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-copyright">
+    <p>&copy; 2026 FRC 9427 iDeer. All Rights Reserved. </p>
+    <p>Designed with <span>&hearts;</span> for STEM Education</p>
+  </div>
+</footer>
+      `;
+      footerPlaceholder.outerHTML = footerHtml;
     }
   }
 });
