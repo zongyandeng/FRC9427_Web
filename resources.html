@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>新手資源庫 | FRC 9427 iDeer</title>
+  <meta name="description" content="新北市立樹林高中 FRC 9427 iDeer 機器人隊整理的新手資源庫。涵蓋 Onshape CAD 3D 建模、WPILib Java 程式開發與機電配線。">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Background Ambient Lights -->
+  <div class="ambient-glow"></div>
+  <div class="ambient-glow-2"></div>
+
+  <!-- Global Header & Navigation -->
+  <header id="mainHeader">
+    <div class="nav-container">
+      <a href="index.html" class="logo" id="logoLink">
+        <svg viewBox="0 0 100 100" fill="none" stroke-linecap="round">
+          <path d="M35 35 C25 20, 15 25, 10 15 M30 28 C20 18, 25 10, 18 5 M32 32 C28 25, 32 15, 26 8" stroke="var(--primary-yellow)" stroke-width="2.5" />
+          <path d="M65 35 C75 20, 85 25, 90 15 M70 28 C80 18, 75 10, 82 5 M68 32 C72 25, 68 15, 74 8" stroke="var(--primary-yellow)" stroke-width="2.5" />
+          <polygon points="50,85 25,50 35,42 50,48 65,42 75,50" stroke="var(--text-white)" stroke-width="2" />
+          <polygon points="50,48 40,44 50,60 60,44" stroke="var(--primary-yellow)" stroke-width="2" fill="var(--primary-yellow-dim)" />
+          <polygon class="deer-glow-eye" points="38,53 43,51 45,55 40,57" />
+          <polygon class="deer-glow-eye" points="62,53 57,51 55,55 60,57" />
+          <line x1="50" y1="72" x2="50" y2="85" stroke="var(--text-white)" stroke-width="2" />
+        </svg>
+        <div class="logo-text">FRC<span>9427</span></div>
+      </a>
+
+      <button class="hamburger" id="navToggle" aria-label="切換導覽選單">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link" id="navHome">首頁</a>
+        <a href="news.html" class="nav-link" id="navNews">歷屆新聞 / 獎項</a>
+        <a href="resources.html" class="nav-link active" id="navResources">新手資源</a>
+        <a href="robots.html" class="nav-link" id="navRobots">歷屆機器</a>
+        <a href="sponsors.html" class="nav-link" id="navSponsors">贊助商專區</a>
+        <a href="contact.html" class="btn-nav" id="navContact">聯繫我們</a>
+      </nav>
+    </div>
+  </header>
+
+  <main style="padding-top: 120px;">
+    <section>
+      <div class="section-container">
+        <!-- HEADER -->
+        <div class="section-header">
+          <span class="section-tag">Learning Library</span>
+          <h1 class="section-title">新手工程學習資源</h1>
+          <p class="section-desc">加入 FRC 的旅程充滿挑戰，我們將累積的工程技術整理成冊，幫助新隊員與同好們快速入門各項領域技能！</p>
+        </div>
+
+        <!-- CATEGORIES FILTER TABS -->
+        <div class="resources-tabs">
+          <button class="tab-btn active" data-filter="all">全部資源</button>
+          <button class="tab-btn" data-filter="programming">程式開發</button>
+          <button class="tab-btn" data-filter="cad">3D 設計 CAD</button>
+          <button class="tab-btn" data-filter="electrical">電子電路</button>
+          <button class="tab-btn" data-filter="mechanical">機械組裝</button>
+          <button class="tab-btn" data-filter="rules">賽制規則</button>
+        </div>
+
+        <!-- RESOURCES CARDS GRID -->
+        <div class="resources-grid">
+          
+          <!-- Resource 1: WPILib Java Intro -->
+          <div class="resource-item reveal" data-category="programming">
+            <div class="glass-card resource-card">
+              <span class="resource-category">程式開發 / Java</span>
+              <h3 class="feature-title">WPILib 機器人控制入門</h3>
+              <p class="feature-desc">介紹 FRC 官方軟體庫 WPILib。學習如何使用 Java 控制底盤馬達、讀取極限開關與設定基本氣壓控制邏輯。</p>
+              <div class="resource-meta">
+                <span>難易度: 適合新手</span>
+                <span class="glow-text-yellow">自學指引</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Resource 2: Onshape CAD Intro -->
+          <div class="resource-item reveal" data-category="cad">
+            <div class="glass-card resource-card">
+              <span class="resource-category">3D 設計 / Onshape</span>
+              <h3 class="feature-title">Onshape 雲端機構建模指南</h3>
+              <p class="feature-desc">Onshape 瀏覽器建模基礎。本教程帶你熟悉草圖繪製、特徵擠出，以及如何組裝標準的 FRC 變速齒輪箱與支架。</p>
+              <div class="resource-meta">
+                <span>難易度: 適合新手</span>
+                <span class="glow-text-yellow">影片教程</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Resource 3: Electrical wiring PDP -->
+          <div class="resource-item reveal" data-category="electrical">
+            <div class="glass-card resource-card">
+              <span class="resource-category">電子電路 / 配線</span>
+              <h3 class="feature-title">FRC 機電控制配線標準規範</h3>
+              <p class="feature-desc">介紹 RoboRIO 控制主機、PDP 電源分配板、馬達控制器與無線路由器 (Radio) 的標準配線圖解與安全絕緣處理。</p>
+              <div class="resource-meta">
+                <span>難易度: 適合新手</span>
+                <span class="glow-text-yellow">PDF 規範</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Resource 4: Swerve mechanical assembly -->
+          <div class="resource-item reveal" data-category="mechanical">
+            <div class="glass-card resource-card">
+              <span class="resource-category">機械組裝 / 傳動</span>
+              <h3 class="feature-title">Swerve 舵輪底盤裝配與調試</h3>
+              <p class="feature-desc">Swerve 全向舵輪模組的組裝細節。解說齒輪齧合、培林安裝、角度感測器 (Encoder) 對齊與鏈條張力調整手法。</p>
+              <div class="resource-meta">
+                <span>難易度: 中等難度</span>
+                <span class="glow-text-yellow">實作手冊</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Resource 5: Autonomous PathPlanner -->
+          <div class="resource-item reveal" data-category="programming">
+            <div class="glass-card resource-card">
+              <span class="resource-category">程式開發 / 自動導航</span>
+              <h3 class="feature-title">PathPlanner 自主移動路徑規劃</h3>
+              <p class="feature-desc">深入說明自主移動 (Autonomous) 階段的路線設計。如何運用 PathPlanner 工具繪製拋物線軌跡並載入 WPILib 執行。</p>
+              <div class="resource-meta">
+                <span>難易度: 中等難度</span>
+                <span class="glow-text-yellow">核心技術</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Resource 6: FRC Rules Safety -->
+          <div class="resource-item reveal" data-category="rules">
+            <div class="glass-card resource-card">
+              <span class="resource-category">賽制規則 / 安全</span>
+              <h3 class="feature-title">FRC 賽場規則與安全防護守則</h3>
+              <p class="feature-desc">探索 FIRST 大賽的遊戲架構、分數計算規則，以及最核心的工場安全規範（護目鏡使用、手部防護及緊急停止安全開關）。</p>
+              <div class="resource-meta">
+                <span>難易度: 適合新手</span>
+                <span class="glow-text-yellow">大賽導讀</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer id="mainFooter">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg viewBox="0 0 100 100" fill="none" stroke-linecap="round">
+            <path d="M35 35 C25 20, 15 25, 10 15 M30 28 C20 18, 25 10, 18 5 M32 32 C28 25, 32 15, 26 8" stroke="var(--primary-yellow)" stroke-width="3" />
+            <path d="M65 35 C75 20, 85 25, 90 15 M70 28 C80 18, 75 10, 82 5 M68 32 C72 25, 68 15, 74 8" stroke="var(--primary-yellow)" stroke-width="3" />
+            <polygon points="50,85 25,50 35,42 50,48 65,42 75,50" stroke="var(--text-white)" stroke-width="3" />
+          </svg>
+          <div class="logo-text">FRC<span>9427</span></div>
+        </div>
+        <p class="footer-desc">新北市立樹林高中機器人隊官方網站。激發工程創意，探索機器人技術，塑造未來領袖。</p>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>快速連結</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">首頁</a></li>
+          <li><a href="news.html">歷屆新聞 / 獎項</a></li>
+          <li><a href="resources.html">新手資源庫</a></li>
+          <li><a href="robots.html">歷屆競賽機器</a></li>
+          <li><a href="sponsors.html">贊助合作</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>聯絡資訊</h4>
+        <ul class="footer-links">
+          <li>信箱: <a href="mailto:contact@shsh.ntpc.edu.tw">contact@shsh.ntpc.edu.tw</a></li>
+          <li>地址: 新北市樹林區大安路216號</li>
+          <li>學校: 新北市立樹林高中</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-copyright">
+      <p>&copy; 2026 FRC 9427 iDeer. All Rights Reserved. </p>
+      <p>Designed with <span>&hearts;</span> for STEM Education</p>
+    </div>
+  </footer>
+
+  <!-- Main orchestrator script -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

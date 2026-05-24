@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>歷屆競賽機器人 | FRC 9427 iDeer</title>
+  <meta name="description" content="欣賞新北市立樹林高中 FRC 9427 iDeer 機器人隊的歷年精銳競賽機器。包含底盤Swere、電控架構與機構功能諸元規範。">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Background Ambient Lights -->
+  <div class="ambient-glow"></div>
+  <div class="ambient-glow-2"></div>
+
+  <!-- Global Header & Navigation -->
+  <header id="mainHeader">
+    <div class="nav-container">
+      <a href="index.html" class="logo" id="logoLink">
+        <svg viewBox="0 0 100 100" fill="none" stroke-linecap="round">
+          <path d="M35 35 C25 20, 15 25, 10 15 M30 28 C20 18, 25 10, 18 5 M32 32 C28 25, 32 15, 26 8" stroke="var(--primary-yellow)" stroke-width="2.5" />
+          <path d="M65 35 C75 20, 85 25, 90 15 M70 28 C80 18, 75 10, 82 5 M68 32 C72 25, 68 15, 74 8" stroke="var(--primary-yellow)" stroke-width="2.5" />
+          <polygon points="50,85 25,50 35,42 50,48 65,42 75,50" stroke="var(--text-white)" stroke-width="2" />
+          <polygon points="50,48 40,44 50,60 60,44" stroke="var(--primary-yellow)" stroke-width="2" fill="var(--primary-yellow-dim)" />
+          <polygon class="deer-glow-eye" points="38,53 43,51 45,55 40,57" />
+          <polygon class="deer-glow-eye" points="62,53 57,51 55,55 60,57" />
+          <line x1="50" y1="72" x2="50" y2="85" stroke="var(--text-white)" stroke-width="2" />
+        </svg>
+        <div class="logo-text">FRC<span>9427</span></div>
+      </a>
+
+      <button class="hamburger" id="navToggle" aria-label="切換導覽選單">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link" id="navHome">首頁</a>
+        <a href="news.html" class="nav-link" id="navNews">歷屆新聞 / 獎項</a>
+        <a href="resources.html" class="nav-link" id="navResources">新手資源</a>
+        <a href="robots.html" class="nav-link active" id="navRobots">歷屆機器</a>
+        <a href="sponsors.html" class="nav-link" id="navSponsors">贊助商專區</a>
+        <a href="contact.html" class="btn-nav" id="navContact">聯繫我們</a>
+      </nav>
+    </div>
+  </header>
+
+  <main style="padding-top: 120px;">
+    <section>
+      <div class="section-container">
+        <!-- HEADER -->
+        <div class="section-header">
+          <span class="section-tag">Machine Gallery</span>
+          <h1 class="section-title">歷屆戰力機器</h1>
+          <p class="section-desc">透過工程建模設計、力學模擬與無數次實務組裝測試，這是凝聚 iDeer 智慧與汗水的機械結晶。</p>
+        </div>
+
+        <!-- ROBOTS SHOWCASE LIST -->
+        <div class="robots-container">
+          
+          <!-- Robot 1: Artemis (2024) -->
+          <div class="robot-row reveal">
+            <div class="robot-media">
+              <!-- Mechanical Grid Blueprint Art SVG -->
+              <svg viewBox="0 0 200 150" width="100%" height="100%" style="opacity: 0.8;" aria-label="Artemis 2024 結構線圖">
+                <!-- Isometric Blueprint Grid -->
+                <line x1="0" y1="75" x2="200" y2="75" stroke="rgba(255, 214, 0, 0.05)" stroke-width="0.5" />
+                <line x1="100" y1="0" x2="100" y2="150" stroke="rgba(255, 214, 0, 0.05)" stroke-width="0.5" />
+                <!-- Chassis Chassis -->
+                <rect x="40" y="90" width="120" height="30" rx="3" fill="none" stroke="var(--text-white)" stroke-width="2" />
+                <circle cx="55" cy="115" r="10" fill="none" stroke="var(--primary-yellow)" stroke-width="2" />
+                <circle cx="145" cy="115" r="10" fill="none" stroke="var(--primary-yellow)" stroke-width="2" />
+                <!-- Intake/Shooter arm -->
+                <path d="M 60 90 L 80 40 L 140 40 L 120 90" fill="none" stroke="var(--accent-neon)" stroke-width="2.5" stroke-linejoin="round" />
+                <circle cx="140" cy="40" r="6" fill="var(--accent-neon-glow)" stroke="var(--accent-neon)" stroke-width="1.5" />
+                <!-- Concentric blueprint circles -->
+                <circle cx="100" cy="75" r="50" fill="none" stroke="rgba(255, 255, 255, 0.03)" stroke-width="0.8" />
+                <circle cx="100" cy="75" r="30" fill="none" stroke="rgba(255, 255, 255, 0.03)" stroke-width="0.8" />
+                <!-- Dimension Lines -->
+                <line x1="40" y1="130" x2="160" y2="130" stroke="rgba(255,255,255,0.2)" stroke-width="1" />
+                <line x1="40" y1="126" x2="40" y2="134" stroke="rgba(255,255,255,0.2)" stroke-width="1" />
+                <line x1="160" y1="126" x2="160" y2="134" stroke="rgba(255,255,255,0.2)" stroke-width="1" />
+                <text x="100" y="142" fill="var(--text-gray)" font-size="7" font-family="monospace" text-anchor="middle">CHASSIS: 28in x 28in</text>
+              </svg>
+            </div>
+            
+            <div class="robot-details">
+              <span class="robot-year">2024 SEASON | FRC CRESCENDO</span>
+              <h2 class="robot-name glow-text-yellow">Artemis (阿提米絲)</h2>
+              <p class="robot-desc">「Artemis」是我們的首款旗艦競賽機器人。配置四輪獨立舵輪Swere底盤，使其能夠在CRESCENDO的窄小障礙間流暢滑行。上部配備可俯仰的多角度射擊系統（Shooter），能精準將 Note 射入高處的 Speaker 標靶中，並在終局階段平穩拉起鋼索攀爬升空。</p>
+              
+              <div class="robot-specs">
+                <div class="spec-item">
+                  <div class="spec-label">底盤驅動</div>
+                  <div class="spec-value">Swerve Drive (MK4i)</div>
+                </div>
+                <div class="spec-item">
+                  <div class="spec-label">馬達動力</div>
+                  <div class="spec-value">Kraken X60 & Falcon 500</div>
+                </div>
+                <div class="spec-item">
+                  <div class="spec-label">核心機構</div>
+                  <div class="spec-value">多段進料與雙輪同軸 Shooter</div>
+                </div>
+                <div class="spec-item">
+                  <div class="spec-label">競賽策略</div>
+                  <div class="spec-value">Speaker 射擊與 Chain 攀爬</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Robot 2: Zephyr (2025) -->
+          <div class="robot-row reveal">
+            <div class="robot-media">
+              <!-- Mechanical Grid Blueprint Art SVG -->
+              <svg viewBox="0 0 200 150" width="100%" height="100%" style="opacity: 0.8;" aria-label="Zephyr 2025 結構線圖">
+                <!-- Isometric Blueprint Grid -->
+                <line x1="0" y1="75" x2="200" y2="75" stroke="rgba(0, 230, 118, 0.05)" stroke-width="0.5" />
+                <line x1="100" y1="0" x2="100" y2="150" stroke="rgba(0, 230, 118, 0.05)" stroke-width="0.5" />
+                <!-- Chassis Chassis -->
+                <rect x="45" y="100" width="110" height="25" rx="3" fill="none" stroke="var(--text-white)" stroke-width="2" />
+                <circle cx="58" cy="120" r="10" fill="none" stroke="var(--accent-neon)" stroke-width="2" />
+                <circle cx="142" cy="120" r="10" fill="none" stroke="var(--accent-neon)" stroke-width="2" />
+                <!-- Vertical Lift Rail -->
+                <line x1="75" y1="100" x2="75" y2="25" stroke="var(--text-white)" stroke-width="2" stroke-dasharray="2 2" />
+                <line x1="125" y1="100" x2="125" y2="25" stroke="var(--text-white)" stroke-width="2" stroke-dasharray="2 2" />
+                <!-- Intake manipulator at elevated level -->
+                <rect x="65" y="35" width="70" height="20" rx="2" fill="none" stroke="var(--primary-yellow)" stroke-width="2" />
+                <polygon points="120,40 145,25 145,55" fill="none" stroke="var(--primary-yellow)" stroke-width="1.5" />
+                <!-- Concentric blueprint circles -->
+                <circle cx="100" cy="75" r="50" fill="none" stroke="rgba(255, 255, 255, 0.03)" stroke-width="0.8" />
+                <!-- Dimension Lines -->
+                <line x1="170" y1="25" x2="170" y2="125" stroke="rgba(255,255,255,0.2)" stroke-width="1" />
+                <line x1="166" y1="25" x2="174" y2="25" stroke="rgba(255,255,255,0.2)" stroke-width="1" />
+                <line x1="166" y1="125" x2="174" y2="125" stroke="rgba(255,255,255,0.2)" stroke-width="1" />
+                <text x="180" y="78" fill="var(--text-gray)" font-size="7" font-family="monospace" writing-mode="vertical-rl">HEIGHT: 48in</text>
+              </svg>
+            </div>
+            
+            <div class="robot-details">
+              <span class="robot-year">2025 SEASON | FRC REEFSCAPE</span>
+              <h2 class="robot-name glow-text-neon">Zephyr (西風之神)</h2>
+              <p class="robot-desc">「Zephyr」代表著我們設計技術的重大飛躍。針對 2025 賽季的複雜任務，我們研發了輕量化三段式直線起升滑軌（Elevator），滑軌頂端配置精密氣動夾爪（Claw）。這使我們能夠敏捷拾取珊瑚礁環並完美放置於 REEF 上不同高度，具備高精度的限位開關與閉迴路控制算法，效率傲視全場。</p>
+              
+              <div class="robot-specs">
+                <div class="spec-item">
+                  <div class="spec-label">底盤驅動</div>
+                  <div class="spec-value">Swerve Drive (MK4i Swerve)</div>
+                </div>
+                <div class="spec-item">
+                  <div class="spec-label">馬達動力</div>
+                  <div class="spec-value">Neo Brushless Motors</div>
+                </div>
+                <div class="spec-item">
+                  <div class="spec-label">核心機構</div>
+                  <div class="spec-value">直線滑軌起升機構 & 氣動爪</div>
+                </div>
+                <div class="spec-item">
+                  <div class="spec-label">競賽策略</div>
+                  <div class="spec-value">REEF Coral 快速評分與 Barge 攀爬</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer id="mainFooter">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg viewBox="0 0 100 100" fill="none" stroke-linecap="round">
+            <path d="M35 35 C25 20, 15 25, 10 15 M30 28 C20 18, 25 10, 18 5 M32 32 C28 25, 32 15, 26 8" stroke="var(--primary-yellow)" stroke-width="3" />
+            <path d="M65 35 C75 20, 85 25, 90 15 M70 28 C80 18, 75 10, 82 5 M68 32 C72 25, 68 15, 74 8" stroke="var(--primary-yellow)" stroke-width="3" />
+            <polygon points="50,85 25,50 35,42 50,48 65,42 75,50" stroke="var(--text-white)" stroke-width="3" />
+          </svg>
+          <div class="logo-text">FRC<span>9427</span></div>
+        </div>
+        <p class="footer-desc">新北市立樹林高中機器人隊官方網站。激發工程創意，探索機器人技術，塑造未來領袖。</p>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>快速連結</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">首頁</a></li>
+          <li><a href="news.html">歷屆新聞 / 獎項</a></li>
+          <li><a href="resources.html">新手資源庫</a></li>
+          <li><a href="robots.html">歷屆競賽機器</a></li>
+          <li><a href="sponsors.html">贊助合作</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>聯絡資訊</h4>
+        <ul class="footer-links">
+          <li>信箱: <a href="mailto:contact@shsh.ntpc.edu.tw">contact@shsh.ntpc.edu.tw</a></li>
+          <li>地址: 新北市樹林區大安路216號</li>
+          <li>學校: 新北市立樹林高中</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-copyright">
+      <p>&copy; 2026 FRC 9427 iDeer. All Rights Reserved. </p>
+      <p>Designed with <span>&hearts;</span> for STEM Education</p>
+    </div>
+  </footer>
+
+  <!-- Main orchestrator script -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FRC 9427 iDeer | 新北市立樹林高中機器人隊</title>
+  <meta name="description" content="新北市立樹林高中 FRC 9427 iDeer 機器人隊官方網站。透過 FIRST 機器人競賽推廣台灣 STEM 科學與工程教育，培養未來科技創新領袖。">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  
+  <!-- SEO Open Graph -->
+  <meta property="og:title" content="FRC 9427 iDeer | 新北市立樹林高中機器人隊">
+  <meta property="og:description" content="樹林高中機器人隊 FRC 9427 iDeer 官方網站。探索我們的歷年戰績、機器人設計、新手資源與贊助商。">
+  <meta property="og:type" content="website">
+</head>
+<body>
+
+  <!-- Background Ambient Lights -->
+  <div class="ambient-glow"></div>
+  <div class="ambient-glow-2"></div>
+
+  <!-- Global Header & Navigation -->
+  <header id="mainHeader">
+    <div class="nav-container">
+      <a href="index.html" class="logo" id="logoLink">
+        <!-- Mechanical Robot Deer Head SVG -->
+        <svg viewBox="0 0 100 100" aria-label="FRC 9427 iDeer Brand Emblem">
+          <!-- Antlers (Gold / Yellow Accent) -->
+          <path class="deer-horn" d="M35 35 C25 20, 15 25, 10 15 M30 28 C20 18, 25 10, 18 5 M32 32 C28 25, 32 15, 26 8" stroke-linecap="round" />
+          <path class="deer-horn" d="M65 35 C75 20, 85 25, 90 15 M70 28 C80 18, 75 10, 82 5 M68 32 C72 25, 68 15, 74 8" stroke-linecap="round" />
+          <!-- Head Base (Charcoal Steel) -->
+          <polygon points="50,85 25,50 35,42 50,48 65,42 75,50" stroke="var(--text-white)" stroke-width="2" stroke-linejoin="round" />
+          <!-- Forehead Crest (Gold Accent) -->
+          <polygon points="50,48 40,44 50,60 60,44" stroke="var(--primary-yellow)" stroke-width="2" fill="var(--primary-yellow-dim)" stroke-linejoin="round" />
+          <!-- Glowing Eyes (Cyber Neon Green) -->
+          <polygon class="deer-glow-eye" points="38,53 43,51 45,55 40,57" />
+          <polygon class="deer-glow-eye" points="62,53 57,51 55,55 60,57" />
+          <!-- Nose / Mouth Mechanical Detail -->
+          <line x1="50" y1="72" x2="50" y2="85" stroke="var(--text-white)" stroke-width="2" />
+          <line x1="45" y1="78" x2="55" y2="78" stroke="var(--primary-yellow)" stroke-width="1.5" />
+        </svg>
+        <div class="logo-text">FRC<span>9427</span></div>
+      </a>
+
+      <!-- Hamburger mobile toggle -->
+      <button class="hamburger" id="navToggle" aria-label="切換導覽選單">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Desktop / Mobile Nav Links -->
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link active" id="navHome">首頁</a>
+        <a href="news.html" class="nav-link" id="navNews">歷屆新聞 / 獎項</a>
+        <a href="resources.html" class="nav-link" id="navResources">新手資源</a>
+        <a href="robots.html" class="nav-link" id="navRobots">歷屆機器</a>
+        <a href="sponsors.html" class="nav-link" id="navSponsors">贊助商專區</a>
+        <a href="contact.html" class="btn-nav" id="navContact">聯繫我們</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="section-container hero-grid">
+        <div class="hero-content">
+          <div class="hero-tagline">TEAM 9427 | IDEER</div>
+          <h1 class="hero-title">新北市立樹林高中<br><span>FRC 9427 iDeer</span> 機器人隊</h1>
+          <p class="hero-subtitle">我們是以「iDeer（創意之鹿）」為名的科技團隊。透過雙手組裝機械、編寫控制邏輯、推廣 STEM 工程教育，在 FIRST 機器人全球舞台上展現屬於高中生的創造力與無限潛能！</p>
+          <div class="hero-btns">
+            <a href="resources.html" class="btn btn-primary">探索新手學習資源</a>
+            <a href="sponsors.html" class="btn btn-secondary">支持我們 / 贊助合作</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <!-- Highly Detailed Robot Deer Branding Artwork SVG -->
+          <svg class="deer-emblem" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- Background Glow Circle -->
+            <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(255, 214, 0, 0.05)" stroke-width="1" stroke-dasharray="4 4" />
+            <circle cx="60" cy="60" r="40" fill="none" stroke="rgba(0, 230, 118, 0.05)" stroke-width="1" />
+            
+            <!-- Antlers Geometry Left -->
+            <path class="deer-horn" stroke="var(--primary-yellow)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                  d="M45 40 
+                     C35 20, 20 28, 15 15 
+                     M38 32 C25 22, 28 12, 20 5 
+                     M42 36 C34 26, 38 15, 30 7
+                     M28 22 C18 18, 16 12, 10 18" />
+            
+            <!-- Antlers Geometry Right -->
+            <path class="deer-horn" stroke="var(--primary-yellow)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                  d="M75 40 
+                     C85 20, 100 28, 105 15 
+                     M82 32 C95 22, 92 12, 100 5 
+                     M78 36 C86 26, 82 15, 90 7
+                     M92 22 C102 18, 104 12, 110 18" />
+            
+            <!-- Mechanical Deer Skull Face Plates -->
+            <!-- Outer structure -->
+            <polygon points="60,105 25,60 38,50 60,58 82,50 95,60" stroke="var(--text-white)" stroke-width="2.5" fill="var(--bg-card)" stroke-linejoin="round" />
+            <!-- Nose bridge plate -->
+            <polygon points="60,58 48,53 60,78 72,53" stroke="var(--primary-yellow)" stroke-width="2" fill="rgba(255, 214, 0, 0.1)" stroke-linejoin="round" />
+            <!-- Nose tip -->
+            <polygon points="60,90 53,101 67,101" stroke="var(--text-white)" stroke-width="2" fill="var(--bg-dark)" stroke-linejoin="round" />
+            
+            <!-- Glowing Cyber Eyes -->
+            <polygon class="deer-glow-eye" points="43,65 50,62 52,67 45,70" />
+            <polygon class="deer-glow-eye" points="77,65 70,62 68,67 75,70" />
+            
+            <!-- Side exhaust gills -->
+            <line x1="33" y1="67" x2="38" y2="72" stroke="var(--accent-forest)" stroke-width="1.5" />
+            <line x1="30" y1="71" x2="35" y2="76" stroke="var(--accent-forest)" stroke-width="1.5" />
+            <line x1="87" y1="67" x2="82" y2="72" stroke="var(--accent-forest)" stroke-width="1.5" />
+            <line x1="90" y1="71" x2="85" y2="76" stroke="var(--accent-forest)" stroke-width="1.5" />
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM INTRODUCTION SECTION -->
+    <section class="reveal">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">About us</span>
+          <h2 class="section-title">關於我們的團隊</h2>
+          <p class="section-desc">iDeer 代表著智慧與創意的結合。我們成立於新北市立樹林高中，致力於將學術理論轉化為實際的機器人工程實踐。</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 40px;">
+          <!-- Core Mission Card -->
+          <div class="glass-card">
+            <h3 class="feature-title" style="color: var(--primary-yellow); margin-bottom: 16px;">我們的使命</h3>
+            <p class="feature-desc" style="font-size: 1.05rem;">藉由參與 FIRST Robotics Competition (FRC) 競賽，培養隊員在機械設計、電路工程、軟體程式、公關行銷與專案管理等多面向技能。以互助合作的精神，實現跨學科的卓越成就。</p>
+          </div>
+
+          <!-- Dynamic Deer Spirit Card -->
+          <div class="glass-card">
+            <h3 class="feature-title" style="color: var(--accent-neon); margin-bottom: 16px;">iDeer 創意精神</h3>
+            <p class="feature-desc" style="font-size: 1.05rem;">「iDeer」取自「Idea（創意）」與「Deer（樹林高中具代表性的鹿）」。象徵如鹿般敏捷的思維與無所畏懼的探索精神，在面對複雜的機械結構與控制邏輯挑戰時，始終保持源源不絕的創新火花。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WEBSITE HUBS GRID SECTION -->
+    <section class="reveal">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">Explore</span>
+          <h2 class="section-title">探索網站版塊</h2>
+          <p class="section-desc">透過以下版塊深入了解 iDeer 團隊的運作、學習資源與成果展現。</p>
+        </div>
+
+        <div class="features-grid">
+          <!-- Hub 1: News & Awards -->
+          <div class="glass-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="7" />
+                <polyline points="8 21 12 17 16 21 12 17 12 15" />
+              </svg>
+            </div>
+            <h3 class="feature-title">歷屆新聞 / 獎項</h3>
+            <p class="feature-desc">追蹤我們在競賽中獲得的榮譽戰績、校園及社會新聞報導，與我們一同慶祝每一個成長時刻。</p>
+            <a href="news.html" class="feature-link">進入新聞時間軸 
+              <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+
+          <!-- Hub 2: Rookie Resources -->
+          <div class="glass-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+              </svg>
+            </div>
+            <h3 class="feature-title">新手學習資源</h3>
+            <p class="feature-desc">專門為剛加入 FRC 的新手與愛好者編整的入門與進階教材，涵蓋 CAD 設計、WPILib 程式與機械組裝。</p>
+            <a href="resources.html" class="feature-link">獲取工程資源庫 
+              <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+
+          <!-- Hub 3: Robots -->
+          <div class="glass-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="10" rx="2" />
+                <circle cx="12" cy="5" r="2" />
+                <path d="M12 7v4" />
+                <line x1="8" y1="16" x2="8" y2="16" />
+                <line x1="16" y1="16" x2="16" y2="16" />
+              </svg>
+            </div>
+            <h3 class="feature-title">歷屆競賽機器</h3>
+            <p class="feature-desc">展示我們的歷屆心血之作，詳細拆解機械臂、進料系統、底盤控制與年度策略規格。</p>
+            <a href="robots.html" class="feature-link">查看機器人藝廊 
+              <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPONSORS SLIDER CALL-TO-ACTION -->
+    <section class="reveal" style="background: rgba(255, 214, 0, 0.01); border-top: 1px solid rgba(255, 214, 0, 0.05); border-bottom: 1px solid rgba(255, 214, 0, 0.05);">
+      <div class="section-container" style="text-align: center;">
+        <span class="section-tag">Partners</span>
+        <h2 class="section-title">贊助合作夥伴</h2>
+        <p class="section-desc" style="margin-bottom: 40px;">感謝所有鼎力支持我們前進的企業與貴人，是您們點亮了高中生的科學工程夢想！</p>
+        
+        <!-- Interactive simple sponsor strip -->
+        <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; align-items: center; opacity: 0.7; margin-bottom: 48px;">
+          <div style="font-family: var(--font-mono); font-size: 1.1rem; color: var(--primary-yellow); border: var(--border-glow); padding: 12px 24px; border-radius: 4px; background: rgba(255, 214, 0, 0.02);">樹林高中家長會</div>
+          <div style="font-family: var(--font-mono); font-size: 1.1rem; color: var(--text-white); border: var(--border-white); padding: 12px 24px; border-radius: 4px; background: rgba(255, 255, 255, 0.02);">新北市政府教育局</div>
+          <div style="font-family: var(--font-mono); font-size: 1.1rem; color: var(--accent-neon); border: var(--border-neon); padding: 12px 24px; border-radius: 4px; background: rgba(0, 230, 118, 0.02);">iDeer 專案基金</div>
+        </div>
+
+        <a href="sponsors.html" class="btn btn-primary">成為我們的贊助商 / 索取計劃書书</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer id="mainFooter">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg viewBox="0 0 100 100" fill="none" stroke-linecap="round">
+            <path d="M35 35 C25 20, 15 25, 10 15 M30 28 C20 18, 25 10, 18 5 M32 32 C28 25, 32 15, 26 8" stroke="var(--primary-yellow)" stroke-width="3" />
+            <path d="M65 35 C75 20, 85 25, 90 15 M70 28 C80 18, 75 10, 82 5 M68 32 C72 25, 68 15, 74 8" stroke="var(--primary-yellow)" stroke-width="3" />
+            <polygon points="50,85 25,50 35,42 50,48 65,42 75,50" stroke="var(--text-white)" stroke-width="3" />
+          </svg>
+          <div class="logo-text">FRC<span>9427</span></div>
+        </div>
+        <p class="footer-desc">新北市立樹林高中機器人隊官方網站。激發工程創意，探索機器人技術，塑造未來領袖。</p>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>快速連結</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">首頁</a></li>
+          <li><a href="news.html">歷屆新聞 / 獎項</a></li>
+          <li><a href="resources.html">新手資源庫</a></li>
+          <li><a href="robots.html">歷屆競賽機器</a></li>
+          <li><a href="sponsors.html">贊助合作</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>聯絡資訊</h4>
+        <ul class="footer-links">
+          <li>信箱: <a href="mailto:contact@shsh.ntpc.edu.tw">contact@shsh.ntpc.edu.tw</a></li>
+          <li>地址: 新北市樹林區大安路216號</li>
+          <li>學校: 新北市立樹林高中</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-copyright">
+      <p>&copy; 2026 FRC 9427 iDeer. All Rights Reserved. </p>
+      <p>Designed with <span>&hearts;</span> for STEM Education</p>
+    </div>
+  </footer>
+
+  <!-- Main orchestrator script -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
