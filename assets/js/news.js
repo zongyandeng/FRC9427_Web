@@ -685,9 +685,8 @@ function renderNews() {
   
   // 生成卡片 HTML
   grid.innerHTML = displayData.map((item, index) => {
-    // 依 id/序號規律自動指派一張高質感圖庫照片 (方案 A)
-    const imageIndex = (index + item.title.length) % PREMIUM_IMAGES.length;
-    const coverImage = PREMIUM_IMAGES[imageIndex];
+    // 優先使用該篇新聞指定的專屬照片，若無則自動指派一張真實影片縮圖 (維護極簡防呆設計)
+    const coverImage = item.image || PREMIUM_IMAGES[(index + item.title.length) % PREMIUM_IMAGES.length];
     
     // 主題中文化標籤
     let categoryTag = "團隊新聞";
