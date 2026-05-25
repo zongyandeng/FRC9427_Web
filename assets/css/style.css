@@ -1132,54 +1132,197 @@ section {
 }
 
 .sponsor-card {
-  background: var(--bg-card);
-  border: 1px solid rgba(255, 214, 0, 0.15);
-  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  aspect-ratio: 2.5/1;
-  padding: 24px;
-  transition: var(--transition-normal);
+  aspect-ratio: 2.3/1;
+  padding: 20px;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
-.sponsor-card:hover {
-  transform: scale(1.04);
-  border-color: var(--primary-yellow);
-  box-shadow: 0 8px 30px rgba(5, 12, 30, 0.35);
+/* 實際圖片標誌樣式 */
+.sponsor-logo-img {
+  max-width: 90%;
+  max-height: 80%;
+  object-fit: contain;
+  filter: grayscale(30%) brightness(0.9) opacity(0.85);
+  transition: all 0.4s ease;
+  z-index: 2;
 }
 
-.tier-titanium .sponsor-card {
-  border: 1.5px solid rgba(255, 214, 0, 0.25);
-  background: var(--bg-card);
-}
-.tier-titanium .sponsor-card:hover {
-  border-color: var(--primary-yellow);
-  box-shadow: 0 0 25px rgba(255, 214, 0, 0.25);
+.sponsor-card:hover .sponsor-logo-img {
+  filter: grayscale(0%) brightness(1) opacity(1);
+  transform: scale(1.05);
 }
 
+/* 預設 SVG 線條標誌與文字排版樣式 */
 .sponsor-placeholder {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 10px;
-  color: var(--text-gray);
-  font-family: var(--font-mono);
-  font-size: 0.9rem;
+  justify-content: center;
+  text-align: center;
+  gap: 8px;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
 }
 
-.sponsor-placeholder svg {
-  width: 24px;
-  height: 24px;
+.sponsor-logo-svg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+}
+
+.sponsor-logo-svg svg {
+  width: 38px;
+  height: 38px;
   stroke: var(--text-gray);
   stroke-width: 1.5;
+  fill: none;
+  transition: all 0.4s ease;
 }
 
-.tier-titanium .sponsor-placeholder {
-  color: var(--primary-yellow);
+.sponsor-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
-.tier-titanium .sponsor-placeholder svg {
+
+.sponsor-name-zh {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-white);
+  transition: all 0.4s ease;
+}
+
+.sponsor-name-en {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* 鈦金級特殊樣式與懸停發光 */
+.tier-titanium .sponsor-card {
+  border: 1.5px solid rgba(255, 214, 0, 0.15);
+  background: rgba(255, 214, 0, 0.02);
+}
+
+.tier-titanium .sponsor-logo-svg svg {
   stroke: var(--primary-yellow);
-  filter: drop-shadow(0 0 4px var(--primary-yellow-glow));
+  filter: drop-shadow(0 0 3px rgba(255, 214, 0, 0.4));
+}
+
+.tier-titanium .sponsor-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 214, 0, 0.6);
+  box-shadow: 0 10px 30px rgba(255, 214, 0, 0.25), inset 0 0 15px rgba(255, 214, 0, 0.1);
+}
+
+.tier-titanium .sponsor-card:hover .sponsor-name-zh {
+  color: var(--primary-yellow);
+  text-shadow: 0 0 8px rgba(255, 214, 0, 0.5);
+}
+
+.tier-titanium .sponsor-card:hover .sponsor-logo-svg svg {
+  transform: scale(1.1) rotate(5deg);
+  stroke: var(--primary-yellow);
+  filter: drop-shadow(0 0 8px rgba(255, 214, 0, 0.8));
+}
+
+/* 黃金級特殊樣式與懸停發光 */
+.tier-gold .sponsor-card {
+  border: 1px solid rgba(255, 152, 0, 0.15);
+  background: rgba(255, 152, 0, 0.01);
+}
+
+.tier-gold .sponsor-logo-svg svg {
+  stroke: #ff9800;
+  filter: drop-shadow(0 0 3px rgba(255, 152, 0, 0.4));
+}
+
+.tier-gold .sponsor-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 152, 0, 0.6);
+  box-shadow: 0 10px 30px rgba(255, 152, 0, 0.2), inset 0 0 15px rgba(255, 152, 0, 0.08);
+}
+
+.tier-gold .sponsor-card:hover .sponsor-name-zh {
+  color: #ff9800;
+  text-shadow: 0 0 8px rgba(255, 152, 0, 0.5);
+}
+
+.tier-gold .sponsor-card:hover .sponsor-logo-svg svg {
+  transform: scale(1.1) rotate(5deg);
+  stroke: #ff9800;
+  filter: drop-shadow(0 0 8px rgba(255, 152, 0, 0.8));
+}
+
+/* 白銀級特殊樣式與懸停發光 */
+.tier-silver .sponsor-card {
+  border: 1px solid rgba(0, 229, 255, 0.15);
+  background: rgba(0, 229, 255, 0.01);
+}
+
+.tier-silver .sponsor-logo-svg svg {
+  stroke: #00e5ff;
+  filter: drop-shadow(0 0 3px rgba(0, 229, 255, 0.4));
+}
+
+.tier-silver .sponsor-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 229, 255, 0.6);
+  box-shadow: 0 8px 25px rgba(0, 229, 255, 0.2), inset 0 0 12px rgba(0, 229, 255, 0.08);
+}
+
+.tier-silver .sponsor-card:hover .sponsor-name-zh {
+  color: #00e5ff;
+  text-shadow: 0 0 8px rgba(0, 229, 255, 0.5);
+}
+
+.tier-silver .sponsor-card:hover .sponsor-logo-svg svg {
+  transform: scale(1.1) rotate(5deg);
+  stroke: #00e5ff;
+  filter: drop-shadow(0 0 8px rgba(0, 229, 255, 0.8));
+}
+
+/* 為了排版一致，微調各等級的高度與內距 */
+.tier-titanium .sponsor-logo-svg svg {
+  width: 42px;
+  height: 42px;
+}
+.tier-titanium .sponsor-name-zh {
+  font-size: 1.05rem;
+}
+
+.tier-gold .sponsor-logo-svg svg {
+  width: 36px;
+  height: 36px;
+}
+.tier-gold .sponsor-name-zh {
+  font-size: 0.95rem;
+}
+
+.tier-silver .sponsor-logo-svg svg {
+  width: 32px;
+  height: 32px;
+}
+.tier-silver .sponsor-name-zh {
+  font-size: 0.9rem;
+}
+.tier-silver .sponsor-name-en {
+  font-size: 0.65rem;
 }
 
 /* Why support section */
