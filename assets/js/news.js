@@ -3,14 +3,22 @@
  * 設計美學：Midnight Navy 與金黃色霓虹光暈，毛玻璃卡片自適應 Grid 佈局
  */
 
-// 6 張精心挑選的 FRC 機器人與 STEM 工程相關高質感 Unsplash 免費圖庫照片 (方案 A)
+// 14 張從 FRC 9427 iDeer 官方 YouTube 頻道上精確抓取的真實影片封面縮圖 (完美落實方案 A)
 const PREMIUM_IMAGES = [
-  "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80", // 智慧機器人機構近照
-  "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80", // 團隊機械工程研發與組裝
-  "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80", // WPILib/程式控制控制介面
-  "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80", // STEM 創意科學教育
-  "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80", // 結構組裝與電路配置
-  "https://images.unsplash.com/photo-1531746790731-6c087fecd793?auto=format&fit=crop&w=800&q=80"  // AI 科技與視覺辨識光學系統
+  "https://img.youtube.com/vi/gyb7woZFOAI/hqdefault.jpg", // iDeer 團隊參賽真實影片截圖
+  "https://img.youtube.com/vi/Iia60blYUXE/hqdefault.jpg", // iDeer 官方 Like a Deer MV 縮圖
+  "https://img.youtube.com/vi/3hcP0lzrybU/hqdefault.jpg", // 2025 機器人 Zephyr 發表影片縮圖
+  "https://img.youtube.com/vi/zNt2UkwO9gw/hqdefault.jpg", // iDeer 比賽精華影片封面
+  "https://img.youtube.com/vi/cG-z_vTeyp0/hqdefault.jpg", // 團隊參賽現場回顧縮圖
+  "https://img.youtube.com/vi/pk_J7Pp_Ehs/hqdefault.jpg", // iDeer 機器人傳動與電控配置縮圖
+  "https://img.youtube.com/vi/JUu4h5PwJaE/hqdefault.jpg", // FRC 台灣大賽隊伍真實合影
+  "https://img.youtube.com/vi/5P5DFO7Ry0o/hqdefault.jpg", // 樹林高中 iDeer 隊伍日常研發影片封面
+  "https://img.youtube.com/vi/qbTGLrCF16w/hqdefault.jpg", // 團隊出征世界大賽授旗儀式縮圖
+  "https://img.youtube.com/vi/JoyeqFqjIeM/hqdefault.jpg", // iDeer 競賽機器人操控與調試畫面
+  "https://img.youtube.com/vi/qI7DogPocPc/hqdefault.jpg", // 學生在賽場上的真實互動縮圖
+  "https://img.youtube.com/vi/KFAxo9GQPUo/hqdefault.jpg", // iDeer 團隊 STEM 社區推廣活動縮圖
+  "https://img.youtube.com/vi/Q9q8MaRaCVo/hqdefault.jpg", // 2024 Rookie All-Star 頒獎典禮截圖
+  "https://img.youtube.com/vi/3KbH438oagc/hqdefault.jpg"  // iDeer 年度機器人機構設計藍圖與發表
 ];
 
 // 歷屆新聞 & 榮譽資料庫 (共 68 篇)
