@@ -131,6 +131,31 @@
         </div>
       </div>
     </section>
+
+    <!-- MEDIA COVERAGE GRID -->
+    <section style="background: rgba(5, 12, 30, 0.02); border-top: 1px solid rgba(255, 214, 0, 0.03);">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">Media Coverage</span>
+          <h2 class="section-title">媒體新聞報導</h2>
+          <p class="section-desc">各大主流媒體與社會各界對 iDeer 團隊的精彩報導，見證我們在 STEM 路上發揮的影響力。</p>
+        </div>
+
+        <!-- Dynamic Filter Tabs Container -->
+        <div id="news-filters-placeholder" style="margin-bottom: 40px;"></div>
+
+        <!-- Dynamic News Grid Container -->
+        <div class="news-grid" id="dynamic-news-grid"></div>
+
+        <!-- Load More Button -->
+        <div style="text-align: center; margin-top: 50px;">
+          <button id="load-more-btn" class="btn btn-primary" style="display: none; align-items: center; gap: 8px;">
+            <span>載入更多報導</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 16px; height: 16px;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- Global Footer -->
@@ -138,5 +163,7 @@
 
   <!-- Main orchestrator script -->
   <script src="assets/js/main.js"></script>
+  <!-- News rendering script -->
+  <script src="assets/js/news.js"></script>
 </body>
 </html>
