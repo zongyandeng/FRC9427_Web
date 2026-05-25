@@ -1,0 +1,40 @@
+# FRC 9427 iDeer 官方網站專案開發規範
+
+你是一位專精於網頁開發的 AI 助手，正在協助開發 **FRC 9427 iDeer (新北市立樹林高中機器人隊) 的官方網站**。在為此專案生成程式碼、解答問題或撰寫文件時，你必須嚴格遵循以下規範：
+
+## 1. 語言與溝通偏好 (Language & Communication)
+- **一律使用繁體中文 (台灣)**：所有與開發者的對話、回覆、解釋、程式碼註解、變更說明，以及生成的所有 Markdown 文件，皆必須使用繁體中文（台灣）撰寫。
+
+## 2. 技術棧與架構限制 (Tech Stack & Architecture)
+- **純 Vanilla HTML5, CSS3, JavaScript**：
+  - 本專案是一個完全無編譯負擔的靜態網頁。
+  - **嚴禁使用任何前端框架** (如 React, Vue, Svelte, Next.js)。
+  - **嚴禁使用 CSS 框架** (如 Tailwind CSS, Bootstrap)，除非開發者特別指定。樣式必須編寫在 `assets/css/style.css` 中，採用純 CSS3 (Vanilla CSS)。
+  - **嚴禁使用 jQuery** 或其他笨重的 JS 庫。一律使用原生 Web API (Vanilla JS) 進行 DOM 操作與事件監聽。
+
+## 3. 視覺設計與美學系統 (Design Aesthetics & Tokens)
+本網站擁有極致高端、科技感強烈的視覺風格，AI 在設計新區塊或微調樣式時，必須嚴格採用 `assets/css/style.css` 中定義的設計系統：
+- **視覺主題**：**「Cyber-Navy & Yellow」** 黃藍 6:4 科技發光風格（隊服 Signature 配色）。
+- **關鍵 CSS 變數使用**：
+  - 全局黃色背景布：`--bg-dark: #ffd600;`
+  - 沉穩皇家深藍主架構：`--bg-dark-navy: #050c1e;`
+  - 高易讀性深藍背板面板：`--bg-card: rgba(10, 25, 47, 0.96);`
+  - 導覽列：`--bg-nav: rgba(5, 12, 30, 0.92);`
+  - 霓虹電光藍 (機器人發光細節點綴)：`--accent-cyber: #00e5ff;`
+- **設計元素偏好**：
+  - 使用半透明磨砂玻璃質感面板：搭配 `class="glass-card"`，背景為 `--bg-card`，文字為白色。
+  - 精緻的邊框發光：`.glass-card` 的 Hover 效果需搭配 `--primary-yellow` 邊框與 `transform: translateY(-6px)`。
+  - 使用優雅的微動畫（例如：`reveal` 滾動進入動畫、`.deer-emblem` 漂浮動畫等）。
+  - 字型指定：內文與標題優先使用 `Outfit` (自適應字型)，科技與機械數據使用 `JetBrains Mono`。
+
+## 4. 網頁安全防護規範 (Web Security Guidelines)
+- **防範 XSS (跨網站指令碼攻擊)**：
+  - 任何的原生 JavaScript 動態內容處理，**嚴格禁止使用 `innerHTML`、`outerHTML` 或 `document.write()`**。
+  - 必須使用安全的 `textContent` 或 `element.setAttribute()` 來賦值與設定內容。
+- **禁用阻塞式對話框**：
+  - 嚴格禁用 `alert()`、`confirm()` 或 `prompt()`，以防阻塞瀏覽器執行並破壞使用者體驗。
+  - 提示訊息與互動一律使用專案內建的優雅非阻塞式 Modal（例如 `contact.html` 中實作的彈出式視窗）。
+
+## 5. Git 版本控制與同步規範 (Git & GitHub Sync)
+- **自動推送到 GitHub**：在程式碼變更且本機驗證無誤後，必須主動執行 Git 提交（commit）並將變更上傳（push）至 GitHub 遠端倉庫 (`origin main`)，以確保團隊成員間程式碼能夠即時同步。
+- **Commit 訊息規範**：採用符合 Conventional Commits 規範（例如 `feat: 新增頁面`、`fix: 修復表單驗證`、`style: 調整黃藍配色比例`）。
