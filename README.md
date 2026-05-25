@@ -120,3 +120,15 @@ GitHub Pages 是 FRC 隊伍最常用的靜態網頁代管方案，步驟非常�
 作為專業的資訊團隊，本專案嚴格遵守資安防範：
 1. **防止 XSS 攻擊**：全站的原生 JavaScript 操作嚴禁使用任何 `innerHTML` 分配。動態處理文字一律使用安全的 `textContent`，防止惡意指令注入。
 2. **拒絕阻塞對話框**：禁用影響效能與體驗的 `alert()` / `confirm()`，彈出視窗皆使用自製的 UI Modal，以優雅非阻塞式的方式提示使用者。
+
+---
+
+## 🤖 AI 協同開發與 `.cursorrules` 規範
+
+本專案配置有專屬的 `.cursorrules` 設定檔，旨在為協同開發的 AI 助手提供明確的開發標準與設計約束。如果您使用 Cursor、Windsurf 或其他支援此設定的 AI 編輯器進行開發，AI 助手將會自動遵循以下開發規範，以確保產出程式碼的品質與未來學弟妹傳承的便利性：
+
+1. **語言與溝通偏好**：AI 與您的所有對話、回覆、程式碼註解及文件一律使用 **繁體中文 (台灣)**。
+2. **純 Vanilla 技術棧限制**：為維持網頁極速加載與學弟妹維護的便利度，嚴格限制使用純 HTML5, CSS3 與原生 JavaScript，嚴禁在無特殊需求下引入 React, Vue 或 Tailwind CSS。
+3. **美學設計與 CSS 變數規範**：AI 會嚴格採用 `assets/css/style.css` 中定義的 **「Cyber-Navy & Yellow」** 黃藍 6:4 科技發光風格設計新元素，並保持磨砂玻璃質感（`.glass-card`）、發光（glow）與微動畫的 premium 視覺效果。
+4. **高安全性防護**：原生 JavaScript 處理動態內容時，嚴禁使用 `innerHTML` 以防範 XSS 攻擊，必須使用安全的 `textContent`；同時禁用阻塞式 `alert()`，必須使用專案自製的 Modal。
+5. **Git 與 GitHub 自動同步**：每次代碼變更且本機驗證無誤後，AI 會主動執行 Git commit 並 Push 至 GitHub 倉庫 (`origin main`)，以確保程式碼即時同步。
