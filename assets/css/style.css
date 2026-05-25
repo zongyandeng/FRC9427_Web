@@ -1816,3 +1816,40 @@ footer {
   z-index: 9999 !important; /* Ensure it floats above all other custom backgrounds */
 }
 
+/* ==========================================
+   WIDE SCREEN & HIGH RESOLUTION SATURATED LAYOUT OPTIMIZATION
+   ========================================== */
+/* 適用於常見 1080p 寬螢幕 / 稍微拉寬的瀏覽器 */
+@media (min-width: 1300px) {
+  .section-container, .nav-container {
+    max-width: 1400px;
+    width: 92%;
+  }
+  .timeline {
+    max-width: 1100px;
+  }
+}
+
+/* 適用於 2K 螢幕 / 較大瀏覽器視窗 */
+@media (min-width: 1600px) {
+  .section-container, .nav-container {
+    max-width: 1550px;
+    width: 94%;
+  }
+  .timeline {
+    max-width: 1250px;
+  }
+}
+
+/* 適用於 4K 螢幕 / 超寬巨型顯示器 */
+@media (min-width: 2000px) {
+  .section-container, .nav-container {
+    max-width: 1800px;
+    width: 95%;
+  }
+  .timeline {
+    max-width: 1400px;
+  }
+}
+
+
