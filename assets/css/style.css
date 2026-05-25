@@ -728,6 +728,13 @@ section {
   padding: 40px 0;
 }
 
+/* 清除 Timeline 中 timeline-item 浮動造成的版面塌陷與重疊問題 (Clearfix) */
+.timeline::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 .timeline::before {
   content: "";
   position: absolute;

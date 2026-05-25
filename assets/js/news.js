@@ -690,7 +690,7 @@ function renderNews() {
     else if (item.category === "dream") categoryTag = "✨ AI 圓夢計畫";
 
     return `
-      <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="news-card reveal" style="display: flex; flex-direction: column;">
+      <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="news-card reveal active" style="display: flex; flex-direction: column;">
         <div class="news-card-image-wrapper">
           <img src="${coverImage}" class="news-card-img" alt="${item.title}" loading="lazy">
           <span class="news-card-tag">${categoryTag}</span>
