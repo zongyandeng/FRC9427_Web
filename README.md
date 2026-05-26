@@ -132,3 +132,4 @@ GitHub Pages 是 FRC 隊伍最常用的靜態網頁代管方案，步驟非常�
 3. **美學設計與 CSS 變數規範**：AI 會嚴格採用 `assets/css/style.css` 中定義的 **「Cyber-Navy & Yellow」** 黃藍 6:4 科技發光風格設計新元素，並保持磨砂玻璃質感（`.glass-card`）、發光（glow）與微動畫的 premium 視覺效果。
 4. **高安全性防護**：原生 JavaScript 處理動態內容時，嚴禁使用 `innerHTML` 以防範 XSS 攻擊，必須使用安全的 `textContent`；同時禁用阻塞式 `alert()`，必須使用專案自製的 Modal。
 5. **Git 與 GitHub 自動同步**：每次代碼變更且本機驗證無誤後，AI 會主動執行 Git commit 並 Push 至 GitHub 倉庫 (`origin main`)，以確保程式碼即時同步。
+6. **圖片格式與歸檔規範**：如有放置照片或圖片需求，**必須先轉檔為 `.webp` 格式**，並存放至 `assets/images` 目錄（完整本機路徑：`D:\MyDesktop\antigravity2.0\FRC9427_Web\assets\images`）。若有需要，可在該目錄下建立子資料夾進行分類存放。
