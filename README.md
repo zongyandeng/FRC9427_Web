@@ -125,19 +125,22 @@ GitHub Pages 是 FRC 隊伍最常用的靜態網頁代管方案，步驟非常�
 
 ## ✉️ 聯絡表單發信設定 (Web3Forms 整合) 📧
 
-本網站的聯絡表單已完美整合 **Web3Forms** 免費免伺服器郵件轉接服務，解決了靜態網頁（如 GitHub Pages）無法直接使用後端發信的痛點。
+本網站的聯絡表單已完美整合 **Web3Forms** 免費發信服務，解決了靜態網頁（如 GitHub Pages）無法直接使用後端發送郵件的痛點。
 
-### 🔑 如何為新年度/新管理員變更收信信箱？
-1. **申請 Access Key**：
-   前往 [Web3Forms 官網](https://web3forms.com/)，在首頁輸入想要接收信件的電子信箱（如 `slshfrc@slsh.ntpc.edu.tw`），點擊建立。系統會將一組 Access Key 寄送到該信箱。
+### 🔑 如何為新年度或新管理員變更收信信箱？
+
+1. **申請 Access Key (金鑰)**：
+   前往 [Web3Forms 官網](https://web3forms.com/)，在首頁輸入想用來接收信件的隊伍官方信箱（例如：`slshfrc@slsh.ntpc.edu.tw`），點擊建立。系統會立即將一組 Access Key 寄送到該信箱。
 2. **更新網頁代碼**：
-   打開 `contact.html`，找到大約第 88 行的隱藏欄位：
+   打開 [contact.html](file:///d:/MyDesktop/antigravity2.0/FRC9427_Web/contact.html)，找到大約第 88 行的隱藏欄位：
    ```html
-   <input type="hidden" name="access_key" value="這裡貼上您的Access Key">
+   <input type="hidden" name="access_key" value="這裡貼上您剛取得的 Access Key">
    ```
-   將 `value` 替換成新取得的 Key並儲存。
-3. **安全演示模擬模式**：
-   若該欄位未填寫或保持預設的 `YOUR_ACCESS_KEY_HERE`，網頁將自動降級為「演示模擬模式」，提供完整的輸入校驗與精美成功彈窗，但不會真的發送郵件，非常適合本機端測試與演示。
+   將 `value` 的內容替換成您剛取得的金鑰，儲存後推送到 GitHub 即可。
+
+> [!TIP]
+> **安全演示與模擬模式 (Demo Mode)**：
+> 若該欄位未填寫或保持預設的 `YOUR_ACCESS_KEY_HERE`，網頁將自動降級為「演示模擬模式」—— 提供完整的輸入校驗與精美成功彈窗，但**不會**真的發信，非常適合開發測試與無 Key 的離線演示！
 
 ---
 
