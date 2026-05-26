@@ -30,44 +30,19 @@
           <p class="section-desc">我們在賽場上共同奮鬥與學習所寫下的里程碑。感謝所有隊員的努力與合作！</p>
         </div>
 
-        <div class="awards-grid">
-          <!-- Award 1 -->
-          <div class="glass-card reveal">
-            <div class="award-badge">
-              <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="8" r="7" />
-                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
-              </svg>
-            </div>
-            <div class="award-year">2024 SEASON</div>
-            <h3 class="feature-title">Rookie All-Star Award</h3>
-            <p class="feature-desc">FRC 區域賽新秀全明星獎。此項殊榮肯定了我們作為新創隊伍，在學校、社區推廣 STEM 科普與 FIRST 精神的傑出表現。</p>
-          </div>
+        <div class="awards-grid" id="dynamic-awards-grid">
+          <!-- 會由 JS 動態生成 -->
+        </div>
 
-          <!-- Award 2 -->
-          <div class="glass-card reveal">
-            <div class="award-badge">
-              <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <polygon
-                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-              </svg>
-            </div>
-            <div class="award-year">2024 SEASON</div>
-            <h3 class="feature-title">Highest Rookie Seed</h3>
-            <p class="feature-desc">最高順位新秀獎。我們在首次參與的區域賽排位賽中，以優異的戰術規劃與機械穩定度，取得所有新秀隊伍中的最高積分名次。</p>
-          </div>
-
-          <!-- Award 3 -->
-          <div class="glass-card reveal">
-            <div class="award-badge">
-              <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-              </svg>
-            </div>
-            <div class="award-year">2025 SEASON</div>
-            <h3 class="feature-title">Industrial Design Award</h3>
-            <p class="feature-desc">工業設計獎（贊助商特別獎）。肯定了 iDeer 在年度競賽機器人研發中，結構的緊湊性、高維護效率與優越的機電整合解決方案。</p>
-          </div>
+        <!-- Load More Awards Button -->
+        <div id="load-more-awards-container" style="text-align: center; margin-top: 40px;">
+          <button id="load-more-awards-btn" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">
+            <span>觀看更多獎項</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round" style="width: 16px; height: 16px; transition: transform 0.3s ease;">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
         </div>
       </div>
     </section>
@@ -839,11 +814,104 @@
       }
     ];
 
+    // 歷屆獎項資料庫 (共 11 項)
+    const AWARDS_DATA = [
+      {
+        season: "2025-2026",
+        yearText: "2026 SEASON",
+        region: "Bosphorus Regional (土耳其)",
+        title: "Regional Engineering Inspiration Award 區域工程啟發獎",
+        desc: "由 SpaceX 贊助。此獎項肯定了團隊在學校及社區中，極具影響力且成效卓越的 STEM 科技教育推廣與工程啟發成果。",
+        type: "ei"
+      },
+      {
+        season: "2025-2026",
+        yearText: "2026 SEASON",
+        region: "Bosphorus Regional (土耳其)",
+        title: "Regional Finalists 區域亞軍",
+        desc: "在土耳其區賽激烈的對抗賽中，團隊憑藉著精湛的機械手臂操縱、穩定的底盤性能以及完美的隊友戰術配合，一路過關駿將奪得賽事亞軍殊榮。",
+        type: "finalist"
+      },
+      {
+        season: "2025-2026",
+        yearText: "2026 SEASON",
+        region: "Yeditepe Regional (土耳其)",
+        title: "Team Sustainability Award 團隊永續獎",
+        desc: "由 Dow 贊助。肯定了 iDeer 團隊在財務管理、資源整合、品牌營運以及永續發展教育推廣上的卓越商業計畫與健全架構。",
+        type: "sustainability"
+      },
+      {
+        season: "2024-2025",
+        yearText: "2025 SEASON",
+        region: "FIRST Championship (休士頓世界賽)",
+        title: "Rising All-Star Award 全明星進步獎",
+        desc: "在世界大賽 Johnson 賽區中，iDeer 團隊作為來自台灣的優秀隊伍，其快速的技術突破與團隊全方位發展深受評審肯定，榮膺全明星進步獎。",
+        type: "rising-star"
+      },
+      {
+        season: "2024-2025",
+        yearText: "2025 SEASON",
+        region: "New Taipei City Regional (臺灣區域賽)",
+        title: "Regional Finalists 區域亞軍",
+        desc: "於台灣區域賽現場，團隊充分發揮了 iDeer 機器人的極限控制性能，以優異的聯賽對決策略，與盟友攜手戰至決賽，勇奪區域亞軍。",
+        type: "finalist"
+      },
+      {
+        season: "2024-2025",
+        yearText: "2025 SEASON",
+        region: "New Taipei City Regional (臺灣區域賽)",
+        title: "Quality Award 品質獎",
+        desc: "肯定了 Zephyr 機器人在整體結構設計、電控配線工藝與軟體控制程式上的卓越製造品質與極高運作可靠度。",
+        type: "quality"
+      },
+      {
+        season: "2024-2025",
+        yearText: "2025 SEASON",
+        region: "New Taipei City Regional (臺灣區域賽)",
+        title: "Industrial Design Award 工業設計獎",
+        desc: "肯定了 iDeer 在年度競賽機器人研發中，機構的高度緊湊性、高維護效率與優越的機電整合解決方案。",
+        type: "industrial"
+      },
+      {
+        season: "2024-2025",
+        yearText: "2025 SEASON",
+        region: "New Taipei City Regional (臺灣區域賽)",
+        title: "FIRST Dean's List Finalist Award 院長獎",
+        desc: "極具代表性的個人領袖獎項。肯定了團隊隊長在 STEM 推廣、程式設計以及團隊領導力上的傑出個人貢獻與 FIRST 精神體現。",
+        type: "dean"
+      },
+      {
+        season: "2024-2025",
+        yearText: "2025 SEASON",
+        region: "Colorado Regional (美國科羅拉多)",
+        title: "Judges Award 評審獎",
+        desc: "科羅拉多區域大賽中，iDeer 團隊以獨特的設計美學、極佳的團隊組織力以及卓越的外卡競爭力，獲得大賽評審團的一致好評與特別授獎。",
+        type: "judges"
+      },
+      {
+        season: "2023-2024",
+        yearText: "2024 SEASON",
+        region: "Southern Cross Regional (澳洲區域賽)",
+        title: "Rookie All-Star Award 新秀全明星獎",
+        desc: "大會最重要的新秀獎項。肯定了我們作為新創隊伍，在學校、社區推廣 STEM 科普與 FIRST 精神的傑出表現，並以此殊榮首年即晉級世界賽。",
+        type: "rookie-star"
+      },
+      {
+        season: "2023-2024",
+        yearText: "2024 SEASON",
+        region: "New Taipei City Regional (臺灣區域賽)",
+        title: "Highest Rookie Seed 最高順位新秀獎",
+        desc: "我們在首次參與的台灣區域賽排位賽中，以優異的戰術規劃與機械穩定度，取得所有新秀隊伍中的最高積分名次。",
+        type: "rookie-seed"
+      }
+    ];
+
     // 分頁設定與狀態
     let currentFilter = "all";
     let currentSeason = "all";
     let visibleCount = 9;
     const CARDS_PER_PAGE = 9;
+    let awardsVisible = false; // 記錄是否展開全部獎項
 
     // 當頁面加載完成時啟動
     document.addEventListener("DOMContentLoaded", () => {
@@ -853,6 +921,7 @@
     function initNewsPage() {
       renderFilters();
       renderNews();
+      renderAwards();
       setupEventListeners();
     }
 
@@ -1009,6 +1078,156 @@
           visibleCount += CARDS_PER_PAGE;
           renderNews();
         });
+      }
+
+      // 監聽「觀看更多獎項」按鈕
+      const loadMoreAwardsBtn = document.getElementById("load-more-awards-btn");
+      if (loadMoreAwardsBtn) {
+        loadMoreAwardsBtn.addEventListener("click", () => {
+          awardsVisible = !awardsVisible;
+          renderAwards();
+          // 如果是收合，點擊後滾動回獎項區塊頂端
+          if (!awardsVisible) {
+            const grid = document.getElementById("dynamic-awards-grid");
+            if (grid) {
+              grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }
+        });
+      }
+    }
+
+    // 根據不同的獎項類別生成高質感的發光 SVG
+    function getAwardSvg(type) {
+      switch (type) {
+        case "rookie-star":
+        case "rising-star":
+          return `
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+            </svg>
+          `;
+        case "rookie-seed":
+          return `
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 22h20L12 2z" />
+              <path d="M12 18v-8" />
+              <path d="M10 12l2-2 2 2" />
+            </svg>
+          `;
+        case "finalist":
+          return `
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+              <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
+              <path d="M4 22h16" />
+              <path d="M10 14.66V17c0 .55-.45 1-1 1H4v2h16v-2h-5c-.55 0-1-.45-1-1v-2.34" />
+              <path d="M12 2a5 5 0 0 1 5 5v3.5a5 5 0 0 1-10 0V7a5 5 0 0 1 5-5z" />
+            </svg>
+          `;
+        case "ei":
+        case "judges":
+          return `
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A5 5 0 0 0 8 8c0 1 .3 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
+              <path d="M9 18h6" />
+              <path d="M10 22h4" />
+            </svg>
+          `;
+        case "sustainability":
+          return `
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+              <path d="M12 6v12" />
+              <path d="M8 10h8" />
+            </svg>
+          `;
+        case "quality":
+        case "industrial":
+          return `
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="7" />
+              <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
+            </svg>
+          `;
+        case "dean":
+          return `
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7z" />
+              <path d="M5 20h14" />
+            </svg>
+          `;
+        default:
+          return `
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="7" />
+              <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
+            </svg>
+          `;
+      }
+    }
+
+    // 動態生成並渲染獎項卡片
+    function renderAwards() {
+      const grid = document.getElementById("dynamic-awards-grid");
+      const loadMoreBtn = document.getElementById("load-more-awards-btn");
+      if (!grid) return;
+
+      // 決定目前要顯示的資料
+      const displayedAwards = awardsVisible ? AWARDS_DATA : AWARDS_DATA.slice(0, 6);
+
+      grid.innerHTML = displayedAwards.map((item, index) => {
+        let glowColor = "var(--primary-yellow)";
+        let glowClass = "glow-yellow";
+        let seasonTag = "2024 SEASON";
+
+        if (item.season === "2025-2026") {
+          glowColor = "#00E5FF";
+          glowClass = "glow-cyber";
+          seasonTag = "2026 SEASON";
+        } else if (item.season === "2024-2025") {
+          glowColor = "#1565C0";
+          glowClass = "glow-royal";
+          seasonTag = "2025 SEASON";
+        } else if (item.season === "2023-2024") {
+          glowColor = "#FFD600";
+          glowClass = "glow-yellow";
+          seasonTag = "2024 SEASON";
+        }
+
+        return `
+          <div class="glass-card reveal award-card ${glowClass} active" style="--season-glow: ${glowColor};">
+            <div class="award-badge" style="background: rgba(${glowColor === '#FFD600' ? '255,214,0' : glowColor === '#00E5FF' ? '0,229,255' : '21,101,192'}, 0.1); border-color: rgba(${glowColor === '#FFD600' ? '255,214,0' : glowColor === '#00E5FF' ? '0,229,255' : '21,101,192'}, 0.3);">
+              <div style="color: ${glowColor}; display: flex; align-items: center; justify-content: center;">
+                ${getAwardSvg(item.type)}
+              </div>
+            </div>
+            <div class="award-year" style="color: ${glowColor};">${seasonTag} | ${item.region}</div>
+            <h3 class="feature-title" style="color: var(--text-white); font-size: 1.3rem; margin-top: 8px;">${item.title}</h3>
+            <p class="feature-desc" style="margin-top: 8px; margin-bottom: 0;">${item.desc}</p>
+          </div>
+        `;
+      }).join("");
+
+      // 觸發 scroll 動畫監聽 (結合既有的 main.js 卷動顯現功能)
+      if (window.reveal) {
+        window.reveal();
+      }
+
+      // 控制「觀看更多獎項」按鈕的文字與顯示狀態
+      if (loadMoreBtn) {
+        if (AWARDS_DATA.length <= 6) {
+          document.getElementById("load-more-awards-container").style.display = "none";
+        } else {
+          document.getElementById("load-more-awards-container").style.display = "block";
+          if (awardsVisible) {
+            loadMoreBtn.querySelector("span").textContent = "收合獎項";
+            loadMoreBtn.querySelector("svg").style.transform = "rotate(180deg)";
+          } else {
+            loadMoreBtn.querySelector("span").textContent = "觀看更多獎項";
+            loadMoreBtn.querySelector("svg").style.transform = "rotate(0deg)";
+          }
+        }
       }
     }
 
