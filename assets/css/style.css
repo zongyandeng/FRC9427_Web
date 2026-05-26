@@ -1291,11 +1291,18 @@ section {
     display: none; /* 手機上隱藏中間連接裝飾 */
   }
   
-  .timeline-dot-horizontal {
+  .timeline-node::after {
+    content: "";
     position: absolute;
     left: 11px;
-    top: 15px;
-    margin: 0;
+    top: 20px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--primary-yellow);
+    border: 3px solid var(--bg-dark-navy);
+    box-shadow: 0 0 10px var(--primary-yellow-glow);
+    z-index: 10;
   }
   
   .timeline-card {
