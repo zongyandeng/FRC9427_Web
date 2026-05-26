@@ -696,19 +696,22 @@ section {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 56px;
-  height: 56px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
+  padding: 4px;
   margin-bottom: 20px;
   transition: var(--transition-normal);
 }
 
 .award-badge svg {
-  width: 28px;
-  height: 28px;
-  stroke: currentColor;
-  stroke-width: 2;
-  filter: drop-shadow(0 0 8px currentColor);
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.award-card:hover .award-badge svg {
+  transform: scale(1.06);
 }
 
 .award-year {
