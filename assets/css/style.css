@@ -908,7 +908,7 @@ section {
 }
 
 /* ==========================================
-   HORIZONTAL TIMELINE SYSTEM
+   HORIZONTAL TIMELINE SYSTEM (ZIGZAG VERSION)
    ========================================== */
 .timeline-horizontal-outer-container {
   position: relative;
@@ -931,7 +931,7 @@ section {
   -webkit-overflow-scrolling: touch;
 }
 
-/* Hide default scrollbar but keep functionality (for elegant style) */
+/* Hide default scrollbar but keep functionality */
 .timeline-horizontal-scroll::-webkit-scrollbar {
   height: 6px;
 }
@@ -955,6 +955,7 @@ section {
   position: relative;
   padding: 0 40px;
   min-width: 100%;
+  height: 580px; /* 固定高度以容納上下交錯內容 */
 }
 
 /* The horizontal glowing axis line */
@@ -981,26 +982,49 @@ section {
   position: relative;
   display: inline-flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  width: 360px;
+  width: 340px;
+  height: 100%; /* 填滿 track 的 580px 高度 */
   margin: 0 20px;
   flex-shrink: 0;
   z-index: 2;
   white-space: normal; /* Restore text wrapping */
 }
 
-/* Vertical line connecting node to axis */
-.timeline-connector {
-  width: 2px;
-  height: 40px;
-  background: rgba(255, 214, 0, 0.3);
-  margin: 0 auto;
-  transition: background 0.3s, height 0.3s;
+/* Node Top & Bottom Containers */
+.node-top-container, .node-bottom-container {
+  width: 100%;
+  height: 240px; /* 上下兩個容器各分 240px */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
-.timeline-node:hover .timeline-connector {
+/* Center dot & vertical connectors */
+.node-center-gimmick {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80px; /* 中間間隔 80px */
+  position: relative;
+  width: 100%;
+}
+
+.timeline-connector-top, .timeline-connector-bottom {
+  width: 2px;
+  height: 30px;
+  background: rgba(255, 214, 0, 0.3);
+  transition: all 0.3s;
+}
+
+.timeline-node:hover .timeline-connector-top,
+.timeline-node:hover .timeline-connector-bottom {
   background: var(--primary-yellow);
-  height: 45px;
+  height: 35px;
+  box-shadow: 0 0 8px var(--primary-yellow-glow);
 }
 
 /* Central dot on the horizontal axis */
@@ -1013,6 +1037,7 @@ section {
   box-shadow: 0 0 10px var(--primary-yellow-glow);
   z-index: 10;
   cursor: pointer;
+  margin: 2px 0;
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -1028,41 +1053,43 @@ section {
   background: var(--bg-card);
   border: 1px solid rgba(255, 214, 0, 0.12);
   border-radius: 16px;
-  padding: 24px;
+  padding: 20px;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: var(--shadow-glow);
   transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   width: 100%;
-  margin-top: 15px;
-  position: relative;
-  overflow: hidden;
+  height: 100%; /* 填滿 240px 高度 */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .timeline-node:hover .timeline-card {
-  transform: translateY(-8px);
+  transform: translateY(-5px);
   border-color: var(--primary-yellow);
   box-shadow: 0 15px 35px rgba(255, 214, 0, 0.15), var(--shadow-glow);
 }
 
 .timeline-card-body {
-  margin: 15px 0;
+  margin: 0;
 }
 
 .timeline-node-date {
   font-family: var(--font-mono);
   color: var(--primary-yellow);
   font-weight: 800;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   letter-spacing: 1px;
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .timeline-card h3 {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: 700;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   color: var(--text-white);
   transition: color 0.3s;
 }
@@ -1073,17 +1100,17 @@ section {
 
 .timeline-card p {
   color: var(--text-gray);
-  font-size: 0.9rem;
-  line-height: 1.6;
+  font-size: 0.88rem;
+  line-height: 1.5;
   margin: 0;
 }
 
 /* Premium Photo Placeholder Dashboard Style */
 .photo-placeholder {
   width: 100%;
-  height: 150px;
+  height: 100%; /* 填滿 240px 高度 */
   border: 1px dashed rgba(255, 214, 0, 0.25);
-  border-radius: 10px;
+  border-radius: 16px;
   background: rgba(5, 12, 30, 0.4);
   display: flex;
   flex-direction: column;
@@ -1093,6 +1120,7 @@ section {
   color: rgba(255, 255, 255, 0.4);
   font-size: 0.8rem;
   font-weight: 500;
+  box-sizing: border-box;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -1118,6 +1146,8 @@ section {
   border-color: var(--primary-yellow);
   background: rgba(255, 214, 0, 0.02);
   color: var(--primary-yellow);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(255, 214, 0, 0.15), var(--shadow-glow);
 }
 
 .timeline-node:hover .photo-placeholder::before {
@@ -1126,8 +1156,8 @@ section {
 }
 
 .photo-placeholder svg {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   stroke: rgba(255, 255, 255, 0.3);
   stroke-width: 1.5;
   fill: none;
@@ -1138,14 +1168,6 @@ section {
   stroke: var(--primary-yellow);
   transform: scale(1.1) rotate(5deg);
   filter: drop-shadow(0 0 5px rgba(255, 214, 0, 0.5));
-}
-
-.photo-placeholder.photo-top {
-  margin-bottom: 10px;
-}
-
-.photo-placeholder.photo-bottom {
-  margin-top: 15px;
 }
 
 /* Nav Buttons */
@@ -1196,11 +1218,17 @@ section {
   .timeline-horizontal-scroll {
     padding: 20px 10px;
   }
+  .timeline-horizontal-track {
+    height: 520px;
+  }
   .timeline-node {
     width: 300px;
   }
-  .photo-placeholder {
-    height: 130px;
+  .node-top-container, .node-bottom-container {
+    height: 210px;
+  }
+  .node-center-gimmick {
+    height: 100px;
   }
 }
 
@@ -1225,6 +1253,7 @@ section {
     flex-direction: column;
     align-items: stretch;
     padding: 20px 0;
+    height: auto; /* 手機上高度自適應 */
   }
   
   .timeline-horizontal-line {
@@ -1238,26 +1267,44 @@ section {
   
   .timeline-node {
     width: auto;
+    height: auto; /* 手機上高度自適應 */
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    margin: 0 0 30px 0;
+    flex-direction: column;
+    align-items: stretch;
+    margin: 0 0 40px 0;
     padding-left: 45px;
     text-align: left;
   }
   
-  .timeline-connector {
-    display: none; /* Hide connector in vertical view */
+  .node-top-container, .node-bottom-container {
+    height: auto;
+    width: 100%;
+    display: block;
+    margin-bottom: 15px;
+  }
+  
+  .node-bottom-container {
+    margin-bottom: 0;
+  }
+  
+  .node-center-gimmick {
+    display: none; /* 手機上隱藏中間連接裝飾 */
   }
   
   .timeline-dot-horizontal {
     position: absolute;
     left: 11px;
-    top: 20px;
+    top: 15px;
+    margin: 0;
   }
   
   .timeline-card {
-    margin-top: 0;
+    height: auto;
+    padding: 20px;
+  }
+  
+  .photo-placeholder {
+    height: 180px;
   }
 }
 

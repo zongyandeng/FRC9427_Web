@@ -69,314 +69,397 @@
               <polyline points="9 18 15 12 9 6"></polyline>
             </svg>
           </button>
-
-          <!-- 橫向滾動容器 -->
           <div class="timeline-horizontal-scroll" id="timelineScroll">
             <div class="timeline-horizontal-track">
               <!-- 貫穿橫向軸線 -->
               <div class="timeline-horizontal-line"></div>
 
-              <!-- Node 1: 2023年9月 -->
+              <!-- Node 1: 2023年9月 (奇數: 文字在上、圖片在下) -->
               <div class="timeline-node">
-                <div class="timeline-connector"></div>
-                <div class="timeline-dot-horizontal"></div>
-                <div class="timeline-card">
-                  <!-- 上方照片預留框 -->
-                  <div class="photo-placeholder photo-top">
+                <!-- 上方：文字卡片 -->
+                <div class="node-top-container">
+                  <div class="timeline-card">
+                    <div class="timeline-card-body">
+                      <span class="timeline-node-date">2023 年 9 月</span>
+                      <h3>iDeer 創意火花點燃</h3>
+                      <p>在新北市立樹林高中校方的鼎力支持與老師們的號召下，一群熱愛科學與工程的學生聚集在一起，正式確立籌備 FRC 隊伍的目標，並命名為「iDeer（創意之鹿）」。</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 中間：軸線連接點飾 -->
+                <div class="node-center-gimmick">
+                  <div class="timeline-connector-top"></div>
+                  <div class="timeline-dot-horizontal"></div>
+                  <div class="timeline-connector-bottom"></div>
+                </div>
+
+                <!-- 下方：照片預留框 -->
+                <div class="node-bottom-container">
+                  <div class="photo-placeholder">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                       <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
                       <circle cx="12" cy="13" r="4"></circle>
                     </svg>
-                    <span>團隊影像紀錄 (上方預留位置)</span>
-                  </div>
-                  <div class="timeline-card-body">
-                    <span class="timeline-node-date">2023 年 9 月</span>
-                    <h3>iDeer 創意火花點燃</h3>
-                    <p>在新北市立樹林高中校方的鼎力支持與老師們的號召下，一群熱愛科學與工程的學生聚集在一起，正式確立籌備 FRC 隊伍的目標，並命名為「iDeer（創意之鹿）」。</p>
-                  </div>
-                  <!-- 下方照片預留框 -->
-                  <div class="photo-placeholder photo-bottom">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
-                      <circle cx="12" cy="13" r="4"></circle>
-                    </svg>
-                    <span>活動花絮影像 (下方預留位置)</span>
+                    <span>團隊影像紀錄 (預留照片)</span>
                   </div>
                 </div>
               </div>
 
-              <!-- Node 2: 2023年11月 -->
+              <!-- Node 2: 2023年11月 (偶數: 圖片在上、文字在下) -->
               <div class="timeline-node">
-                <div class="timeline-connector"></div>
-                <div class="timeline-dot-horizontal"></div>
-                <div class="timeline-card">
-                  <!-- 上方照片預留框 -->
-                  <div class="photo-placeholder photo-top">
+                <!-- 上方：照片預留框 -->
+                <div class="node-top-container">
+                  <div class="photo-placeholder">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                       <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
                       <circle cx="12" cy="13" r="4"></circle>
                     </svg>
-                    <span>團隊影像紀錄 (上方預留位置)</span>
+                    <span>團隊影像紀錄 (預留照片)</span>
                   </div>
-                  <div class="timeline-card-body">
-                    <span class="timeline-node-date">2023 年 11 月</span>
-                    <h3>取得 FRC 官方隊號 9427</h3>
-                    <p>完成 FIRST 官方註冊程序，我們正式獲分配專屬隊號 9427。這個專屬號碼代表著新北樹林高中的熱情，也象徵著我們即將登上世界工程技術殿堂的起點。</p>
-                  </div>
-                  <!-- 下方照片預留框 -->
-                  <div class="photo-placeholder photo-bottom">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
-                      <circle cx="12" cy="13" r="4"></circle>
-                    </svg>
-                    <span>活動花絮影像 (下方預留位置)</span>
+                </div>
+
+                <!-- 中間：軸線連接點飾 -->
+                <div class="node-center-gimmick">
+                  <div class="timeline-connector-top"></div>
+                  <div class="timeline-dot-horizontal"></div>
+                  <div class="timeline-connector-bottom"></div>
+                </div>
+
+                <!-- 下方：文字卡片 -->
+                <div class="node-bottom-container">
+                  <div class="timeline-card">
+                    <div class="timeline-card-body">
+                      <span class="timeline-node-date">2023 年 11 月</span>
+                      <h3>取得 FRC 官方隊號 9427</h3>
+                      <p>完成 FIRST 官方註冊程序，我們正式獲分配專屬隊號 9427。這個專屬號碼代表著新北樹林高中的熱情，也象徵著我們即將登上世界工程技術殿堂的起點。</p>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <!-- Node 3: 2024年1月 - 2月 -->
+              <!-- Node 3: 2024年1月 - 2月 (奇數: 文字在上、圖片在下) -->
               <div class="timeline-node">
-                <div class="timeline-connector"></div>
-                <div class="timeline-dot-horizontal"></div>
-                <div class="timeline-card">
-                  <!-- 上方照片預留框 -->
-                  <div class="photo-placeholder photo-top">
+                <!-- 上方：文字卡片 -->
+                <div class="node-top-container">
+                  <div class="timeline-card">
+                    <div class="timeline-card-body">
+                      <span class="timeline-node-date">2024 年 1 月 - 2 月</span>
+                      <h3>首個年度競賽季（Build Season）</h3>
+                      <p>面對大賽主題挑戰，隊員們連續六週廢寢忘食，進行 3D CAD 機構建模、WPILib 自動控制程式開發，以及高強度的氣動與電路配線，成功產出我們歷史上的第一台競賽機器人。</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 中間：軸線連接點飾 -->
+                <div class="node-center-gimmick">
+                  <div class="timeline-connector-top"></div>
+                  <div class="timeline-dot-horizontal"></div>
+                  <div class="timeline-connector-bottom"></div>
+                </div>
+
+                <!-- 下方：照片預留框 -->
+                <div class="node-bottom-container">
+                  <div class="photo-placeholder">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                       <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
                       <circle cx="12" cy="13" r="4"></circle>
                     </svg>
-                    <span>團隊影像紀錄 (上方預留位置)</span>
-                  </div>
-                  <div class="timeline-card-body">
-                    <span class="timeline-node-date">2024 年 1 月 - 2 月</span>
-                    <h3>首個年度競賽季（Build Season）</h3>
-                    <p>面對大賽主題挑戰，隊員們連續六週廢寢忘食，進行 3D CAD 機構建模、WPILib 自動控制程式開發，以及高強度的氣動與電路配線，成功產出我們歷史上的第一台競賽機器人。</p>
-                  </div>
-                  <!-- 下方照片預留框 -->
-                  <div class="photo-placeholder photo-bottom">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
-                      <circle cx="12" cy="13" r="4"></circle>
-                    </svg>
-                    <span>活動花絮影像 (下方預留位置)</span>
+                    <span>活動花絮影像 (預留照片)</span>
                   </div>
                 </div>
               </div>
 
-              <!-- Node 4: 2024年3月 -->
+              <!-- Node 4: 2024年3月 (偶數: 圖片在上、文字在下) -->
               <div class="timeline-node">
-                <div class="timeline-connector"></div>
-                <div class="timeline-dot-horizontal"></div>
-                <div class="timeline-card">
-                  <!-- 上方照片預留框 -->
-                  <div class="photo-placeholder photo-top">
+                <!-- 上方：照片預留框 -->
+                <div class="node-top-container">
+                  <div class="photo-placeholder">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                       <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
                       <circle cx="12" cy="13" r="4"></circle>
                     </svg>
-                    <span>團隊影像紀錄 (上方預留位置)</span>
+                    <span>團隊出征現場 (預留照片)</span>
                   </div>
-                  <div class="timeline-card-body">
-                    <span class="timeline-node-date">2024 年 3 月</span>
-                    <h3>FRC 區域大賽初試啼聲</h3>
-                    <p>首征 FRC 澳洲南部區域賽（Southern Cross Regional），9427 iDeer 團隊展現出了驚人的團隊協作精神。最終，我們一舉拿下「最高順位新秀獎 (Highest Rookie Seed)」與「新秀全明星獎 (Rookie All-Star Award)」。</p>
-                  </div>
-                  <!-- 下方照片預留框 -->
-                  <div class="photo-placeholder photo-bottom">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
-                      <circle cx="12" cy="13" r="4"></circle>
-                    </svg>
-                    <span>活動花絮影像 (下方預留位置)</span>
+                </div>
+
+                <!-- 中間：軸線連接點飾 -->
+                <div class="node-center-gimmick">
+                  <div class="timeline-connector-top"></div>
+                  <div class="timeline-dot-horizontal"></div>
+                  <div class="timeline-connector-bottom"></div>
+                </div>
+
+                <!-- 下方：文字卡片 -->
+                <div class="node-bottom-container">
+                  <div class="timeline-card">
+                    <div class="timeline-card-body">
+                      <span class="timeline-node-date">2024 年 3 月</span>
+                      <h3>FRC 區域大賽初試啼聲</h3>
+                      <p>首征 FRC 澳洲南部區域賽（Southern Cross Regional），9427 iDeer 團隊展現出了驚人的團隊協作精神。最終，我們一舉拿下「最高順位新秀獎 (Highest Rookie Seed)」與「新秀全明星獎 (Rookie All-Star Award)」。</p>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <!-- Node 5: 2024年4月 -->
+              <!-- Node 5: 2024年4月 (奇數: 文字在上、圖片在下) -->
               <div class="timeline-node">
-                <div class="timeline-connector"></div>
-                <div class="timeline-dot-horizontal"></div>
-                <div class="timeline-card">
-                  <!-- 上方照片預留框 -->
-                  <div class="photo-placeholder photo-top">
+                <!-- 上方：文字卡片 -->
+                <div class="node-top-container">
+                  <div class="timeline-card">
+                    <div class="timeline-card-body">
+                      <span class="timeline-node-date">2024 年 4 月</span>
+                      <h3>首征美國休士頓世界賽</h3>
+                      <p>作為澳洲賽區的新秀全明星代表，團隊飛越太平洋踏上休士頓 FRC 世界總決賽大舞台！與來自世界各國的數百支精英隊伍同場競技，開拓了宏偉的國際視野與技術儲備。</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 中間：軸線連接點飾 -->
+                <div class="node-center-gimmick">
+                  <div class="timeline-connector-top"></div>
+                  <div class="timeline-dot-horizontal"></div>
+                  <div class="timeline-connector-bottom"></div>
+                </div>
+
+                <!-- 下方：照片預留框 -->
+                <div class="node-bottom-container">
+                  <div class="photo-placeholder">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                       <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
                       <circle cx="12" cy="13" r="4"></circle>
                     </svg>
-                    <span>團隊影像紀錄 (上方預留位置)</span>
-                  </div>
-                  <div class="timeline-card-body">
-                    <span class="timeline-node-date">2024 年 4 月</span>
-                    <h3>首征美國休士頓世界賽</h3>
-                    <p>作為澳洲賽區的新秀全明星代表，團隊飛越太平洋踏上休士頓 FRC 世界總決賽大舞台！與來自世界各國的數百支精英隊伍同場競技，開拓了宏偉的國際視野與技術儲備。</p>
-                  </div>
-                  <!-- 下方照片預留框 -->
-                  <div class="photo-placeholder photo-bottom">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
-                      <circle cx="12" cy="13" r="4"></circle>
-                    </svg>
-                    <span>活動花絮影像 (下方預留位置)</span>
+                    <span>世界總決賽合影 (預留照片)</span>
                   </div>
                 </div>
               </div>
 
-              <!-- Node 6: 2024年12月 -->
+              <!-- Node 6: 2024年12月 (偶數: 圖片在上、文字在下) -->
               <div class="timeline-node">
-                <div class="timeline-connector"></div>
-                <div class="timeline-dot-horizontal"></div>
-                <div class="timeline-card">
-                  <!-- 上方照片預留框 -->
-                  <div class="photo-placeholder photo-top">
+                <!-- 上方：照片預留框 -->
+                <div class="node-top-container">
+                  <div class="photo-placeholder">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                       <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
                       <circle cx="12" cy="13" r="4"></circle>
                     </svg>
-                    <span>團隊影像紀錄 (上方預留位置)</span>
+                    <span>專案發表花絮 (預留照片)</span>
                   </div>
-                  <div class="timeline-card-body">
-                    <span class="timeline-node-date">2024 年 12 月</span>
-                    <h3>科展最佳研究與圓夢計畫肯定</h3>
-                    <p>團隊研發成果榮獲新北市科展「最佳研究獎」，並以永續發展專案成功入選新北市「圓夢 D-Maker 計畫」決選，獲得青年創夢基金資助，將 STEM 工程精神帶入社區關懷行動。</p>
-                  </div>
-                  <!-- 下方照片預留框 -->
-                  <div class="photo-placeholder photo-bottom">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
-                      <circle cx="12" cy="13" r="4"></circle>
-                    </svg>
-                    <span>活動花絮影像 (下方預留位置)</span>
+                </div>
+
+                <!-- 中間：軸線連接點飾 -->
+                <div class="node-center-gimmick">
+                  <div class="timeline-connector-top"></div>
+                  <div class="timeline-dot-horizontal"></div>
+                  <div class="timeline-connector-bottom"></div>
+                </div>
+
+                <!-- 下方：文字卡片 -->
+                <div class="node-bottom-container">
+                  <div class="timeline-card">
+                    <div class="timeline-card-body">
+                      <span class="timeline-node-date">2024 年 12 月</span>
+                      <h3>科展最佳研究與圓夢計畫肯定</h3>
+                      <p>團隊研發成果榮獲新北市科展「最佳研究獎」，並以永續發展專案成功入選新北市「圓夢 D-Maker 計畫」決選，獲得青年創夢基金資助，將 STEM 工程精神帶入社區關懷行動。</p>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <!-- Node 7: 2025年1月 - 2月 -->
+              <!-- Node 7: 2025年1月 - 2月 (奇數: 文字在上、圖片在下) -->
               <div class="timeline-node">
-                <div class="timeline-connector"></div>
-                <div class="timeline-dot-horizontal"></div>
-                <div class="timeline-card">
-                  <!-- 上方照片預留框 -->
-                  <div class="photo-placeholder photo-top">
+                <!-- 上方：文字卡片 -->
+                <div class="node-top-container">
+                  <div class="timeline-card">
+                    <div class="timeline-card-body">
+                      <span class="timeline-node-date">2025 年 1 月 - 2 月</span>
+                      <h3>二代 Swerve 機器人開發季</h3>
+                      <p>邁入 2025 賽季，團隊機構與程式實力全面躍升！開發出全新競賽機器人「Zephyr (西風)」，全面導入 Swerve 輪底盤全向高速控制，並透過 Onshape 進行極限輕量化與動力最佳化。</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 中間：軸線連接點飾 -->
+                <div class="node-center-gimmick">
+                  <div class="timeline-connector-top"></div>
+                  <div class="timeline-dot-horizontal"></div>
+                  <div class="timeline-connector-bottom"></div>
+                </div>
+
+                <!-- 下方：照片預留框 -->
+                <div class="node-bottom-container">
+                  <div class="photo-placeholder">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                       <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
                       <circle cx="12" cy="13" r="4"></circle>
                     </svg>
-                    <span>團隊影像紀錄 (上方預留位置)</span>
-                  </div>
-                  <div class="timeline-card-body">
-                    <span class="timeline-node-date">2025 年 1 月 - 2 月</span>
-                    <h3>二代 Swerve 機器人開發季</h3>
-                    <p>邁入 2025 賽季，團隊機構與程式實力全面躍升！開發出全新競賽機器人「Zephyr (西風)」，全面導入 Swerve 輪底盤全向高速控制，並透過 Onshape 進行極限輕量化與動力最佳化。</p>
-                  </div>
-                  <!-- 下方照片預留框 -->
-                  <div class="photo-placeholder photo-bottom">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
-                      <circle cx="12" cy="13" r="4"></circle>
-                    </svg>
-                    <span>活動花絮影像 (下方預留位置)</span>
+                    <span>機器人開發影像 (預留照片)</span>
                   </div>
                 </div>
               </div>
 
-              <!-- Node 8: 2025年3月 -->
+              <!-- Node 8: 2025年3月 (偶數: 圖片在上、文字在下) -->
               <div class="timeline-node">
-                <div class="timeline-connector"></div>
-                <div class="timeline-dot-horizontal"></div>
-                <div class="timeline-card">
-                  <!-- 上方照片預留框 -->
-                  <div class="photo-placeholder photo-top">
+                <!-- 上方：照片預留框 -->
+                <div class="node-top-container">
+                  <div class="photo-placeholder">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                       <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
                       <circle cx="12" cy="13" r="4"></circle>
                     </svg>
-                    <span>團隊影像紀錄 (上方預留位置)</span>
+                    <span>榮譽授獎瞬間 (預留照片)</span>
                   </div>
-                  <div class="timeline-card-body">
-                    <span class="timeline-node-date">2025 年 3 月</span>
-                    <h3>榮獲大賽工業設計獎</h3>
-                    <p>在 2025 FRC 區域大賽現場，iDeer 團隊展現出驚人的工業加工水準與結構穩定度。機器人優異的高速運作性能與完美的裝配工藝，獲得評審特別頒發「工業設計獎 (Industrial Design Award)」！</p>
-                  </div>
-                  <!-- 下方照片預留框 -->
-                  <div class="photo-placeholder photo-bottom">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
-                      <circle cx="12" cy="13" r="4"></circle>
-                    </svg>
-                    <span>活動花絮影像 (下方預留位置)</span>
+                </div>
+
+                <!-- 中間：軸線連接點飾 -->
+                <div class="node-center-gimmick">
+                  <div class="timeline-connector-top"></div>
+                  <div class="timeline-dot-horizontal"></div>
+                  <div class="timeline-connector-bottom"></div>
+                </div>
+
+                <!-- 下方：文字卡片 -->
+                <div class="node-bottom-container">
+                  <div class="timeline-card">
+                    <div class="timeline-card-body">
+                      <span class="timeline-node-date">2025 年 3 月</span>
+                      <h3>榮獲大賽工業設計獎</h3>
+                      <p>在 2025 FRC 區域大賽現場，iDeer 團隊展現出驚人的工業加工水準與結構穩定度。機器人優異的高速運作性能與完美的裝配工藝，獲得評審特別頒發「工業設計獎 (Industrial Design Award)」！</p>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <!-- Node 9: 2025年4月 -->
+              <!-- Node 9: 2025年4月 (奇數: 文字在上、圖片在下) -->
               <div class="timeline-node">
-                <div class="timeline-connector"></div>
-                <div class="timeline-dot-horizontal"></div>
-                <div class="timeline-card">
-                  <!-- 上方照片預留框 -->
-                  <div class="photo-placeholder photo-top">
+                <!-- 上方：文字卡片 -->
+                <div class="node-top-container">
+                  <div class="timeline-card">
+                    <div class="timeline-card-body">
+                      <span class="timeline-node-date">2025 年 4 月</span>
+                      <h3>二征休士頓世界總決賽</h3>
+                      <p>團隊連續第二年取得世界賽門票前往休士頓！在賽場上，我們展現了極高的戰術調配與成熟的對抗韌性，向全球展示了台灣高中生在 STEM 技術傳承上的卓越實力。</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 中間：軸線連接點飾 -->
+                <div class="node-center-gimmick">
+                  <div class="timeline-connector-top"></div>
+                  <div class="timeline-dot-horizontal"></div>
+                  <div class="timeline-connector-bottom"></div>
+                </div>
+
+                <!-- 下方：照片預留框 -->
+                <div class="node-bottom-container">
+                  <div class="photo-placeholder">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                       <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
                       <circle cx="12" cy="13" r="4"></circle>
                     </svg>
-                    <span>團隊影像紀錄 (上方預留位置)</span>
-                  </div>
-                  <div class="timeline-card-body">
-                    <span class="timeline-node-date">2025 年 4 月</span>
-                    <h3>二征休士頓世界總決賽</h3>
-                    <p>團隊連續第二年取得世界賽門票前往休士頓！在賽場上，我們展現了極高的戰術調配與成熟的對抗韌性，向全球展示了台灣高中生在 STEM 技術傳承上的卓越實力。</p>
-                  </div>
-                  <!-- 下方照片預留框 -->
-                  <div class="photo-placeholder photo-bottom">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
-                      <circle cx="12" cy="13" r="4"></circle>
-                    </svg>
-                    <span>活動花絮影像 (下方預留位置)</span>
+                    <span>休士頓比賽影像 (預留照片)</span>
                   </div>
                 </div>
               </div>
 
-              <!-- Node 10: 2025年12月 -->
+              <!-- Node 10: 2025年12月 (偶數: 圖片在上、文字在下) -->
               <div class="timeline-node">
-                <div class="timeline-connector"></div>
-                <div class="timeline-dot-horizontal"></div>
-                <div class="timeline-card">
-                  <!-- 上方照片預留框 -->
-                  <div class="photo-placeholder photo-top">
+                <!-- 上方：照片預留框 -->
+                <div class="node-top-container">
+                  <div class="photo-placeholder">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                       <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
                       <circle cx="12" cy="13" r="4"></circle>
                     </svg>
-                    <span>團隊影像紀錄 (上方預留位置)</span>
+                    <span>科普教學服務 (預留照片)</span>
                   </div>
-                  <div class="timeline-card-body">
-                    <span class="timeline-node-date">2025 年 12 月</span>
-                    <h3>蟬聯圓夢 D-Maker 計畫肯定</h3>
-                    <p>團隊以推廣 STEM 全民科普與新北市國中小科普教育扎根服務等優秀提案，再度成功獲選「圓夢 D-Maker 計畫」獎金，讓科學種子在更多學弟妹心中發芽，發揮廣泛的社會影響力。</p>
-                  </div>
-                  <!-- 下方照片預留框 -->
-                  <div class="photo-placeholder photo-bottom">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
-                      <circle cx="12" cy="13" r="4"></circle>
-                    </svg>
-                    <span>活動花絮影像 (下方預留位置)</span>
+                </div>
+
+                <!-- 中間：軸線連接點飾 -->
+                <div class="node-center-gimmick">
+                  <div class="timeline-connector-top"></div>
+                  <div class="timeline-dot-horizontal"></div>
+                  <div class="timeline-connector-bottom"></div>
+                </div>
+
+                <!-- 下方：文字卡片 -->
+                <div class="node-bottom-container">
+                  <div class="timeline-card">
+                    <div class="timeline-card-body">
+                      <span class="timeline-node-date">2025 年 12 月</span>
+                      <h3>蟬聯圓夢 D-Maker 計畫肯定</h3>
+                      <p>團隊以推廣 STEM 全民科普與新北市國中小科普教育扎根服務等優秀提案，再度成功獲選「圓夢 D-Maker 計畫」獎金，讓科學種子在更多學弟妹心中發芽，發揮廣泛的社會影響力。</p>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <!-- Node 11: 2026年3月 -->
+              <!-- Node 11: 2026年3月 (奇數: 文字在上、圖片在下) -->
               <div class="timeline-node">
-                <div class="timeline-connector"></div>
-                <div class="timeline-dot-horizontal"></div>
-                <div class="timeline-card">
-                  <!-- 上方照片預留框 -->
-                  <div class="photo-placeholder photo-top">
+                <!-- 上方：文字卡片 -->
+                <div class="node-top-container">
+                  <div class="timeline-card">
+                    <div class="timeline-card-body">
+                      <span class="timeline-node-date">2026 年 3 月</span>
+                      <h3>土耳其區域賽橫掃奪冠</h3>
+                      <p>出征 FRC 土耳其區域賽（Bosphorus Regional），團隊技術全面成熟！機器人在賽場上以超高速度控制、精準抓取射擊等戰術壓制全場，一舉勇奪分區冠亞軍，創下隊伍在歐洲賽區的歷史新猷！</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 中間：軸線連接點飾 -->
+                <div class="node-center-gimmick">
+                  <div class="timeline-connector-top"></div>
+                  <div class="timeline-dot-horizontal"></div>
+                  <div class="timeline-connector-bottom"></div>
+                </div>
+
+                <!-- 下方：照片預留框 -->
+                <div class="node-bottom-container">
+                  <div class="photo-placeholder">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                       <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
                       <circle cx="12" cy="13" r="4"></circle>
                     </svg>
+                    <span>土耳其奪冠慶功 (預留照片)</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Node 12: 2026年5月 (偶數: 圖片在上、文字在下) -->
+              <div class="timeline-node">
+                <!-- 上方：照片預留框 -->
+                <div class="node-top-container">
+                  <div class="photo-placeholder">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                      <circle cx="12" cy="13" r="4"></circle>
+                    </svg>
+                    <span>休士頓巔峰合影 (預留照片)</span>
+                  </div>
+                </div>
+
+                <!-- 中間：軸線連接點飾 -->
+                <div class="node-center-gimmick">
+                  <div class="timeline-connector-top"></div>
+                  <div class="timeline-dot-horizontal"></div>
+                  <div class="timeline-connector-bottom"></div>
+                </div>
+
+                <!-- 下方：文字卡片 -->
+                <div class="node-bottom-container">
+                  <div class="timeline-card">
+                    <div class="timeline-card-body">
+                      <span class="timeline-node-date">2026 年 5 月</span>
+                      <h3>休士頓世界賽巔峰成就</h3>
+                      <p>三度遠征美國休士頓 FRC 世界總決賽，9427 iDeer 全體隊員與機器人狀態調整至最完美。在賽場上發揮驚人表現，最終榮獲分區聯盟亞軍、全明星進步獎、團隊永續獎等多項大獎，震撼全場！</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>              </svg>
                     <span>團隊影像紀錄 (上方預留位置)</span>
                   </div>
                   <div class="timeline-card-body">
