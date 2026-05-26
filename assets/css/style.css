@@ -1804,6 +1804,10 @@ section {
   color: var(--text-dark);
 }
 
+.glass-card .contact-title {
+  color: var(--primary-yellow);
+}
+
 .contact-subtext {
   color: var(--text-navy-dim);
   line-height: 1.6;
