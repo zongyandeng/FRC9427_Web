@@ -89,21 +89,21 @@
               <!-- Name Input -->
               <div class="form-group">
                 <label for="contactName" class="form-label">您的姓名</label>
-                <input type="text" id="contactName" class="form-input" placeholder="請輸入姓名..." required>
+                <input type="text" id="contactName" name="name" class="form-input" placeholder="請輸入姓名..." required>
                 <span class="error-msg" id="nameError">姓名長度至少需為 2 個字元。</span>
               </div>
 
               <!-- Email Input -->
               <div class="form-group">
                 <label for="contactEmail" class="form-label">電子信箱</label>
-                <input type="email" id="contactEmail" class="form-input" placeholder="example@mail.com" required>
+                <input type="email" id="contactEmail" name="email" class="form-input" placeholder="example@mail.com" required>
                 <span class="error-msg" id="emailError">請輸入格式正確的電子郵件信箱。</span>
               </div>
 
               <!-- Message Textarea -->
               <div class="form-group">
                 <label for="contactMessage" class="form-label">您的訊息內容</label>
-                <textarea id="contactMessage" class="form-input" placeholder="請寫下您的需求、合作建議或任何留言..." required></textarea>
+                <textarea id="contactMessage" name="message" class="form-input" placeholder="請寫下您的需求、合作建議或任何留言..." required></textarea>
                 <span class="error-msg" id="messageError">留言訊息內容長度至少需為 10 個字元。</span>
               </div>
 
