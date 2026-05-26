@@ -960,21 +960,7 @@ section {
 
 /* The horizontal glowing axis line */
 .timeline-horizontal-line {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  height: 3px;
-  background: linear-gradient(90deg, 
-    rgba(0, 229, 255, 0.1) 0%, 
-    var(--primary-yellow) 15%, 
-    var(--accent-cyber) 50%, 
-    var(--primary-yellow) 85%, 
-    rgba(0, 229, 255, 0.1) 100%
-  );
-  transform: translateY(-50%);
-  z-index: 1;
-  box-shadow: 0 0 10px rgba(255, 214, 0, 0.3);
+  display: none; /* 隱藏中軸發光線，打造更清爽乾淨的極簡懸浮視覺 */
 }
 
 /* Individual timeline node representing a history point */
@@ -1257,6 +1243,7 @@ section {
   }
   
   .timeline-horizontal-line {
+    display: block; /* 在手機版上重新啟用，作為垂直導引線 */
     left: 20px;
     top: 0;
     bottom: 0;
