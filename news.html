@@ -1316,14 +1316,25 @@
         "台灣好新聞/新北6校挺進FRC世界決賽": "Taiwan Hot News / 6 NTPC Schools Advance to FRC World Finals",
         "勁報/新北FRC機器人世界賽傳捷報": "Power News / NTPC FRC Robot World Championship Triumphs",
         "台灣新生報/新北6校遠征美國機器人界奧運 創歷年最佳成績": "Taiwan Shin Sheng News / 6 NTPC Teams Voyage to US FRC World Championship, Creating Best Records",
-        "自由時報/新北學子FRC大展身手 奪分區聯盟亞軍、全明星進步獎、團隊永續獎": "Liberty Times / NTPC Students Shine at FRC, Winning Division Finalists, Rising All-Star, and Sustainability Awards"
+        "自由時報/新北學子FRC大展身手 奪分區聯盟亞軍、全明星進步獎、團隊永續獎": "Liberty Times / NTPC Students Shine at FRC, Winning Division Finalists, Rising All-Star, and Sustainability Awards",
+        "FIRST世界機器人冠軍賽 台灣學子抱回7獎項": "FIRST World Robot Championship: Taiwan Students Win 7 Awards",
+        "FIRST世界機器人冠軍賽 台灣學子抱回7獎項歷年最多": "FIRST World Robot Championship: Taiwan Students Win 7 Awards, Most in History",
+        "抱回7大獎，創歷年之最！台灣學生組15支隊伍闖機器人界奧運": "Winning 7 Major Awards, Most in History! 15 Taiwan Student Teams Advance to World Championship",
+        "台灣學子閃耀休士頓！ 2026 FIRST 機器人世界賽展現 STEM 教育深耕成果": "Taiwan Students Shine in Houston! 2026 FIRST Robot World Championship Showcases Fruitful Results in STEM Education",
+        "台灣學子閃耀休士頓！ 2026 FIRST 機器人世界賽展現 STEM 教育深耕成果 ": "Taiwan Students Shine in Houston! 2026 FIRST Robot World Championship Showcases Fruitful Results in STEM Education",
+        "台灣學子閃耀休士頓！ 2026 FIRST 機器人世界賽展現 STEM 教育深耕成果  ": "Taiwan Students Shine in Houston! 2026 FIRST Robot World Championship Showcases Fruitful Results in STEM Education",
+        "新北市四校勇闖休士頓 展現機器人實力": "Four NTPC Teams Advance to Houston, Showcasing Robot Talents",
+        "新北4校勇闖休士頓FRC世界決賽 侯友宜授旗加碼百萬獎金衝冠": "Four NTPC Teams Advance to FRC World Finals in Houston, Mayor Awards NT$1M Bonus",
+        "新北4校脫穎而出 勇闖休士頓FRC世界大賽": "Four NTPC Teams Shine and Advance to FRC World Championship in Houston",
+        "全國晉級最多！新北4 校勇闖休士頓FRC 世界決賽 侯友宜授旗加碼百萬獎金衝冠": "NTPC Leads the Nation! Four Teams Advance to FRC World Finals in Houston, Awarded NT$1M Bonus",
+        "新北四校闖世界賽 競逐FRC最高榮譽": "Four NTPC Teams Advance to FRC World Championship, Competing for Supreme Honors"
       };
       
       if (titleMap[title]) {
         translatedTitle = titleMap[title];
       } else {
         // 清除常見的台灣媒體前綴
-        translatedTitle = translatedTitle.replace(/^[a-zA-Z0-9\u4e00-\u9fa5\s\(\)]+[\/|｜]/, "");
+        translatedTitle = translatedTitle.replace(/^[a-zA-Z0-9\u4e00-\u9fa5\s\(\)]+[\/|｜|：|:]/, "");
         
         // 針對大批新聞執行高階關鍵詞自動英文化
         const wordReplacements = [
@@ -1331,10 +1342,15 @@
           [/新北市/g, "New Taipei City"],
           [/新北學Bar/g, "NTPC Education Bar"],
           [/新北/g, "NTPC"],
-          [/機器人/g, "Robot"],
-          [/世界賽/g, "World Championship"],
+          [/世界機器人冠軍賽/g, "World Robot Championship"],
+          [/機器人世界賽/g, "Robot World Championship"],
+          [/機器人世界大賽/g, "Robot World Championship"],
+          [/世界總決賽/g, "World Finals"],
           [/世界決賽/g, "World Finals"],
+          [/世界大賽/g, "World Championship"],
+          [/世界賽/g, "World Championship"],
           [/世大賽/g, "World Championship"],
+          [/機器人/g, "Robot"],
           [/挑戰賽/g, "Challenge"],
           [/區域大賽/g, "Regional"],
           [/區域賽/g, "Regional"],
@@ -1344,6 +1360,32 @@
           [/土耳其/g, "Turkey"],
           [/澳洲/g, "Australia"],
           [/休士頓/g, "Houston"],
+          [/抱回7大獎/g, "Wins 7 Major Awards"],
+          [/抱回7獎項/g, "Wins 7 Awards"],
+          [/歷年最多/g, "Most in History"],
+          [/歷年之最/g, "Best in History"],
+          [/學子/g, "Students"],
+          [/學生組15支隊伍/g, "15 Student Teams"],
+          [/闖/g, "Advance to "],
+          [/機器人界奧運/g, "Robot World Championship"],
+          [/界奧運/g, "World Championship"],
+          [/閃耀/g, "Shines in "],
+          [/展現/g, "Showcases "],
+          [/教育深耕成果/g, "Tech Education Fruits"],
+          [/深耕成果/g, "Fruits"],
+          [/科普/g, "STEM Outreach"],
+          [/在地就學/g, "Local Education"],
+          [/大聯盟/g, "Alliance"],
+          [/特殊選才/g, "Special Admission"],
+          [/表現優異/g, "Excellent Performance"],
+          [/圓夢/g, "Dream-Maker"],
+          [/實作基金/g, "Implementation Fund"],
+          [/授旗/g, "Flags"],
+          [/百萬獎金/g, "NT$1M Bonus"],
+          [/侯友宜/g, "Mayor Hou"],
+          [/加碼/g, "Awards "],
+          [/脫穎而出/g, "Shine and Outperform"],
+          [/衝冠/g, "for Championship"],
           [/亞軍/g, "Finalist"],
           [/奪亞/g, "Wins Finalist"],
           [/奪冠/g, "Wins Champion!"],
@@ -1367,22 +1409,38 @@
         });
       }
       
-      // 媒體來源字典英文化
+      // 媒體來源字典 100% 完整英文化
       const sourceMap = {
         "新北學Bar": "NTPC Education Bar",
         "PChome新聞網": "PChome News",
+        "PChome新聞": "PChome News",
         "國立教育廣播電台": "National Education Radio",
         "台灣好新聞": "Taiwan Hot News",
         "勁報": "Power News",
         "台灣新生報": "Taiwan Shin Sheng News",
         "自由時報": "Liberty Times",
-        "中時電子報": "China Times",
         "聯合新聞網": "UDN News",
-        "三立新聞網": "SET News",
-        "TVBS新聞網": "TVBS News",
-        "ETtoday新聞雲": "ETtoday News",
-        "Yahoo奇摩新聞": "Yahoo News",
-        "新北市政府": "NTPC Gov"
+        "聯合新聞": "UDN News",
+        "中央社": "CNA (Central News Agency)",
+        "經濟日報": "Economic Daily News",
+        "華視新聞網": "CTS News",
+        "僑務委員會": "OCAC (Overseas Community Affairs)",
+        "中華民國僑務委員會": "OCAC",
+        "商業周刊": "Business Weekly",
+        "商業週刊": "Business Weekly",
+        "美南新聞": "Southern News",
+        "新北市政府教育局": "NTPC Education Bureau",
+        "大成報": "Great Taipei News",
+        "中時新聞網": "China Times",
+        "中時新聞": "China Times",
+        "風傳媒": "Storm Media",
+        "Yahoo新聞": "Yahoo News",
+        "LINE TODAY": "LINE TODAY",
+        "民生電子報": "Lifespan News",
+        "國語日報": "Mandarin Daily News",
+        "中華新聞雲": "China News Cloud",
+        "青年日報": "Youth Daily News",
+        "市府": "NTPC Gov"
       };
       
       if (sourceMap[source]) {
