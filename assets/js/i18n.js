@@ -1,30 +1,79 @@
 // i18n.js - FRC 9427 官方網站全新多國語言 (i18n) 翻譯引擎
 // 基於您設定之 Fallback 安全機制、Console 紅字開發警告防呆機制實作。
 
-// 支援的語系與語系快取
+// 支援的語系與內建快取預設翻譯字典
+// 包含內建核心英文語系，能 100% 避免在 file:/// 本地雙擊開啟時遭遇瀏覽器 CORS 跨來源存取安全限制，提供終極高可用性！
 const translations = {
   zh: null, // 繁體中文（直接還原 HTML 原生中文）
-  en: null  // 英文
+  en: {
+    "nav": {
+      "home": "Home",
+      "news": "News & Awards",
+      "resources": "Rookie Resources",
+      "robots": "Robots",
+      "sponsors": "Sponsors",
+      "contact": "Contact Us"
+    },
+    "footer": {
+      "desc": "Official website of New Taipei Municipal Shulin High School Robotics Team. Inspiring engineering creativity, exploring robotics technology, shaping future leaders.",
+      "quickLinks": "Quick Links",
+      "resourcesLib": "Rookie Resources",
+      "robotsGallery": "Robot Gallery",
+      "sponsorsCollab": "Sponsorship",
+      "contactTitle": "Contact Info",
+      "email": "Email:",
+      "address": "Address: No. 216, Da'an Rd., Shulin Dist., New Taipei City",
+      "school": "School: New Taipei Municipal Shulin High School",
+      "designed": "Designed with <span>&hearts;</span> for STEM Education"
+    },
+    "hero": {
+      "title": "New Taipei Municipal Shulin High School<br><span>FRC 9427 iDeer</span> Robotics Team",
+      "subtitle": "We are a technology team named after 'iDeer' (Creative Deer). Through building mechanisms, programming control logic, and promoting STEM education, we showcase high school students' creativity and infinite potential on the global FIRST stage!",
+      "btnResources": "Explore Rookie Resources",
+      "btnSupport": "Support Us / Sponsorship"
+    },
+    "highlights": {
+      "title": "Video Highlights & Team Records",
+      "desc": "Through exciting videos, witness the passionate journey and achievements of Team iDeer in developing robots and promoting STEM!"
+    }
+  }
 };
 
 let currentLang = localStorage.getItem('preferred-lang') || 'zh';
 
-// 載入語系 JSON 檔
+// 載入語系 JSON 檔（具備本機 file 協定防呆與網路 Fetch 雙軌保障）
 async function loadLanguage(lang) {
   if (lang === 'zh') return {}; // 中文直接使用 HTML 內建預設文字，不需額外發送 Fetch 請求
-  if (translations[lang]) return translations[lang];
   
+  // 優先嘗試發送 fetch 請求（以動態載入最新 en.json 檔）
   try {
     const response = await fetch(`./locales/${lang}.json`);
-    if (!response.ok) {
-      throw new Error(`HTTP 錯誤! 狀態碼: ${response.status}`);
+    if (response.ok) {
+      const externalDict = await response.json();
+      // 合併外部載入的翻譯到現有快取中
+      translations[lang] = mergeObjects(translations[lang] || {}, externalDict);
+      return translations[lang];
     }
-    translations[lang] = await response.json();
-    return translations[lang];
   } catch (error) {
-    console.error(`[i18n] 無法載入語系檔: locales/${lang}.json`, error);
-    return {};
+    // 捕獲 file:/// 協定的 CORS 跨來源限制錯誤，或網路不可達錯誤
+    console.warn(`[i18n] 無法從伺服器載入 ${lang}.json 語系檔，將自動啟用內建預置語系防呆機制。`, error);
   }
+  
+  // 若 fetch 失敗（如本地雙擊 file:/// 開啟），無縫退回使用內建的快取預設字典，保證絕對可用
+  return translations[lang] || {};
+}
+
+// 遞迴合併物件輔助函式
+function mergeObjects(target, source) {
+  for (const key in source) {
+    if (source[key] && typeof source[key] === 'object') {
+      if (!target[key]) target[key] = {};
+      mergeObjects(target[key], source[key]);
+    } else {
+      target[key] = source[key];
+    }
+  }
+  return target;
 }
 
 // 執行全網頁翻譯
