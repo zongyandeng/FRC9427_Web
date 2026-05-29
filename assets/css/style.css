@@ -2715,3 +2715,362 @@ footer {
     padding-bottom: 15px;
   }
 }
+
+/* ==========================================
+   LOGO CONCEPT & iDEER VALUES SECTION
+   ========================================== */
+.logo-concept-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.concept-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: all var(--transition-normal);
+}
+
+.concept-icon-wrapper {
+  transition: transform var(--transition-normal);
+}
+
+.concept-card:hover .concept-icon-wrapper {
+  transform: scale(1.1) rotate(10deg);
+}
+
+.concept-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  transition: color var(--transition-fast);
+}
+
+/* --- iDEER VALUES INTERACTIVE BOARD --- */
+.values-board-container {
+  width: 100%;
+}
+
+.ideer-interactive-board {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 40px;
+  align-items: center;
+  margin-top: 40px;
+}
+
+/* 幾何交錯三角形拼貼列 */
+.ideer-triangles-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 40px 0;
+  margin: 0 auto;
+}
+
+.triangle-item-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  transition: transform var(--transition-normal), z-index var(--transition-fast);
+  z-index: 2;
+}
+
+/* 正三角形 (I, E, R) */
+.svg-triangle-up {
+  width: 130px;
+  height: 113px; /* 等邊三角形比例 1 : 0.866 */
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  background: rgba(255, 214, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all var(--transition-normal);
+}
+
+.svg-triangle-up::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  background: linear-gradient(180deg, rgba(255, 214, 0, 0.25) 0%, transparent 100%);
+  z-index: 1;
+}
+
+/* 倒三角形 (D, E) */
+.svg-triangle-down {
+  width: 130px;
+  height: 113px;
+  clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+  background: rgba(10, 25, 47, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all var(--transition-normal);
+  border: 1px solid rgba(0, 229, 255, 0.25);
+  /* 透過負邊距實現完美無縫拼貼重疊 */
+  margin-left: -65px;
+  margin-right: -65px;
+  z-index: 1;
+}
+
+.svg-triangle-down::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 229, 255, 0.15) 100%);
+  z-index: 1;
+}
+
+.letter-label {
+  font-family: var(--font-mono);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--text-white);
+  z-index: 2;
+  transition: all var(--transition-normal);
+  text-shadow: 0 0 10px rgba(5, 12, 30, 0.4);
+}
+
+.svg-triangle-up .letter-label {
+  padding-top: 32px; /* 偏向中下方對齊 */
+  color: var(--primary-yellow);
+}
+
+.svg-triangle-down .letter-label {
+  padding-bottom: 32px; /* 偏向中上方對齊 */
+  color: var(--accent-cyber);
+}
+
+.letter-title {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-gray);
+  margin-top: 16px;
+  transition: all var(--transition-normal);
+  white-space: nowrap;
+}
+
+/* 倒三角形的標題微調垂直位置以避開重疊 */
+.triangle-item-wrapper:nth-child(2) .letter-title,
+.triangle-item-wrapper:nth-child(4) .letter-title {
+  margin-top: 24px;
+}
+
+/* --- HOVER & ACTIVE 狀態設計 --- */
+.triangle-item-wrapper:hover {
+  transform: translateY(-4px) scale(1.05);
+  z-index: 5;
+}
+
+.triangle-item-wrapper.active {
+  z-index: 4;
+}
+
+/* Active 時的發光與背景變化 */
+.triangle-item-wrapper.active .svg-triangle-up {
+  background: var(--primary-yellow);
+  filter: drop-shadow(0 0 25px rgba(255, 214, 0, 0.6));
+}
+
+.triangle-item-wrapper.active .svg-triangle-up .letter-label {
+  color: var(--text-dark);
+  transform: scale(1.1);
+}
+
+.triangle-item-wrapper.active .svg-triangle-down {
+  background: var(--accent-cyber);
+  filter: drop-shadow(0 0 25px rgba(0, 229, 255, 0.6));
+}
+
+.triangle-item-wrapper.active .svg-triangle-down .letter-label {
+  color: var(--text-dark);
+  transform: scale(1.1);
+}
+
+.triangle-item-wrapper.active .letter-title {
+  color: var(--text-white);
+  font-weight: 700;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+/* --- 右側毛玻璃詳情面版 --- */
+.values-detail-panel {
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 214, 0, 0.15);
+  box-shadow: 0 15px 40px rgba(5, 12, 30, 0.4);
+  position: relative;
+  overflow: hidden;
+  padding: 40px !important;
+}
+
+.panel-content {
+  display: none;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.panel-content.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.panel-header-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 16px;
+}
+
+.panel-letter {
+  font-family: var(--font-mono);
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--primary-yellow);
+  text-shadow: 0 0 20px rgba(255, 214, 0, 0.3);
+}
+
+.panel-value-title {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--text-white);
+}
+
+.panel-subtitle {
+  color: var(--text-gray);
+  font-size: 0.98rem;
+  margin-top: 4px;
+}
+
+.english-quote {
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.85);
+  border-left: 3px solid var(--primary-yellow);
+  padding-left: 16px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.panel-content[id="content-D"] .english-quote,
+.panel-content[id="content-E2"] .english-quote {
+  border-left-color: var(--accent-cyber);
+}
+
+.panel-desc-text {
+  color: var(--text-gray);
+  line-height: 1.7;
+  font-size: 0.98rem;
+}
+
+/* --- 社會影響力卡片樣式 --- */
+.impact-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+.impact-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: all var(--transition-normal);
+}
+
+.impact-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(5, 12, 30, 0.35);
+}
+
+.impact-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--primary-yellow);
+}
+
+.impact-desc {
+  color: var(--text-gray);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* --- 響應式調整 (RWD) --- */
+@media (max-width: 1100px) {
+  .ideer-interactive-board {
+    grid-template-columns: 1fr; /* 看板變垂直 */
+    gap: 30px;
+  }
+  .ideer-triangles-grid {
+    max-width: 580px;
+  }
+  .svg-triangle-up, .svg-triangle-down {
+    width: 110px;
+    height: 95px;
+  }
+  .svg-triangle-down {
+    margin-left: -55px;
+    margin-right: -55px;
+  }
+  .letter-label {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 680px) {
+  .ideer-triangles-grid {
+    display: none; /* 手機端隱藏三角形拼貼圖騰，改為更易於操作的列表 */
+  }
+  .values-detail-panel {
+    display: none; /* 手機端隱藏互動式面板，改為直接垂直展示所有卡片 */
+  }
+  
+  /* 在手機端，我們將透過 CSS 動態生成垂直卡片排列 */
+  .ideer-interactive-board {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* 使用 CSS 讓所有隱藏的 panel-content 在手機版強制顯示 */
+  .ideer-interactive-board .panel-content {
+    display: block !important;
+    opacity: 1 !important;
+    transform: none !important;
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 214, 0, 0.15) !important;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 15px;
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .ideer-interactive-board .values-detail-panel {
+    display: contents; /* 展開容器 */
+  }
+}
+
