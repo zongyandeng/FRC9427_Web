@@ -16,8 +16,8 @@
   
   --accent-blue: #0f2547; /* Contrast Slate Blue */
   --accent-royal: #1565c0; /* Royal Uniform Blue */
-  --accent-cyber: #00e5ff; /* Cyber Electric Blue for robotic glows */
-  --accent-cyber-glow: rgba(0, 229, 255, 0.35);
+  --accent-cyber: #10b981; /* Morandi Emerald Green (Sustainable green, highly comfortable) */
+  --accent-cyber-glow: rgba(16, 185, 129, 0.35);
   
   --text-white: #f8fafc; /* Text on dark cards/nav */
   --text-light: #e2e8f0;
@@ -2786,7 +2786,8 @@ footer {
   width: 130px;
   height: 113px; /* 等邊三角形比例 1 : 0.866 */
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-  background: rgba(255, 214, 0, 0.15);
+  background: rgba(10, 25, 47, 0.85);
+  border: 1px solid rgba(255, 214, 0, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2802,7 +2803,7 @@ footer {
   width: 100%;
   height: 100%;
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-  background: linear-gradient(180deg, rgba(255, 214, 0, 0.25) 0%, transparent 100%);
+  background: linear-gradient(180deg, rgba(255, 214, 0, 0.15) 0%, transparent 100%);
   z-index: 1;
 }
 
@@ -2884,8 +2885,9 @@ footer {
 
 /* Active 時的發光與背景變化 */
 .triangle-item-wrapper.active .svg-triangle-up {
-  background: var(--primary-yellow);
-  filter: drop-shadow(0 0 25px rgba(255, 214, 0, 0.6));
+  background: rgba(255, 255, 255, 0.96);
+  border-color: rgba(255, 255, 255, 1);
+  filter: drop-shadow(0 0 20px rgba(255, 214, 0, 0.65));
 }
 
 .triangle-item-wrapper.active .svg-triangle-up .letter-label {
@@ -2894,8 +2896,9 @@ footer {
 }
 
 .triangle-item-wrapper.active .svg-triangle-down {
-  background: var(--accent-cyber);
-  filter: drop-shadow(0 0 25px rgba(0, 229, 255, 0.6));
+  background: var(--accent-cyber); /* 已改為 #10b981 舒適翠綠色 */
+  border-color: var(--accent-cyber);
+  filter: drop-shadow(0 0 20px rgba(16, 185, 129, 0.65));
 }
 
 .triangle-item-wrapper.active .svg-triangle-down .letter-label {
