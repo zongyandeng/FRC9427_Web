@@ -3126,3 +3126,13 @@ footer {
   }
 }
 
+/* 國際化 (i18n) 雙語自適應樣式控制 */
+html[lang="en"] .sponsor-name-zh {
+  display: none !important;
+}
+html[lang="en"] .sponsor-name-en {
+  font-size: 0.85rem !important;
+  font-weight: 700 !important;
+  color: var(--text-white) !important;
+}
+

@@ -29,7 +29,16 @@
   "highlights": {
     "title": "Video Highlights & Team Records",
     "desc": "Through exciting videos, witness the passionate journey and achievements of Team iDeer in developing robots and promoting STEM!",
-    "watchNow": "Watch Now"
+    "watchNow": "Watch Now",
+    "v1": { "title": "2026 FRC 9427 iDeer Impact Video" },
+    "v2": { "title": "FRC 9427 | 2025 Season Records | SLSH iDEER" },
+    "v3": { "title": "FIRST Team 9427 - Impact Video 2025" },
+    "v4": { "title": "Team 9427 iDEER - 2025 REEFSCAPE Robot in 5 weeks" },
+    "v5": { "title": "Like A Deer Music Video (2024 Southern Cross Regional)" },
+    "v6": { "title": "SLSH FRC 9427 - Like a Deer MV (Pre-Season)" },
+    "v7": { "title": "2025 New Taipei FRC Rookie Cup Opening Video" },
+    "v8": { "title": "2024 FRC Robotics Taiwan Off-Season Recap Video" },
+    "v9": { "title": "2024 FRC Robotics Taiwan Off-Season Promo Video" }
   },
   "impact": {
     "title": "Social Return & Influence",
@@ -72,6 +81,22 @@
       "desc": "Deep gratitude to all enterprises and mentors who fully support our journey. You light up high school students' science and engineering dreams!",
       "btn": "Become Our Sponsor / Request Proposals"
     }
+  },
+  "about": {
+    "title": "About Our Team",
+    "desc": "iDeer represents the perfect combination of intelligence and creativity. Founded in New Taipei Municipal Shulin High School, we are dedicated to transforming academic theories into practical robotics engineering.",
+    "missionTitle": "Our Mission",
+    "missionDesc": "By participating in the FIRST Robotics Competition (FRC), we cultivate members' multi-faceted skills in mechanical design, electrical engineering, software programming, public relations, marketing, and project management. In the spirit of mutual cooperation, we achieve cross-disciplinary excellence.",
+    "spiritTitle": "iDeer Creative Spirit",
+    "spiritDesc": "\"iDeer\" is derived from \"Idea\" (creativity) and \"Deer\" (the representative animal of Shulin High School). It symbolizes agile thinking like a deer and fearless exploration spirit, always keeping continuous sparks of innovation when facing complex mechanisms and control logic challenges.",
+    "badgeTitle": "Our Badge Concept",
+    "badgeDesc": "Every geometric element of our team badge represents our care for the environment and pursuit of technological innovation.",
+    "badgeConcept1Title": "The Deer - Eco-Tech Coexistence",
+    "badgeConcept1Desc": "Taking the \"Deer\" image as the brand concept, inspired by the constructed wetland near our school——\"Lujiao Creek\". We expect members to learn how to feedback their knowledge to the natural environment while exploring technology, achieving sustainable coexistence of human, machine, and ecology.",
+    "badgeConcept2Title": "The Leaf - Green Sustainability Commitment",
+    "badgeConcept2Desc": "The \"Leaf\" in our badge conveys our team's green commitment in engineering and R&D. We persist in deep-rooting green energy, eco-friendly materials, energy-saving technologies, and environmental sustainability in our annual competition robot development and design principles.",
+    "badgeConcept3Title": "The Bulb - Creative & Innovative Thinking",
+    "badgeConcept3Desc": "The \"Bulb\" in our badge symbolizes sparks of thought and dissemination of wisdom. It reflects the team's pursuit of innovative thinking, and keeping endless passion, exploration, and dedication when facing tough mechanical control issues."
   },
   "sponsors": {
     "title": "Become Our Partner",
@@ -193,6 +218,7 @@
     "loadMoreBtn": "Load More Articles",
     "loadMoreAwardsBtn": "View More Awards",
     "timeline": {
+      "sectionTag": "History",
       "sectionTitle": "Team Growth Timeline",
       "sectionDesc": "From a simple initial idea to stepping onto the international competition stage, this is the exciting journey we wrote together.",
       "n1": {
