@@ -259,6 +259,7 @@ const translations = {
             }
         },
         "awards": {
+            "tag": "Achievements",
             "title": "Team Honors & Awards",
             "desc": "The milestones we wrote together through hard work and cooperation on the field. Gratitude to all members!"
         },
@@ -498,6 +499,9 @@ async function translatePage(lang) {
   if (pageTitleMap[lang] && pageTitleMap[lang][pageName]) {
     document.title = pageTitleMap[lang][pageName];
   }
+  
+  // 觸發自定義 'languagechange' 事件以重繪如 news.html 等動態內容 (確保 lang 屬性已 100% 變更)
+  window.dispatchEvent(new Event('languagechange'));
 }
 
 // 輔助函式：讀取巢狀 JSON 物件 (例如將 "nav.home" 解析為 dict.nav.home)
@@ -527,9 +531,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (langBtn) {
       const nextLang = currentLang === 'zh' ? 'en' : 'zh';
       translatePage(nextLang);
-      
-      // 觸發自定義 'languagechange' 事件以重繪如 news.html 等動態內容
-      window.dispatchEvent(new Event('languagechange'));
     }
   });
 });
