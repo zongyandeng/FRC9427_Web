@@ -234,6 +234,55 @@ header.scrolled {
   color: var(--primary-yellow);
 }
 
+/* Logo與語系切換按鈕包裹器 */
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* 語系切換按鈕 Cyber 科技感設計 */
+.lang-switch-btn {
+  background: rgba(255, 214, 0, 0.05);
+  border: 1px solid rgba(255, 214, 0, 0.3);
+  color: var(--primary-yellow);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 5px rgba(255, 214, 0, 0.05);
+}
+
+.lang-switch-btn:hover {
+  background: var(--primary-yellow);
+  color: var(--bg-navy);
+  border-color: var(--primary-yellow);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-1px);
+}
+
+.lang-switch-btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .logo-wrapper {
+    gap: 10px;
+  }
+  .lang-switch-btn {
+    padding: 4px 8px;
+    font-size: 0.75rem;
+  }
+}
+
 /* Navigation Links */
 .nav-menu {
   display: flex;

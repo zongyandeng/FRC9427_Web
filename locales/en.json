@@ -1,0 +1,32 @@
+{
+  "nav": {
+    "home": "Home",
+    "news": "News & Awards",
+    "resources": "Rookie Resources",
+    "robots": "Robots",
+    "sponsors": "Sponsors",
+    "contact": "Contact Us"
+  },
+  "footer": {
+    "desc": "Official website of New Taipei Municipal Shulin High School Robotics Team. Inspiring engineering creativity, exploring robotics technology, shaping future leaders.",
+    "quickLinks": "Quick Links",
+    "resourcesLib": "Rookie Resources",
+    "robotsGallery": "Robot Gallery",
+    "sponsorsCollab": "Sponsorship",
+    "contactTitle": "Contact Info",
+    "email": "Email:",
+    "address": "Address: No. 216, Da'an Rd., Shulin Dist., New Taipei City",
+    "school": "School: New Taipei Municipal Shulin High School",
+    "designed": "Designed with <span>&hearts;</span> for STEM Education"
+  },
+  "hero": {
+    "title": "New Taipei Municipal Shulin High School<br><span>FRC 9427 iDeer</span> Robotics Team",
+    "subtitle": "We are a technology team named after 'iDeer' (Creative Deer). Through building mechanisms, programming control logic, and promoting STEM education, we showcase high school students' creativity and infinite potential on the global FIRST stage!",
+    "btnResources": "Explore Rookie Resources",
+    "btnSupport": "Support Us / Sponsorship"
+  },
+  "highlights": {
+    "title": "Video Highlights & Team Records",
+    "desc": "Through exciting videos, witness the passionate journey and achievements of Team iDeer in developing robots and promoting STEM!"
+  }
+}

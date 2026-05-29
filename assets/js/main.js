@@ -276,10 +276,13 @@ document.addEventListener('DOMContentLoaded', () => {
       const headerHtml = `
 <header id="mainHeader">
   <div class="nav-container">
-    <a href="index.html" class="logo" id="logoLink">
-      <img src="assets/images/logo.png" alt="FRC 9427 iDeer Logo">
-      <div class="logo-text">FRC<span>9427</span></div>
-    </a>
+    <div class="logo-wrapper">
+      <a href="index.html" class="logo" id="logoLink">
+        <img src="assets/images/logo.png" alt="FRC 9427 iDeer Logo">
+        <div class="logo-text">FRC<span>9427</span></div>
+      </a>
+      <button id="lang-btn" class="lang-switch-btn" aria-label="Switch Language">English</button>
+    </div>
 
     <!-- Hamburger mobile toggle -->
     <button class="hamburger" id="navToggle" aria-label="切換導覽選單">
@@ -290,12 +293,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     <!-- Desktop / Mobile Nav Links -->
     <nav class="nav-menu" id="navMenu">
-      <a href="index.html" class="nav-link ${isHome}" id="navHome">首頁</a>
-      <a href="news.html" class="nav-link ${isNews}" id="navNews">歷屆新聞 / 獎項</a>
-      <a href="resources.html" class="nav-link ${isResources}" id="navResources">新手資源</a>
-      <a href="robots.html" class="nav-link ${isRobots}" id="navRobots">歷屆機器</a>
-      <a href="sponsors.html" class="nav-link ${isSponsors}" id="navSponsors">贊助商專區</a>
-      <a href="contact.html" class="btn-nav ${isContact}" id="navContact">聯繫我們</a>
+      <a href="index.html" class="nav-link ${isHome}" id="navHome" data-i18n="nav.home">首頁</a>
+      <a href="news.html" class="nav-link ${isNews}" id="navNews" data-i18n="nav.news">歷屆新聞 / 獎項</a>
+      <a href="resources.html" class="nav-link ${isResources}" id="navResources" data-i18n="nav.resources">新手資源</a>
+      <a href="robots.html" class="nav-link ${isRobots}" id="navRobots" data-i18n="nav.robots">歷屆機器</a>
+      <a href="sponsors.html" class="nav-link ${isSponsors}" id="navSponsors" data-i18n="nav.sponsors">贊助商專區</a>
+      <a href="contact.html" class="btn-nav ${isContact}" id="navContact" data-i18n="nav.contact">聯繫我們</a>
     </nav>
   </div>
 </header>
@@ -312,33 +315,33 @@ document.addEventListener('DOMContentLoaded', () => {
         <img src="assets/images/logo.png" alt="FRC 9427 iDeer Logo">
         <div class="logo-text">FRC<span>9427</span></div>
       </div>
-      <p class="footer-desc">新北市立樹林高中機器人隊官方網站。激發工程創意，探索機器人技術，塑造未來領袖。</p>
+      <p class="footer-desc" data-i18n="footer.desc">新北市立樹林高中機器人隊官方網站。激發工程創意，探索機器人技術，塑造未來領袖。</p>
     </div>
 
     <div class="footer-links-col">
-      <h4>快速連結</h4>
+      <h4 data-i18n="footer.quickLinks">快速連結</h4>
       <ul class="footer-links">
-        <li><a href="index.html">首頁</a></li>
-        <li><a href="news.html">歷屆新聞 / 獎項</a></li>
-        <li><a href="resources.html">新手資源庫</a></li>
-        <li><a href="robots.html">歷屆競賽機器</a></li>
-        <li><a href="sponsors.html">贊助合作</a></li>
+        <li><a href="index.html" data-i18n="nav.home">首頁</a></li>
+        <li><a href="news.html" data-i18n="nav.news">歷屆新聞 / 獎項</a></li>
+        <li><a href="resources.html" data-i18n="footer.resourcesLib">新手資源庫</a></li>
+        <li><a href="robots.html" data-i18n="footer.robotsGallery">歷屆競賽機器</a></li>
+        <li><a href="sponsors.html" data-i18n="footer.sponsorsCollab">贊助合作</a></li>
       </ul>
     </div>
 
     <div class="footer-links-col">
-      <h4>聯絡資訊</h4>
+      <h4 data-i18n="footer.contactTitle">聯絡資訊</h4>
       <ul class="footer-links">
-        <li>信箱: <a href="mailto:slshfrc@slsh.ntpc.edu.tw">slshfrc@slsh.ntpc.edu.tw</a></li>
-        <li>地址: 新北市樹林區大安路216號</li>
-        <li>學校: 新北市立樹林高中</li>
+        <li><span data-i18n="footer.email">信箱:</span> <a href="mailto:slshfrc@slsh.ntpc.edu.tw">slshfrc@slsh.ntpc.edu.tw</a></li>
+        <li data-i18n="footer.address">地址: 新北市樹林區大安路216號</li>
+        <li data-i18n="footer.school">學校: 新北市立樹林高中</li>
       </ul>
     </div>
   </div>
 
   <div class="footer-copyright">
     <p>&copy; 2026 FRC 9427 iDeer. All Rights Reserved. </p>
-    <p>Designed with <span>&hearts;</span> for STEM Education</p>
+    <p data-i18n="footer.designed">Designed with <span>&hearts;</span> for STEM Education</p>
   </div>
 </footer>
       `;
