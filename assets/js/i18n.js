@@ -23,18 +23,69 @@ const translations = {
       "contactTitle": "Contact Info",
       "email": "Email:",
       "address": "Address: No. 216, Da'an Rd., Shulin Dist., New Taipei City",
-      "school": "School: New Taipei Municipal Shulin High School",
-      "designed": "Designed with <span>&hearts;</span> for STEM Education"
+      "school": "School: New Taipei Municipal Shulin High School"
     },
     "hero": {
-      "title": "New Taipei Municipal Shulin High School<br><span>FRC 9427 iDeer</span> Robotics Team",
+      "titleSchool": "New Taipei Municipal Shulin High School",
+      "titleTeam": "FRC 9427 iDeer",
+      "titleSuffix": "Robotics Team",
       "subtitle": "We are a technology team named after 'iDeer' (Creative Deer). Through building mechanisms, programming control logic, and promoting STEM education, we showcase high school students' creativity and infinite potential on the global FIRST stage!",
       "btnResources": "Explore Rookie Resources",
       "btnSupport": "Support Us / Sponsorship"
     },
     "highlights": {
       "title": "Video Highlights & Team Records",
-      "desc": "Through exciting videos, witness the passionate journey and achievements of Team iDeer in developing robots and promoting STEM!"
+      "desc": "Through exciting videos, witness the passionate journey and achievements of Team iDeer in developing robots and promoting STEM!",
+      "watchNow": "Watch Now"
+    },
+    "impact": {
+      "title": "Social Return & Influence",
+      "desc": "We put the tenets of iDEER into practical action, striving to promote STEM popular science education, implement caring for the disadvantaged, and warm our society with gentle light.",
+      "c1": {
+        "title": "Girls in Tech Camps",
+        "desc": "Breaking traditional stereotypes, we plan and host exclusive technology camps for girls, encouraging more female students from local middle and high schools to touch 3D modeling, mechanism design, and programming to cultivate future female STEM leaders."
+      },
+      "c2": {
+        "title": "AI Assistive Device Dev",
+        "desc": "Believing in tech with a warm heart, we combine AI image recognition and voice synthesis to develop exclusive tactile and visual assistive devices for special education schools, utilizing innovation to overcome physical barriers."
+      },
+      "c3": {
+        "title": "Supporting Rookie Teams",
+        "desc": "As FIRST technology mentors, we are happy to share Onshape design, WPILib sample code, and public relations experience. We actively visit other schools to help multiple rookie teams smoothly organize and compete."
+      }
+    },
+    "hubs": {
+      "title": "Explore Our Website",
+      "desc": "Delve deeper into Team iDeer's operations, learning resources, and achievements through the sections below.",
+      "c1": {
+        "title": "News & Awards",
+        "desc": "Track our honored battle achievements, school, and social news reports, and celebrate every growth moment with us.",
+        "link": "Go to News Timeline"
+      },
+      "c2": {
+        "title": "Rookie Resources",
+        "desc": "Specially compiled introductory and advanced learning materials for FRC rookies and enthusiasts, covering CAD, WPILib, and assembly.",
+        "link": "Get Engineering Library"
+      },
+      "c3": {
+        "title": "Robot Gallery",
+        "desc": "Showcasing our past years' hard work. Detailed breakdown of manipulators, intakes, chassis control, and season strategy specs.",
+        "link": "View Robot Gallery"
+      }
+    },
+    "index": {
+      "sponsors": {
+        "title": "Sponsorship Partners",
+        "desc": "Deep gratitude to all enterprises and mentors who fully support our journey. You light up high school students' science and engineering dreams!",
+        "btn": "Become Our Sponsor / Request Proposals"
+      }
+    },
+    "sponsors": {
+      "partners": {
+        "slshPa": "SLSH Parents Association",
+        "ntpcEdu": "Education Bureau, NTPC",
+        "ideerFund": "iDeer Project Fund"
+      }
     }
   }
 };
@@ -139,6 +190,32 @@ async function translatePage(lang) {
   
   // 更新翻譯按鈕本身的文字顯示
   updateLangButtonText(lang);
+
+  // 根據當前語言和網頁檔名翻譯網頁 Title (達成 100% 全面中英文切換體驗)
+  const pageTitleMap = {
+    zh: {
+      'index': 'FRC 9427 iDeer | 新北市立樹林高中機器人隊',
+      'news': '歷屆新聞 & 獎項 | FRC 9427 iDeer',
+      'resources': '新手資源庫 | FRC 9427 iDeer',
+      'robots': '歷屆競賽機器人 | FRC 9427 iDeer',
+      'sponsors': '贊助商專區 | FRC 9427 iDeer',
+      'contact': '聯繫我們 | FRC 9427 iDeer'
+    },
+    en: {
+      'index': 'FRC 9427 iDeer | SLSH Robotics Team',
+      'news': 'News & Awards | FRC 9427 iDeer',
+      'resources': 'Rookie Resources | FRC 9427 iDeer',
+      'robots': 'Competition Robots | FRC 9427 iDeer',
+      'sponsors': 'Sponsors | FRC 9427 iDeer',
+      'contact': 'Contact Us | FRC 9427 iDeer'
+    }
+  };
+  const path = window.location.pathname;
+  let pageName = path.substring(path.lastIndexOf('/') + 1).replace('.html', '') || 'index';
+  if (pageName === '') pageName = 'index';
+  if (pageTitleMap[lang] && pageTitleMap[lang][pageName]) {
+    document.title = pageTitleMap[lang][pageName];
+  }
 }
 
 // 輔助函式：讀取巢狀 JSON 物件 (例如將 "nav.home" 解析為 dict.nav.home)

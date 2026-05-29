@@ -25,15 +25,15 @@
         <!-- HEADER -->
         <div class="section-header">
           <span class="section-tag">Get In Touch</span>
-          <h1 class="section-title">聯繫 iDeer 團隊</h1>
-          <p class="section-desc">不論是尋求贊助合作、學術產學交流，還是想加入我們成為團隊的一份子，歡迎隨時透過以下社群或表單與我們聯繫！</p>
+          <h1 class="section-title" data-i18n="contact.title">聯繫 iDeer 團隊</h1>
+          <p class="section-desc" data-i18n="contact.desc">不論是尋求贊助合作、學術產學交流，還是想加入我們成為團隊的一份子，歡迎隨時透過以下社群或表單與我們聯繫！</p>
         </div>
 
         <div class="contact-grid">
           <!-- LEFT SIDE: SOCIAL CARDS -->
           <div class="contact-info reveal">
-            <h2 class="contact-title">社交媒體 & 官方信箱</h2>
-            <p class="contact-subtext" style="margin-bottom: 24px;">我們會在各大社群媒體上定期分享第一手的賽賽季開發日常、技術突破與團隊趣事，歡迎追蹤點讚！</p>
+            <h2 class="contact-title" data-i18n="contact.socialTitle">社交媒體 & 官方信箱</h2>
+            <p class="contact-subtext" style="margin-bottom: 24px;" data-i18n="contact.socialSubtext">我們會在各大社群媒體上定期分享第一手的賽賽季開發日常、技術突破與團隊趣事，歡迎追蹤點讚！</p>
             
             <div class="social-list">
               <!-- Instagram -->
@@ -46,7 +46,7 @@
                   </svg>
                 </div>
                 <div class="social-details">
-                  <h4>Instagram 官方帳號</h4>
+                  <h4 data-i18n="contact.igTitle">Instagram 官方帳號</h4>
                   <p>@frc_9427</p>
                 </div>
               </a>
@@ -59,8 +59,8 @@
                   </svg>
                 </div>
                 <div class="social-details">
-                  <h4>Facebook 粉絲專頁</h4>
-                  <p>樹林高中 FRC 9427</p>
+                  <h4 data-i18n="contact.fbTitle">Facebook 粉絲專頁</h4>
+                  <p data-i18n="contact.fbName">樹林高中 FRC 9427</p>
                 </div>
               </a>
 
@@ -73,7 +73,7 @@
                   </svg>
                 </div>
                 <div class="social-details">
-                  <h4>官方聯絡信箱</h4>
+                  <h4 data-i18n="contact.emailTitle">官方聯絡信箱</h4>
                   <p>slshfrc@slsh.ntpc.edu.tw</p>
                 </div>
               </a>
@@ -82,35 +82,35 @@
 
           <!-- RIGHT SIDE: CONTACT FORM -->
           <div class="glass-card contact-form-container reveal">
-            <h2 class="contact-title" style="margin-bottom: 24px;">發送聯絡訊息</h2>
+            <h2 class="contact-title" style="margin-bottom: 24px;" data-i18n="contact.formTitle">發送聯絡訊息</h2>
             
             <form id="contactForm" novalidate>
               <!-- Web3Forms Access Key (靜態郵件服務金鑰，若需啟用請填入金鑰值) -->
               <input type="hidden" name="access_key" value="6e32b011-bff0-4f23-8e18-be554a76ffb7">
               <!-- Name Input -->
               <div class="form-group">
-                <label for="contactName" class="form-label">您的姓名</label>
-                <input type="text" id="contactName" name="name" class="form-input" placeholder="請輸入姓名..." required>
-                <span class="error-msg" id="nameError">姓名長度至少需為 2 個字元。</span>
+                <label for="contactName" class="form-label" data-i18n="contact.nameLabel">您的姓名</label>
+                <input type="text" id="contactName" name="name" class="form-input" placeholder="請輸入姓名..." data-i18n="contact.namePlaceholder" required>
+                <span class="error-msg" id="nameError" data-i18n="contact.nameError">姓名長度至少需為 2 個字元。</span>
               </div>
 
               <!-- Email Input -->
               <div class="form-group">
-                <label for="contactEmail" class="form-label">電子信箱</label>
-                <input type="email" id="contactEmail" name="email" class="form-input" placeholder="example@mail.com" required>
-                <span class="error-msg" id="emailError">請輸入格式正確的電子郵件信箱。</span>
+                <label for="contactEmail" class="form-label" data-i18n="contact.emailLabel">電子信箱</label>
+                <input type="email" id="contactEmail" name="email" class="form-input" placeholder="example@mail.com" data-i18n="contact.emailPlaceholder" required>
+                <span class="error-msg" id="emailError" data-i18n="contact.emailError">請輸入格式正確的電子郵件信箱。</span>
               </div>
 
               <!-- Message Textarea -->
               <div class="form-group">
-                <label for="contactMessage" class="form-label">您的訊息內容</label>
-                <textarea id="contactMessage" name="message" class="form-input" placeholder="請寫下您的需求、合作建議或任何留言..." required></textarea>
-                <span class="error-msg" id="messageError">留言訊息內容長度至少需為 10 個字元。</span>
+                <label for="contactMessage" class="form-label" data-i18n="contact.msgLabel">您的訊息內容</label>
+                <textarea id="contactMessage" name="message" class="form-input" placeholder="請寫下您的需求、合作建議或任何留言..." data-i18n="contact.msgPlaceholder" required></textarea>
+                <span class="error-msg" id="messageError" data-i18n="contact.msgError">留言訊息內容長度至少需為 10 個字元。</span>
               </div>
 
               <!-- Submit button -->
               <button type="submit" class="btn btn-primary" style="width: 100%;">
-                <span>安全提交訊息</span>
+                <span data-i18n="contact.submitBtn">安全提交訊息</span>
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <line x1="22" y1="2" x2="11" y2="13"></line>
                   <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
@@ -132,9 +132,9 @@
           <polyline points="20 6 9 17 4 12" />
         </svg>
       </div>
-      <h3 class="modal-title" id="modalTitle">訊息提交成功</h3>
-      <p class="modal-text">我們已經收到您的聯絡訊息！團隊公關將會盡快以電子郵件或社群平台回覆您的合作提案。</p>
-      <button class="btn btn-primary" id="closeModalBtn" style="min-width: 120px;">確認關閉</button>
+      <h3 class="modal-title" id="modalTitle" data-i18n="contact.modalTitle">訊息提交成功</h3>
+      <p class="modal-text" data-i18n="contact.modalDesc">我們已經收到您的聯絡訊息！團隊公關將會盡快以電子郵件或社群平台回覆您的合作提案。</p>
+      <button class="btn btn-primary" id="closeModalBtn" style="min-width: 120px;" data-i18n="contact.modalClose">確認關閉</button>
     </div>
   </div>
 

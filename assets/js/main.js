@@ -159,21 +159,23 @@ document.addEventListener('DOMContentLoaded', () => {
         const hasAccessKey = accessKeyInput && accessKeyInput.value && accessKeyInput.value.trim() !== 'YOUR_ACCESS_KEY_HERE';
 
         if (hasAccessKey) {
+          const isEn = document.documentElement.lang === 'en';
+          
           // 顯示提交中狀態 (提升使用者體驗)
           const submitBtn = contactForm.querySelector('button[type="submit"]');
           const submitBtnSpan = submitBtn.querySelector('span');
-          const originalText = submitBtnSpan ? submitBtnSpan.innerText : '安全提交訊息';
+          const originalText = submitBtnSpan ? submitBtnSpan.innerText : (isEn ? 'Secure Submit Message' : '安全提交訊息');
           
           if (submitBtn) {
             submitBtn.disabled = true;
-            if (submitBtnSpan) submitBtnSpan.innerText = '訊息傳送中...';
+            if (submitBtnSpan) submitBtnSpan.innerText = isEn ? 'Sending message...' : '訊息傳送中...';
             submitBtn.style.opacity = '0.7';
             submitBtn.style.cursor = 'not-allowed';
           }
 
           const formData = new FormData(contactForm);
           // 加入一些預設欄位供 Web3Forms 郵件格式化使用
-          formData.append('subject', '新聯絡訊息 - FRC 9427 官方網站');
+          formData.append('subject', isEn ? 'New Contact Message - FRC 9427 Web' : '新聯絡訊息 - FRC 9427 官方網站');
           formData.append('from_name', nameInput.value.trim());
 
           fetch('https://api.web3forms.com/submit', {
@@ -197,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
               }
               contactForm.reset();
             } else {
-              alert('發送郵件失敗：' + (data.message || '未知錯誤'));
+              alert(isEn ? ('Failed to send message: ' + (data.message || 'Unknown error')) : ('發送郵件失敗：' + (data.message || '未知錯誤')));
             }
           })
           .catch(error => {
@@ -209,7 +211,9 @@ document.addEventListener('DOMContentLoaded', () => {
               submitBtn.style.cursor = '';
             }
             console.error('Error sending message via Web3Forms:', error);
-            alert('訊息傳送時發生錯誤，請稍後再試，或直接發送郵件至 slshfrc@slsh.ntpc.edu.tw。');
+            alert(isEn 
+              ? 'An error occurred while sending your message. Please try again later or email us directly at slshfrc@slsh.ntpc.edu.tw.' 
+              : '訊息傳送時發生錯誤，請稍後再試，或直接發送郵件至 slshfrc@slsh.ntpc.edu.tw。');
           });
         } else {
           // 模擬成功模式 (沒有填寫 Access Key)
@@ -341,7 +345,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   <div class="footer-copyright">
     <p>&copy; 2026 FRC 9427 iDeer. All Rights Reserved. </p>
-    <p data-i18n="footer.designed">Designed with <span>&hearts;</span> for STEM Education</p>
+    <p>Designed with <span>&hearts;</span> for STEM Education</p>
   </div>
 </footer>
       `;
