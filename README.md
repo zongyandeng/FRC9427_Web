@@ -154,3 +154,5 @@ GitHub Pages 是 FRC 隊伍最常用的靜態網頁代管方案，步驟非常�
 4. **高安全性防護**：原生 JavaScript 處理動態內容時，嚴禁使用 `innerHTML` 以防範 XSS 攻擊，必須使用安全的 `textContent`；同時禁用阻塞式 `alert()`，必須使用專案自製的 Modal。
 5. **Git 與 GitHub 自動同步**：每次代碼變更且本機驗證無誤後，AI 會主動執行 Git commit 並 Push 至 GitHub 倉庫 (`origin main`)，以確保程式碼即時同步。
 6. **圖片格式與歸檔規範**：如有放置照片或圖片需求，**必須先轉檔為 `.webp` 格式**，並存放至 `assets/images` 目錄（完整本機路徑：`D:\MyDesktop\antigravity2.0\FRC9427_Web\assets\images`）。若有需要，可在該目錄下建立子資料夾進行分類存放。
+7. **多國語言同步規範**：本專案採用 `data-i18n` 屬性的多國語言機制（繁中預設，英文語系檔為 `locales/en.json`）。新增 HTML 文字元素時必須加上 `data-i18n="[模組].[功能]"` 屬性，並同步修改 `locales/en.json` 加入對應的英文翻譯，修改時須確保 HTML 的 DOM 結構與 ID 的完整。
+8. **多國語言 (i18n) 完整性審查**：AI 會定期或依據要求掃描 HTML 與 `en.json` 的比對結果，找出所有在 HTML 中有定義但在 `en.json` 中缺失的 Key，自動翻譯補齊，並直接輸出排序與排版好的全新 `en.json` 內容，確保語系無遺漏。
