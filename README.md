@@ -192,12 +192,9 @@ FRC9427_Web/
 當新年度有熱情的企業或團體給予我們資金、技術或材料支持時，我們需要將他們列上贊助牆：
 
 1. 打開 [sponsors.html](file:///d:/MyDesktop/antigravity2.0/FRC9427_Web/sponsors.html)。
-2. 贊助商分為四大等級，請按 `Ctrl + F` 搜尋對應的 class：
-    *   **Titanium Tier (鈦金級，10 萬以上)** ➡️ 搜尋 `class="sponsor-tier tier-titanium`
-    *   **Gold Tier (黃金級，5 萬以上)** ➡️ 搜尋 `class="sponsor-tier tier-gold`
-    *   **Silver Tier (白銀級，2 萬以上)** ➡️ 搜尋 `class="sponsor-tier tier-silver`
-    *   **Bronze Tier (青銅與協力夥伴)** ➡️ 搜尋 `class="sponsor-tier tier-bronze`
-3. 找到對應的區塊後，在 `<div class="sponsors-grid">` 標籤內複製並新增一組 `.sponsor-card` 卡片：
+2. 目前贊助商已採用 **「無分級的統一 Grid 佈局」**。請按 `Ctrl + F` 搜尋關鍵字：
+    *   ➡️ 搜尋 `class="sponsors-grid`
+3. 找到此區塊後，直接在 `<div class="sponsors-grid">` 標籤內複製並新增一組 `.sponsor-card` 卡片（新增的卡片會自動排版並自適應各類螢幕大小）：
 
 ```html
 <!-- 贊助商卡片標準範本 -->
