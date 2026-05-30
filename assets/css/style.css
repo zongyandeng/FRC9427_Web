@@ -1,44 +1,49 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
 
-/* ==========================================
-   DESIGN TOKENS & VARIABLES
-   ========================================== */
+/* =========================================================================
+   設計系統變數與全域屬性 (DESIGN TOKENS & VARIABLES)
+   定義 FRC 9427 iDeer 品牌視覺識別系統，採用 6:4 金黃與深藍的高對比科技感配色
+   ========================================================================= */
 :root {
-  /* Color Palette - 6:4 Yellow to Deep Navy Blue Ratio */
-  --bg-dark: #ffd600; /* Vibrant FRC 9427 Yellow */
-  --bg-dark-navy: #050c1e; /* High-end Midnight Navy Blue */
-  --bg-card: rgba(10, 25, 47, 0.96); /* Midnight Navy for high legibility panels */
-  --bg-nav: rgba(5, 12, 30, 0.92); /* Glassy Navy Nav Bar */
+  /* 背景與面板色彩系統 */
+  --bg-dark: #ffd600; /* 招牌 FRC 9427 金黃色 */
+  --bg-dark-navy: #050c1e; /* 高端午夜極深藍色 */
+  --bg-card: rgba(10, 25, 47, 0.96); /* 午夜極深藍色 (用於卡片高清晰度面板) */
+  --bg-nav: rgba(5, 12, 30, 0.92); /* 導航列半透明深藍背景 */
   
+  /* 品牌色彩發光與漸變定義 */
   --primary-yellow: #ffd600;
   --primary-yellow-glow: rgba(255, 214, 0, 0.45);
   --primary-yellow-dim: rgba(255, 214, 0, 0.08);
   
-  --accent-blue: #0f2547; /* Contrast Slate Blue */
-  --accent-royal: #1565c0; /* Royal Uniform Blue */
-  --accent-cyber: #10b981; /* Morandi Emerald Green (Sustainable green, highly comfortable) */
+  --accent-blue: #0f2547; /* 對比石板藍色 */
+  --accent-royal: #1565c0; /* 皇家制服藍色 */
+  --accent-cyber: #10b981; /* 莫蘭迪翡翠綠色 (象徵綠色永續，高度舒適的視覺感) */
   --accent-cyber-glow: rgba(16, 185, 129, 0.35);
   
-  --text-white: #f8fafc; /* Text on dark cards/nav */
+  /* 前景與文字色彩 */
+  --text-white: #f8fafc; /* 深色卡片與導覽列上的主要白字 */
   --text-light: #e2e8f0;
   --text-gray: #94a3b8;
-  --text-dark: #050c1e; /* Dark Navy text on yellow background */
+  --text-dark: #050c1e; /* 金黃色背景上的午夜極深藍字 */
   --text-navy-dim: rgba(5, 12, 30, 0.75);
   
+  /* 科技感發光細邊框 */
   --border-glow: 1px solid rgba(255, 214, 0, 0.3);
   --border-cyber: 1px solid rgba(0, 229, 255, 0.25);
   --border-white: 1px solid rgba(248, 252, 248, 0.08);
   --border-navy: 1.5px solid rgba(5, 12, 30, 0.15);
   
+  /* 陰影與霓虹發光濾鏡 */
   --shadow-glow: 0 10px 40px 0 rgba(5, 12, 30, 0.2);
   --shadow-yellow: 0 0 15px var(--primary-yellow-glow);
   --shadow-cyber: 0 0 15px var(--accent-cyber-glow);
 
-  /* Fonts */
+  /* 全局字體族群定義 */
   --font-main: 'Outfit', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  /* Transitions */
+  /* 視覺動畫過渡 transition 時間與貝氏曲線 */
   --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-normal: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);

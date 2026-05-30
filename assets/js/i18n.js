@@ -373,9 +373,16 @@ const translations = {
     }
 };
 
+// =========================================================================
+// 核心語系狀態與本地快取記憶
+// =========================================================================
 let currentLang = localStorage.getItem('preferred-lang') || 'zh';
 
-// 載入語系 JSON 檔（具備本機 file 協定防呆與網路 Fetch 雙軌保障）
+// =========================================================================
+// 函數：loadLanguage (載入語系 JSON 檔)
+// 具備「雙軌保障機制」：優先 Fetch 網路 JSON，若失敗則自動切換至內建英文快取字典，
+// 完美解決在本地端以 file:/// 雙擊開啟時遭遇瀏覽器 CORS 跨來源存取限制的問題！
+// =========================================================================
 async function loadLanguage(lang) {
   if (lang === 'zh') return {}; // 中文直接使用 HTML 內建預設文字，不需額外發送 Fetch 請求
   
@@ -397,7 +404,9 @@ async function loadLanguage(lang) {
   return translations[lang] || {};
 }
 
-// 遞迴合併物件輔助函式
+// =========================================================================
+// 函數：mergeObjects (遞迴深度合併物件)
+// =========================================================================
 function mergeObjects(target, source) {
   for (const key in source) {
     if (source[key] && typeof source[key] === 'object') {
@@ -410,7 +419,9 @@ function mergeObjects(target, source) {
   return target;
 }
 
-// 執行全網頁翻譯
+// =========================================================================
+// 函數：translatePage (執行全網頁翻譯切換引擎)
+// =========================================================================
 async function translatePage(lang) {
   currentLang = lang;
   localStorage.setItem('preferred-lang', lang);
@@ -504,13 +515,17 @@ async function translatePage(lang) {
   window.dispatchEvent(new Event('languagechange'));
 }
 
+// =========================================================================
 // 輔助函式：讀取巢狀 JSON 物件 (例如將 "nav.home" 解析為 dict.nav.home)
+// =========================================================================
 function getNestedValue(obj, path) {
   if (!obj || !path) return undefined;
   return path.split('.').reduce((acc, part) => acc && acc[part], obj);
 }
 
+// =========================================================================
 // 更新切換語系按鈕的文字狀態
+// =========================================================================
 function updateLangButtonText(lang) {
   const langBtn = document.getElementById('lang-btn');
   if (langBtn) {
@@ -519,7 +534,9 @@ function updateLangButtonText(lang) {
   }
 }
 
+// =========================================================================
 // 初始化與事件監聽
+// =========================================================================
 document.addEventListener('DOMContentLoaded', async () => {
   // 首次翻譯初始化
   await translatePage(currentLang);

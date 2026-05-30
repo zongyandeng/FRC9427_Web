@@ -640,10 +640,13 @@
   <!-- Main orchestrator script -->
   <script src="assets/js/main.js"></script>
 
-  <!-- Video Carousel Controller Script (High Performance & Smooth Scrolling) -->
+  <!-- 首頁頁面專屬交互功能腳本 (高可維護性詳細中文註記版) -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      // --- iDEER VALUES INTERACTIVE BOARD LOGIC ---
+      // =========================================================================
+      // 【iDEER 核心宗旨互動展示看板邏輯】
+      // 點選或滑鼠懸停 (Hover) 左側的三角形字母時，右側對應的毛玻璃詳情面版即時滑入漸顯
+      // =========================================================================
       const valueWrappers = document.querySelectorAll('.triangle-item-wrapper');
       const panelContents = document.querySelectorAll('.panel-content');
 
@@ -651,28 +654,32 @@
         valueWrappers.forEach(wrapper => {
           const val = wrapper.getAttribute('data-value');
           
-          // 支援滑鼠懸停 (Hover) 與行動端點擊 (Click)
+          // 啟用面板與高亮對應字母的核心邏輯
           const activatePanel = () => {
-            // 移除所有三角形的 active 狀態
+            // 1. 移除所有三角形字母的 active 高亮狀態
             valueWrappers.forEach(w => w.classList.remove('active'));
-            // 啟用當前三角形 active 狀態
+            // 2. 啟用當前選中三角形的 active 狀態 (觸發 CSS 發光邊框)
             wrapper.classList.add('active');
 
-            // 隱藏所有面板
+            // 3. 隱藏所有右側詳情面板
             panelContents.forEach(p => p.classList.remove('active'));
-            // 顯示對應面板
+            // 4. 顯示與當前字母對應的詳情面板 (淡入顯示)
             const targetPanel = document.getElementById(`content-${val}`);
             if (targetPanel) {
               targetPanel.classList.add('active');
             }
           };
 
+          // 雙軌事件綁定：支援桌上型電腦「滑鼠懸浮 (mouseenter)」與行動觸控裝置「手指點擊 (click)」
           wrapper.addEventListener('mouseenter', activatePanel);
           wrapper.addEventListener('click', activatePanel);
         });
       }
 
-      // --- Video Carousel Controller Script ---
+      // =========================================================================
+      // 【影音焦點高性能影片輪播控制器 (Video Carousel Controller)】
+      // 支援：(1) 平滑滾動與小圓點同步、(2) 自動無縫輪播、(3) 懸停暫停、(4) 觸控與滑鼠拖曳 (Drag to Scroll)
+      // =========================================================================
       const track = document.getElementById('video-carousel-track');
       const cards = track.querySelectorAll('.carousel-card');
       const dotsContainer = document.getElementById('video-carousel-dots');
@@ -681,13 +688,13 @@
       
       if (!track || !cards.length || !dotsContainer) return;
 
-      // 建立小圓點導覽
+      // 1. 動態初始化小圓點導航指示器 (Dots Indicators)
       cards.forEach((_, index) => {
         const dot = document.createElement('div');
         dot.classList.add('carousel-dot');
         if (index === 0) dot.classList.add('active');
         
-        // 點擊小圓點跳轉
+        // 點擊小圓點，平滑滾動跳轉到相對應的影片卡片
         dot.addEventListener('click', () => {
           scrollToCard(index);
         });
@@ -696,12 +703,12 @@
       
       const dots = dotsContainer.querySelectorAll('.carousel-dot');
       
-      // 平滑滾動至特定卡片
+      // 輔助函數：滾動到指定索引的卡片
       function scrollToCard(index) {
         if (index < 0 || index >= cards.length) return;
         const card = cards[index];
         const cardWidth = card.getBoundingClientRect().width;
-        const gap = 24; // CSS 中的 gap 寬度
+        const gap = 24; // CSS 佈局設定的 gap 寬度 (單位: px)
         
         track.scrollTo({
           left: index * (cardWidth + gap),
@@ -709,10 +716,10 @@
         });
       }
       
-      // 監聽滾動事件，自動同步更新 active 小圓點
+      // 2. 監聽輪播軌道捲動事件，自動同步更新當前 Active 的小圓點
       let scrollTimeout;
       track.addEventListener('scroll', () => {
-        // 使用 debounce 避免過於頻繁的計算
+        // 使用 Debounce (防抖) 限制計算頻率，極大優化捲動時的效能與幀率表現
         if (scrollTimeout) clearTimeout(scrollTimeout);
         scrollTimeout = setTimeout(() => {
           const card = cards[0];
@@ -721,7 +728,7 @@
           const gap = 24;
           const scrollLeft = track.scrollLeft;
           
-          // 計算當前最接近哪一張卡片
+          // 計算當前最接近視窗中央的卡片索引值
           const activeIndex = Math.round(scrollLeft / (cardWidth + gap));
           
           dots.forEach((dot, index) => {
@@ -734,7 +741,7 @@
         }, 50);
       });
       
-      // 左右切換按鈕事件
+      // 3. 左右箭頭切換按鈕事件監聽
       prevBtn.addEventListener('click', () => {
         const card = cards[0];
         if (!card) return;
@@ -753,7 +760,7 @@
         const cardWidth = card.getBoundingClientRect().width;
         const gap = 24;
         
-        // 如果已經滾動到最右端，則循環回到最左端起點
+        // 循環邊界處理：如果已經滾動到最右端，點擊 Next 則滑順地返回最左側起點
         const maxScroll = track.scrollWidth - track.clientWidth;
         if (track.scrollLeft >= maxScroll - 15) {
           track.scrollTo({
@@ -768,7 +775,7 @@
         }
       });
       
-      // 自動輪播計時器邏輯
+      // 4. 自動無縫輪播計時器邏輯 (AutoPlay)
       let autoPlayInterval = null;
       
       function startAutoPlay() {
@@ -791,7 +798,7 @@
               behavior: 'smooth'
             });
           }
-        }, 4000); // 每 4 秒輪播一次
+        }, 4000); // 設定每 4 秒自動向下輪播一次
       }
       
       function stopAutoPlay() {
@@ -801,28 +808,28 @@
         }
       }
       
-      // 懸停時暫停，滑開時恢復自動播放
+      // 5. 互動式輪播暫停/重啟體驗：滑鼠懸停時暫停自動輪播，滑鼠離開時自動重啟
       const carouselWrapper = document.querySelector('.carousel-wrapper');
       if (carouselWrapper) {
         carouselWrapper.addEventListener('mouseenter', stopAutoPlay);
         carouselWrapper.addEventListener('mouseleave', startAutoPlay);
       }
       
-      // 觸控手勢開始時暫停，結束時恢復
+      // 6. 行動觸控端防跑防抖：手指點擊拖曳開始時暫停，手指離開後恢復自動輪播
       track.addEventListener('touchstart', stopAutoPlay, { passive: true });
       track.addEventListener('touchend', startAutoPlay, { passive: true });
       
-      // 啟動自動播放
+      // 啟動首頁影音自動播放
       startAutoPlay();
       
-      // 滑鼠拖曳手勢支援 (Drag to Scroll)
+      // 7. 滑鼠拖曳手勢支援 (Drag to Scroll) - 供桌上型電腦使用者獲得更直覺的探索感
       let isDown = false;
       let startX;
       let scrollLeftVal;
       
       track.addEventListener('mousedown', (e) => {
         isDown = true;
-        track.style.scrollBehavior = 'auto'; // 拖曳時關閉平滑滾動以獲得即時回饋
+        track.style.scrollBehavior = 'auto'; // 拖曳時必須臨時關閉平滑滾動，以獲取低延遲即時反饋
         startX = e.pageX - track.offsetLeft;
         scrollLeftVal = track.scrollLeft;
         stopAutoPlay();
@@ -846,9 +853,9 @@
       
       track.addEventListener('mousemove', (e) => {
         if (!isDown) return;
-        e.preventDefault();
+        e.preventDefault(); // 防止拖曳時瀏覽器選取文字或拖曳卡片圖片
         const x = e.pageX - track.offsetLeft;
-        const walk = (x - startX) * 1.5; // 滾動靈敏度乘數
+        const walk = (x - startX) * 1.5; // 設定拖曳靈敏度加權值為 1.5
         track.scrollLeft = scrollLeftVal - walk;
       });
     });

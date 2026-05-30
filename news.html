@@ -377,7 +377,7 @@
           </div>
         </div>
 
-        <!-- 左右導航點擊與平滑滾動 JS 腳本 -->
+        <!-- 橫向時間軸左右導航按鈕平滑滾動與邊界控制腳本 (中文功能標註版) -->
         <script>
           document.addEventListener('DOMContentLoaded', function() {
             const scrollContainer = document.getElementById('timelineScroll');
@@ -385,34 +385,37 @@
             const btnNext = document.querySelector('.timeline-nav-btn.btn-next');
             
             if (scrollContainer && btnPrev && btnNext) {
-              // 點擊 Next 往右滾動 380px (剛好是一個 node 寬度 + margin)
+              // 1. 點擊 Next 往右滾動 380px (剛好約是一個時間節點寬度 + 外邊距間隔)
               btnNext.addEventListener('click', () => {
                 scrollContainer.scrollBy({ left: 380, behavior: 'smooth' });
               });
               
-              // 點擊 Prev 往左滾動 380px
+              // 2. 點擊 Prev 往左滾動 380px
               btnPrev.addEventListener('click', () => {
                 scrollContainer.scrollBy({ left: -380, behavior: 'smooth' });
               });
               
-              // 滾動時檢查按鈕狀態，滾動到極限時自動將按鈕半透明並停用
+              // 3. 核心邊界防跑版判定：當滾動到最左邊或最右邊邊界時，動態將按鈕設為半透明並停用點擊
               const updateButtons = () => {
                 const scrollLeft = scrollContainer.scrollLeft;
                 const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
                 
-                // 滾動到最左邊時隱藏 Prev，否則顯示
+                // 滾動到最左邊 (接近 0px) 時半透明隱藏 Prev，否則恢復顯示可點擊狀態
                 btnPrev.style.opacity = scrollLeft <= 10 ? '0.2' : '1';
                 btnPrev.style.pointerEvents = scrollLeft <= 10 ? 'none' : 'auto';
                 
-                // 滾動到最右邊時隱藏 Next，否則顯示
+                // 滾動到最右邊 (接近最大值) 時半透明隱藏 Next，否則恢復顯示可點擊狀態
                 btnNext.style.opacity = scrollLeft >= maxScrollLeft - 10 ? '0.2' : '1';
                 btnNext.style.pointerEvents = scrollLeft >= maxScrollLeft - 10 ? 'none' : 'auto';
               };
               
+              // 4. 綁定滾動事件以即時更新按鈕邊界發光/透明狀態
               scrollContainer.addEventListener('scroll', updateButtons);
-              // 初始化時執行一次
+              
+              // 5. 初始化與延遲 500ms 重置計算 (避免瀏覽器首刷時 DOM 寬度尚未完成渲染)
               setTimeout(updateButtons, 500);
-              // 在視窗大小改變時重新計算
+              
+              // 6. 當視窗大小改變 (resize) 時，重新計算最大滾動邊界
               window.addEventListener('resize', updateButtons);
             }
           });
@@ -1499,7 +1502,7 @@
         window.reveal();
       }
 
-      // 控管「載入更多」按鈕的顯示狀態
+      // 控管「載入更多」按鈕的顯示狀態 (已顯示張數等於或大於總資料長度時隱藏按鈕)
       if (loadMoreBtn) {
         if (visibleCount >= filteredData.length) {
           loadMoreBtn.style.display = "none";
@@ -1509,33 +1512,36 @@
       }
     }
 
-    // 綁定動態事件監聽
+    // =========================================================================
+    // 【綁定動態交互事件監聽】
+    // 包含賽季 Tab 切換、主題 Tab 切換、新聞載入更多、以及獎項收合控制
+    // =========================================================================
     function setupEventListeners() {
-      // 監聽賽季 Tabs
+      // 1. 監聽賽季 Tabs (動態高亮 Active 狀態並重置為首頁張數渲染)
       document.addEventListener("click", (e) => {
         const seasonTab = e.target.closest("#season-tabs .filter-tab");
         if (seasonTab) {
           document.querySelectorAll("#season-tabs .filter-tab").forEach(tab => tab.classList.remove("active"));
           seasonTab.classList.add("active");
           currentSeason = seasonTab.getAttribute("data-season");
-          visibleCount = CARDS_PER_PAGE; // 重置顯示頁數
+          visibleCount = CARDS_PER_PAGE; // 重置顯示頁數為預設頁數
           renderNews();
         }
       });
 
-      // 監聽主題 Tabs
+      // 2. 監聽主題分類 Tabs (如世界大賽、區域賽、教育科普等)
       document.addEventListener("click", (e) => {
         const categoryTab = e.target.closest("#category-tabs .filter-tab");
         if (categoryTab) {
           document.querySelectorAll("#category-tabs .filter-tab").forEach(tab => tab.classList.remove("active"));
           categoryTab.classList.add("active");
           currentFilter = categoryTab.getAttribute("data-category");
-          visibleCount = CARDS_PER_PAGE; // 重置顯示頁數
+          visibleCount = CARDS_PER_PAGE; // 重置顯示頁數為預設頁數
           renderNews();
         }
       });
 
-      // 監聽「載入更多」按鈕
+      // 3. 監聽新聞「載入更多」按鈕 (累加顯示數量並重新渲染)
       const loadMoreBtn = document.getElementById("load-more-btn");
       if (loadMoreBtn && !loadMoreBtn.dataset.hasListener) {
         loadMoreBtn.dataset.hasListener = "true";
@@ -1545,14 +1551,14 @@
         });
       }
 
-      // 監聽「觀看更多獎項」按鈕
+      // 4. 監聽「觀看更多獎項」按鈕 (在全部顯示與顯示前六名之間來回切換)
       const loadMoreAwardsBtn = document.getElementById("load-more-awards-btn");
       if (loadMoreAwardsBtn && !loadMoreAwardsBtn.dataset.hasListener) {
         loadMoreAwardsBtn.dataset.hasListener = "true";
         loadMoreAwardsBtn.addEventListener("click", () => {
           awardsVisible = !awardsVisible;
           renderAwards();
-          // 如果是收合，點擊後滾動回獎項區塊頂端
+          // 如果點選收合，自動以流暢平滑的動畫滾動回獎項區塊頂端，防止視線丟失
           if (!awardsVisible) {
             const grid = document.getElementById("dynamic-awards-grid");
             if (grid) {
@@ -1563,9 +1569,10 @@
       }
     }
 
-
-
-    // 動態生成並渲染獎項卡片
+    // =========================================================================
+    // 【動態生成並渲染 FRC 歷屆大獎卡片】
+    // 依據不同賽季分配專屬色彩主題：2026 賽季(Morandi 綠霓虹)、2025 賽季(皇家藍)、2024 賽季(金黃)
+    // =========================================================================
     function renderAwards() {
       const grid = document.getElementById("dynamic-awards-grid");
       const loadMoreBtn = document.getElementById("load-more-awards-btn");
@@ -1573,7 +1580,7 @@
 
       const isEn = document.documentElement.lang === 'en';
 
-      // 決定目前要顯示的資料
+      // 決定目前要顯示的資料 (展開模式顯示全部，收合模式僅顯示前 6 筆)
       const displayedAwards = awardsVisible ? AWARDS_DATA : AWARDS_DATA.slice(0, 6);
 
       grid.innerHTML = displayedAwards.map((item, index) => {
@@ -1582,6 +1589,7 @@
         let seasonTag = "2024 SEASON";
         let seasonLogo = "assets/images/seasons/crescendo.png";
 
+        // 依據賽季動態配對視覺主題
         if (item.season === "2025-2026") {
           glowColor = "#00E5FF";
           glowClass = "glow-cyber";
@@ -1615,12 +1623,12 @@
         `;
       }).join("");
 
-      // 觸發 scroll 動畫監聽 (結合既有的 main.js 卷動顯現功能)
+      // 觸發 IntersectionObserver 卷動顯現動畫刷新
       if (window.reveal) {
         window.reveal();
       }
 
-      // 控制「觀看更多獎項」按鈕的文字與顯示狀態
+      // 控制「觀看更多獎項」按鈕的文字與旋轉箭頭指示
       if (loadMoreBtn) {
         const container = document.getElementById("load-more-awards-container");
         if (AWARDS_DATA.length <= 6) {
@@ -1638,7 +1646,10 @@
       }
     }
 
-    // 監聽語言切換事件，自動重繪動態內容，實現無縫的零延遲雙語切換
+    // =========================================================================
+    // 【訂閱 i18n 多國語言切換事件 (languagechange)】
+    // 當使用者切換中英文語系時，此監聽器會被立即可信地執行，零延遲同步重繪新聞與獎項列表！
+    // =========================================================================
     window.addEventListener('languagechange', () => {
       renderFilters();
       
