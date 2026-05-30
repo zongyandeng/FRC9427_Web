@@ -144,6 +144,64 @@ GitHub Pages 是 FRC 隊伍最常用的靜態網頁代管方案，步驟非常�
 
 ---
 
+## 🌐 多國語言 (i18n) 維護與 AI 協同黃金 Prompt 指令 🌍
+
+本網站具備 **100% 全面中/英文雙語切換功能**。為確保未來網站更新時能持續保持 100% 純正英文化，不論是人工維護，還是交給 AI 助手（Cursor/Antigravity）進行更動，請務必遵循以下維護標準。
+
+### 1. 人工手動更新雙語資料庫規範
+當有新年度的新聞或獎項需要新增至 `news.html` 的 `NEWS_DATA` 或 `AWARDS_DATA` 資料庫時，**請務必同時填寫中文與對應的英文欄位**：
+
+*   **新增新聞物件 (`NEWS_DATA`) 格式**：
+    ```javascript
+    {
+      title: "新北市訊：台灣第一次新北3隊FRC戰隊橫掃土耳其區賽 獲冠亞軍 挺進世界總決賽", // 中文標題
+      titleEn: "NTPC Gov: 1st Time in Taiwan! 3 NTPC FRC Teams Sweep Turkey Regional, Winning Champions and Finalists, Advancing to World Finals", // 精緻地道英文標題
+      sourceEn: "NTPC Education Bureau", // 純英文媒體來源
+      url: "https://www.ntpc.edu.tw/...", // 報導網址
+      source: "新北市政府教育局", // 中文媒體來源
+      season: "2025-2026", // 賽季
+      category: "regional", // 分類
+      date: "2026-03", // 日期 (數字格式，無中文)
+      image: "assets/images/news/news_016.webp" // 專屬 WebP 照片 (選填，無則自動指派影片縮圖)
+    }
+    ```
+*   **新增獎項物件 (`AWARDS_DATA`) 格式**：
+    ```javascript
+    {
+      season: "2025-2026",
+      yearText: "2026 SEASON",
+      region: "Bosphorus Regional (土耳其)", // 中文區域
+      regionEn: "Bosphorus Regional (Turkey)", // 英文區域
+      title: "Regional Finalists 區域亞軍", // 中文獎項名
+      titleEn: "Regional Finalists", // 英文獎項名
+      desc: "在土耳其區賽激烈的對抗賽中，團隊奪得賽事亞軍殊榮。", // 中文敘述
+      descEn: "In the fierce Bosphorus Regional competition, the team won the Regional Finalist honor.", // 英文敘述
+      type: "finalist"
+    }
+    ```
+
+---
+
+### 🔑 2. AI 協同開發「黃金 Prompt 指令範本」(極重要 💡)
+當您使用 **AI 助手 (如 Antigravity / Cursor / Windsurf / ChatGPT)** 協助您進行網頁更新、樣式調整、或是新增功能時，**請在每一次對 AI 下達需求 Prompt 時，在指令末尾複製並附帶以下這段「黃金翻譯防呆指令」**：
+
+> [!TIP]
+> #### 📋 請複製以下區塊貼給 AI：
+> ```text
+> ⚠️【重要 FRC 9427 官方網站翻譯防呆約束】⚠️
+> 本專案是一個具備 100% 完整中/英文雙語切換機制的官方網站。不論你這次要幫我進行什麼樣的功能新增、HTML 變更、樣式調整或資料更新，都必須嚴格遵守以下多國語言 (i18n) 規範，絕不能在英文介面下殘留任何中文字元、符號或奇怪的中英混雜：
+> 
+> 1. 靜態文字更動：主動為 HTML 新增的中文文字分配唯一的 `data-i18n` 屬性（格式如 data-i18n="news.loadMoreBtn"）。同時且同步修改「locales/en.json」加入對應英文翻譯，並同步寫入「assets/js/i18n.js」中的預置離線快取「translations.en」物件中，以確保離線 file:/// 協定開啟時的 100% 高可用性。
+> 
+> 2. 動態數據更動：如果變更或新增了 news.html 中的「NEWS_DATA」新聞或「AWARDS_DATA」獎項資料庫，必須確保每一個新物件均「同時且同步」具備完整的中文字串（title, source, desc, region）與高品質、流暢地道的英文欄位（titleEn, sourceEn, descEn, regionEn）。絕不能漏掉英文欄位。
+> 
+> 3. 掃除隱藏中文：更動後，請主動掃描該網頁的 aria-label、alt 屬性與第三方媒體來源，確保在英文語系下皆呈現純英文。
+> 
+> 4. 驗證與 GitHub 上傳：請編寫並執行 Python 檢測腳本，對 news.html 等更新的檔案進行 100% 覆蓋率與零中文字元殘留的自動化掃描。變更驗證無誤後，請自動暫存、提交並 Push 變更至我的 GitHub 遠端倉庫。
+> ```
+
+---
+
 ## 🤖 AI 協同開發與 `.cursorrules` 規範
 
 本專案配置有專屬的 `.cursorrules` 設定檔，旨在為協同開發的 AI 助手提供明確的開發標準與設計約束。如果您使用 Cursor、Windsurf 或其他支援此設定的 AI 編輯器進行開發，AI 助手將會自動遵循以下開發規範，以確保產出程式碼的品質與未來學弟妹傳承的便利性：
