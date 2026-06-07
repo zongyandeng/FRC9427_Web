@@ -23,14 +23,16 @@ FRC9427_Web/
 ├── sponsors.html                   # ★ 贊助商專區 (分級贊助名單、贊助 Perks、合作 CTA)
 ├── contact.html                    # ★ 聯繫我們 (社群卡片連結、安全的客戶端表單、彈出式 Modal)
 ├── robots.txt                      # 搜尋引擎檢索引導
-└── assets/
-    ├── css/
-    │   └── style.css               # ★ 核心樣式表 (設計系統 Tokens、動畫、全站視覺主題色)
-    └── js/
-        ├── main.js                 # 全局腳本 (響應式選單、滾動進入動畫、動態篩選)
-        └── i18n.js                 # ★ 多國語言快取字典 (中英文切換的核心機制)
-└── locales/
-    └── en.json                     # ★ 多國語言英文主字典檔
+├── assets/
+│   ├── css/
+│   │   └── style.css               # ★ 核心樣式表 (設計系統 Tokens、動畫、全站視覺主題色)
+│   └── js/
+│       ├── main.js                 # 全局腳本 (響應式選單、滾動進入動畫、動態篩選)
+│       └── i18n.js                 # ★ 多國語言快取字典 (中英文切換的核心機制)
+├── locales/
+│   └── en.json                     # ★ 多國語言英文主字典檔
+└── scripts/
+    └── compress_images.py              # ★ 圖片批次轉檔與壓縮工具 (支援 PNG/JPG 轉 WebP、限制寬度)
 ```
 
 ---
@@ -275,9 +277,39 @@ FRC9427_Web/
   <div class="robot-media">
     <!-- 我們已將 SVG 佔位線圖預留，當拍了精美的實體照或 3D 渲染圖並轉成 WebP 存入 assets/images/ 後，請直接刪除 <svg>...</svg> 並改成以下 IMG 標籤： -->
     <img src="assets/images/2025_robot_zephyr.webp" alt="2025 戰機實體照片" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
-  </div>
 </div>
 ```
+
+#### ⚠️ 關鍵：如何處理體積龐大的 FRC 機器人圖檔？
+由於單眼相機、手機拍攝的原始照片或 3D 建模渲染圖解析度極高（動輒數 MB），直接放到網頁上會造成載入卡頓並浪費使用者流量，甚至在比賽現場（網速受限）時會無法載入。我們必須對圖片進行**縮放、格式轉換（轉為 WebP）與品質壓縮**。
+
+我們已為你編寫好了一個自動化圖片優化工具：[compress_images.py](file:///d:/MyDesktop/antigravity2.0/FRC9427_Web/scripts/compress_images.py)。
+
+##### 🛠️ 方法 A：使用專用 Python 壓縮腳本（極推薦，適合批次處理）
+1. **安裝必要套件**：如果你的電腦尚未安裝圖片處理庫 Pillow，請先打開命令提示字元 (CMD) 執行：
+   ```bash
+   pip install pillow
+   ```
+2. **放置原始圖片**：將你所有的大圖（`.png`、`.jpg`、`.jpeg`）放進專案目錄下的這個資料夾中：
+   `assets/raw_images` (即 [raw_images 目錄](file:///d:/MyDesktop/antigravity2.0/FRC9427_Web/assets/raw_images))。
+3. **執行壓縮腳本**：在 VS Code 中右鍵執行 [compress_images.py](file:///d:/MyDesktop/antigravity2.0/FRC9427_Web/scripts/compress_images.py)，或在終端機中執行：
+   ```bash
+   python scripts/compress_images.py
+   ```
+4. **取得優化後的圖片**：腳本會自動將圖片等比例縮小（限制寬度在 `1600px` 以內）、轉為高壓縮率的 `.webp` 格式（品質設為 80%），並將檔名重命名為網頁友善格式（英文小寫與底線，如 `2025_robot_zephyr.webp`），自動輸出至 `assets/images/robots/` 下。
+5. **在網頁上引用**：
+   在 `robots.html` 中引用優化後的圖片時，請務必加上 `loading="lazy"` 與 `decoding="async"` 來實現延遲載入與非同步解碼，例如：
+   ```html
+   <img src="assets/images/robots/2025_robot_zephyr.webp" alt="2025 戰機實體照片" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+   ```
+
+##### 🌐 方法 B：使用免費線上壓縮工具（單張處理）
+如果你的電腦未安裝 Python，你也可以使用線上工具手動壓縮：
+1. 前往 [Squoosh.app](https://squoosh.app/) 或 [TinyPNG](https://tinypng.com/)。
+2. 上傳你的大圖，設定輸出格式為 **WebP**。
+3. 開啟 **Resize**，將寬度（Width）設定在 `1200` 至 `1600` 像素之間。
+4. 品質（Quality）設在 `80` 左右。
+5. 下載轉換後的 WebP 圖檔，放入 `assets/images/robots/` 下。
 
 ---
 
