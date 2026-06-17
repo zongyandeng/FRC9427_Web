@@ -1635,10 +1635,8 @@ section {
 }
 
 .sponsor-card {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: #ffffff;
+  border: 1px solid rgba(5, 12, 30, 0.08);
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -1648,7 +1646,7 @@ section {
   transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 20px rgba(5, 12, 30, 0.06);
 }
 
 /* 實際圖片標誌樣式 */
@@ -1656,13 +1654,13 @@ section {
   max-width: 90%;
   max-height: 80%;
   object-fit: contain;
-  filter: grayscale(30%) brightness(0.9) opacity(0.85);
+  filter: grayscale(20%) brightness(0.95);
   transition: all 0.4s ease;
   z-index: 2;
 }
 
 .sponsor-card:hover .sponsor-logo-img {
-  filter: grayscale(0%) brightness(1) opacity(1);
+  filter: grayscale(0%) brightness(1);
   transform: scale(1.05);
 }
 
@@ -1689,7 +1687,7 @@ section {
 .sponsor-logo-svg svg {
   width: 38px;
   height: 38px;
-  stroke: var(--text-gray);
+  stroke: var(--text-dark);
   stroke-width: 1.5;
   fill: none;
   transition: all 0.4s ease;
@@ -1704,100 +1702,100 @@ section {
 .sponsor-name-zh {
   font-size: 0.95rem;
   font-weight: 700;
-  color: var(--text-white);
+  color: var(--text-dark);
   transition: all 0.4s ease;
 }
 
 .sponsor-name-en {
   font-family: var(--font-mono);
   font-size: 0.7rem;
-  color: var(--text-gray);
+  color: var(--text-navy-dim);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 /* 鈦金級特殊樣式與懸停發光 */
 .tier-titanium .sponsor-card {
-  border: 1.5px solid rgba(255, 214, 0, 0.15);
-  background: rgba(255, 214, 0, 0.02);
+  border: 1.5px solid rgba(255, 214, 0, 0.35);
+  background: #ffffff;
 }
 
 .tier-titanium .sponsor-logo-svg svg {
-  stroke: var(--primary-yellow);
-  filter: drop-shadow(0 0 3px rgba(255, 214, 0, 0.4));
+  stroke: #c97d00;
+  filter: drop-shadow(0 0 3px rgba(255, 214, 0, 0.2));
 }
 
 .tier-titanium .sponsor-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(255, 214, 0, 0.6);
-  box-shadow: 0 10px 30px rgba(255, 214, 0, 0.25), inset 0 0 15px rgba(255, 214, 0, 0.1);
+  border-color: rgba(255, 214, 0, 0.8);
+  box-shadow: 0 10px 30px rgba(255, 214, 0, 0.25), inset 0 0 15px rgba(255, 214, 0, 0.03);
 }
 
 .tier-titanium .sponsor-card:hover .sponsor-name-zh {
-  color: var(--primary-yellow);
-  text-shadow: 0 0 8px rgba(255, 214, 0, 0.5);
+  color: #c97d00;
+  text-shadow: 0 0 8px rgba(255, 214, 0, 0.2);
 }
 
 .tier-titanium .sponsor-card:hover .sponsor-logo-svg svg {
   transform: scale(1.1) rotate(5deg);
-  stroke: var(--primary-yellow);
-  filter: drop-shadow(0 0 8px rgba(255, 214, 0, 0.8));
+  stroke: #c97d00;
+  filter: drop-shadow(0 0 8px rgba(255, 214, 0, 0.5));
 }
 
 /* 黃金級特殊樣式與懸停發光 */
 .tier-gold .sponsor-card {
-  border: 1px solid rgba(255, 152, 0, 0.15);
-  background: rgba(255, 152, 0, 0.01);
+  border: 1px solid rgba(255, 152, 0, 0.3);
+  background: #ffffff;
 }
 
 .tier-gold .sponsor-logo-svg svg {
-  stroke: #ff9800;
-  filter: drop-shadow(0 0 3px rgba(255, 152, 0, 0.4));
+  stroke: #e67e22;
+  filter: drop-shadow(0 0 3px rgba(255, 152, 0, 0.2));
 }
 
 .tier-gold .sponsor-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(255, 152, 0, 0.6);
-  box-shadow: 0 10px 30px rgba(255, 152, 0, 0.2), inset 0 0 15px rgba(255, 152, 0, 0.08);
+  border-color: rgba(255, 152, 0, 0.8);
+  box-shadow: 0 10px 30px rgba(255, 152, 0, 0.2), inset 0 0 15px rgba(255, 152, 0, 0.03);
 }
 
 .tier-gold .sponsor-card:hover .sponsor-name-zh {
-  color: #ff9800;
-  text-shadow: 0 0 8px rgba(255, 152, 0, 0.5);
+  color: #e67e22;
+  text-shadow: 0 0 8px rgba(255, 152, 0, 0.2);
 }
 
 .tier-gold .sponsor-card:hover .sponsor-logo-svg svg {
   transform: scale(1.1) rotate(5deg);
-  stroke: #ff9800;
-  filter: drop-shadow(0 0 8px rgba(255, 152, 0, 0.8));
+  stroke: #e67e22;
+  filter: drop-shadow(0 0 8px rgba(255, 152, 0, 0.5));
 }
 
 /* 白銀級特殊樣式與懸停發光 */
 .tier-silver .sponsor-card {
-  border: 1px solid rgba(0, 229, 255, 0.15);
-  background: rgba(0, 229, 255, 0.01);
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  background: #ffffff;
 }
 
 .tier-silver .sponsor-logo-svg svg {
-  stroke: #00e5ff;
-  filter: drop-shadow(0 0 3px rgba(0, 229, 255, 0.4));
+  stroke: #0091ea;
+  filter: drop-shadow(0 0 3px rgba(0, 229, 255, 0.2));
 }
 
 .tier-silver .sponsor-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(0, 229, 255, 0.6);
-  box-shadow: 0 8px 25px rgba(0, 229, 255, 0.2), inset 0 0 12px rgba(0, 229, 255, 0.08);
+  border-color: rgba(0, 229, 255, 0.8);
+  box-shadow: 0 8px 25px rgba(0, 229, 255, 0.2), inset 0 0 12px rgba(0, 229, 255, 0.03);
 }
 
 .tier-silver .sponsor-card:hover .sponsor-name-zh {
-  color: #00e5ff;
-  text-shadow: 0 0 8px rgba(0, 229, 255, 0.5);
+  color: #0091ea;
+  text-shadow: 0 0 8px rgba(0, 229, 255, 0.2);
 }
 
 .tier-silver .sponsor-card:hover .sponsor-logo-svg svg {
   transform: scale(1.1) rotate(5deg);
-  stroke: #00e5ff;
-  filter: drop-shadow(0 0 8px rgba(0, 229, 255, 0.8));
+  stroke: #0091ea;
+  filter: drop-shadow(0 0 8px rgba(0, 229, 255, 0.5));
 }
 
 /* 為了排版一致，微調各等級的高度與內距 */
