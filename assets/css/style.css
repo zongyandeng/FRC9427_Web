@@ -1654,14 +1654,14 @@ section {
   max-width: 95%;
   max-height: 90%;
   object-fit: contain;
-  filter: grayscale(20%) brightness(0.95);
+  filter: grayscale(20%);
   transition: all 0.4s ease;
   z-index: 2;
   mix-blend-mode: multiply;
 }
 
 .sponsor-card:hover .sponsor-logo-img {
-  filter: grayscale(0%) brightness(1);
+  filter: grayscale(0%);
   transform: scale(1.05);
 }
 
